@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="ASCII"?>
+<core:IFMLModel xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:core="http://www.omg.org/spec/20130218/core" xmlns:uml="http://www.eclipse.org/uml2/5.0.0/UML" id="_7LZ1MLEuEeSGWvOR_SlEfg">
+  <domainModel id="_7LZ1MbEuEeSGWvOR_SlEfg">
+    <domainElements xsi:type="core:UMLDomainConcept" id="_7LhJ8LEuEeSGWvOR_SlEfg" name="Item">
+      <classifier xsi:type="uml:Class" href="../domain/eCommerce.uml#_RRbAMLEmEeS2-MBRhXnCrw"/>
+    </domainElements>
+    <domainElements xsi:type="core:UMLStructuralFeature" id="_7LhxALEuEeSGWvOR_SlEfg" name="identifier">
+      <structuralFeature xsi:type="uml:Property" href="../domain/eCommerce.uml#_YyVz8LEmEeS2-MBRhXnCrw"/>
+    </domainElements>
+    <domainElements xsi:type="core:UMLStructuralFeature" id="_7LhxAbEuEeSGWvOR_SlEfg" name="title">
+      <structuralFeature xsi:type="uml:Property" href="../domain/eCommerce.uml#_GFxKoLEnEeS2-MBRhXnCrw"/>
+    </domainElements>
+    <domainElements xsi:type="core:UMLStructuralFeature" id="_7LhxArEuEeSGWvOR_SlEfg" name="price">
+      <structuralFeature xsi:type="uml:Property" href="../domain/eCommerce.uml#_Net4sLEoEeS2-MBRhXnCrw"/>
+    </domainElements>
+    <domainElements xsi:type="core:UMLStructuralFeature" id="_7LhxA7EuEeSGWvOR_SlEfg" name="description">
+      <structuralFeature xsi:type="uml:Property" href="../domain/eCommerce.uml#_gTx6MLEoEeS2-MBRhXnCrw"/>
+    </domainElements>
+    <domainElements xsi:type="core:UMLStructuralFeature" id="_7LiYELEuEeSGWvOR_SlEfg" name="name">
+      <structuralFeature xsi:type="uml:Property" href="../domain/eCommerce.uml#_rHcRELEoEeS2-MBRhXnCrw"/>
+    </domainElements>
+    <domainElements xsi:type="core:UMLDomainConcept" id="_7LiYEbEuEeSGWvOR_SlEfg" name="Category">
+      <classifier xsi:type="uml:Class" href="../domain/eCommerce.uml#_oo5yELEoEeS2-MBRhXnCrw"/>
+    </domainElements>
+  </domainModel>
+</core:IFMLModel>

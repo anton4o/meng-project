@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<viewpoint:DAnalysis xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:core="http://www.omg.org/spec/20130218/core" xmlns:description="http://www.eclipse.org/sirius/description/1.1.0" xmlns:description_1="http://www.eclipse.org/sirius/diagram/description/1.1.0" xmlns:diagram="http://www.eclipse.org/sirius/diagram/1.1.0" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:notation="http://www.eclipse.org/gmf/runtime/1.0.2/notation" xmlns:uml="http://www.eclipse.org/uml2/5.0.0/UML" xmlns:viewpoint="http://www.eclipse.org/sirius/1.1.0" xsi:schemaLocation="http://www.eclipse.org/sirius/description/1.1.0 http://www.eclipse.org/sirius/1.1.0#//description http://www.eclipse.org/sirius/diagram/description/1.1.0 http://www.eclipse.org/sirius/diagram/1.1.0#//description" xmi:id="_sBoZsLEuEeSGWvOR_SlEfg" selectedViews="__4f2cLEuEeSGWvOR_SlEfg" version="8.1.1">
+  <models xmi:type="ecore:EPackage" href="IFML.ecore#/0"/>
+  <models xmi:type="ecore:EPackage" href="http://www.eclipse.org/emf/2002/Ecore#/"/>
+  <models xmi:type="uml:Model" href="domain/eCommerce.uml#_EJij8LEmEeS2-MBRhXnCrw"/>
+  <models xmi:type="core:IFMLModel" href="models/template.core#/"/>
+  <ownedViews xmi:type="viewpoint:DRepresentationContainer" xmi:id="__4f2cLEuEeSGWvOR_SlEfg" initialized="true">
+    <ownedRepresentations xmi:type="diagram:DSemanticDiagram" xmi:id="_CiEgwLEvEeSGWvOR_SlEfg" name="template">
+      <ownedAnnotationEntries xmi:type="description:AnnotationEntry" xmi:id="_CiORwLEvEeSGWvOR_SlEfg" source="GMF_DIAGRAMS">
+        <data xmi:type="notation:Diagram" xmi:id="_CiORwbEvEeSGWvOR_SlEfg" type="Sirius" element="_CiEgwLEvEeSGWvOR_SlEfg" measurementUnit="Pixel">
+          <styles xmi:type="notation:DiagramStyle" xmi:id="_CiORwrEvEeSGWvOR_SlEfg"/>
+        </data>
+      </ownedAnnotationEntries>
+      <description xmi:type="description_1:DiagramDescription" href="platform:/plugin/IFMLEditorDesign/description/IFML.odesign#//@ownedViewpoints[name='IFML%20Core']/@ownedRepresentations[name='IFMLDiagram']"/>
+      <filterVariableHistory xmi:type="diagram:FilterVariableHistory" xmi:id="_CiEgwbEvEeSGWvOR_SlEfg"/>
+      <activatedLayers xmi:type="description_1:Layer" href="platform:/plugin/IFMLEditorDesign/description/IFML.odesign#//@ownedViewpoints[name='IFML%20Core']/@ownedRepresentations[name='IFMLDiagram']/@defaultLayer"/>
+      <target xmi:type="core:IFMLModel" href="models/template.core#/"/>
+    </ownedRepresentations>
+    <viewpoint xmi:type="description:Viewpoint" href="platform:/plugin/IFMLEditorDesign/description/IFML.odesign#//@ownedViewpoints[name='IFML%20Core']"/>
+  </ownedViews>
+</viewpoint:DAnalysis>
