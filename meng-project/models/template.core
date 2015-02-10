@@ -1,5 +1,39 @@
 <?xml version="1.0" encoding="ASCII"?>
-<core:IFMLModel xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:core="http://www.omg.org/spec/20130218/core" xmlns:uml="http://www.eclipse.org/uml2/5.0.0/UML" id="_7LZ1MLEuEeSGWvOR_SlEfg">
+<core:IFMLModel xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:core="http://www.omg.org/spec/20130218/core" xmlns:ext="http://www.omg.org/spec/20130218/ext" xmlns:uml="http://www.eclipse.org/uml2/5.0.0/UML" id="_7LZ1MLEuEeSGWvOR_SlEfg">
+  <interactionFlowModel id="_iJvDULE1EeSzOaPmlZPyNg">
+    <interactionFlowModelElements xsi:type="core:ViewContainer" id="_iKQnwLE1EeSzOaPmlZPyNg" name="&lt;&lt;MasterPage>> Template">
+      <viewElements xsi:type="core:ViewContainer" id="_zQIjkLE1EeSzOaPmlZPyNg" name="&lt;&lt;Page>> Home" isLandmark="true" isDefault="true"/>
+      <viewElements xsi:type="core:ViewContainer" id="_BDtoMLE2EeSzOaPmlZPyNg" name="&lt;&lt;Page>> Login/Signup" isLandmark="true"/>
+      <viewElements xsi:type="core:ViewContainer" id="_HC6KgLE2EeSzOaPmlZPyNg" name="&lt;&lt;Area>> Policies" isLandmark="true"/>
+      <viewElements xsi:type="core:ViewContainer" id="_NubAQLE2EeSzOaPmlZPyNg" name="&lt;&lt;Area>> Resolution Center" isLandmark="true"/>
+      <viewElements xsi:type="core:ViewContainer" id="_U_mH0LE2EeSzOaPmlZPyNg" name="&lt;&lt;Area>> Announcements" isLandmark="true"/>
+      <viewElements xsi:type="core:ViewContainer" id="_ZKJcsLE2EeSzOaPmlZPyNg" name="&lt;&lt;Area>> Sitemap" isLandmark="true"/>
+      <viewElements xsi:type="ext:Form" id="_i-cBQLE2EeSzOaPmlZPyNg" name="Search">
+        <viewElementEvents xsi:type="ext:OnSubmitEvent" id="_VZmGwLE3EeSzOaPmlZPyNg" name="Search">
+          <outInteractionFlows xsi:type="core:NavigationFlow" id="_fNKSkLE3EeSzOaPmlZPyNg" targetInteractionFlowElement="//@interactionFlowModel/@interactionFlowModelElements.1">
+            <parameterBindingGroup id="_36EbwLE4EeSzOaPmlZPyNg"/>
+          </outInteractionFlows>
+        </viewElementEvents>
+        <viewComponentParts xsi:type="ext:SimpleField" id="_lG47gLE2EeSzOaPmlZPyNg" name="SearchKey">
+          <type xsi:type="uml:Class" href="../domain/eCommerce.uml#_RRbAMLEmEeS2-MBRhXnCrw"/>
+        </viewComponentParts>
+        <viewComponentParts xsi:type="ext:SelectionField" id="_vNCsILE2EeSzOaPmlZPyNg" name="SearchCategory">
+          <subViewComponentParts xsi:type="core:VisualizationAttribute" id="_4VzAYLE2EeSzOaPmlZPyNg" name="name" featureConcept="//@domainModel/@domainElements.5"/>
+          <subViewComponentParts xsi:type="core:DataBinding" id="_GE50sLE3EeSzOaPmlZPyNg" name="Category" uniformResourceIdentifier="" domainConcept="//@domainModel/@domainElements.6"/>
+          <type xsi:type="uml:Class" href="../domain/eCommerce.uml#_oo5yELEoEeS2-MBRhXnCrw"/>
+        </viewComponentParts>
+      </viewElements>
+      <viewElements xsi:type="ext:Details" id="_z4vJwLE3EeSzOaPmlZPyNg" name="Shopping cart">
+        <viewElementEvents id="_o3d_QLE4EeSzOaPmlZPyNg" name="View Cart">
+          <outInteractionFlows xsi:type="core:NavigationFlow" id="_ytRmwLE4EeSzOaPmlZPyNg" targetInteractionFlowElement="//@interactionFlowModel/@interactionFlowModelElements.2"/>
+        </viewElementEvents>
+        <viewComponentParts xsi:type="core:DataBinding" id="_6IkwILE3EeSzOaPmlZPyNg" name="Cart"/>
+        <viewComponentParts xsi:type="core:VisualizationAttribute" id="_-lJCELE3EeSzOaPmlZPyNg" name="numItems"/>
+      </viewElements>
+    </interactionFlowModelElements>
+    <interactionFlowModelElements xsi:type="core:ViewContainer" id="_XwWiwLE3EeSzOaPmlZPyNg" name="&lt;&lt;Page>> Search results" inInteractionFlows="//@interactionFlowModel/@interactionFlowModelElements.0/@viewElements.6/@viewElementEvents.0/@outInteractionFlows.0"/>
+    <interactionFlowModelElements xsi:type="core:ViewContainer" id="_tVEzALE4EeSzOaPmlZPyNg" name="&lt;&lt;Page>> My Cart" inInteractionFlows="//@interactionFlowModel/@interactionFlowModelElements.0/@viewElements.7/@viewElementEvents.0/@outInteractionFlows.0"/>
+  </interactionFlowModel>
   <domainModel id="_7LZ1MbEuEeSGWvOR_SlEfg">
     <domainElements xsi:type="core:UMLDomainConcept" id="_7LhJ8LEuEeSGWvOR_SlEfg" name="Item">
       <classifier xsi:type="uml:Class" href="../domain/eCommerce.uml#_RRbAMLEmEeS2-MBRhXnCrw"/>
@@ -19,7 +53,7 @@
     <domainElements xsi:type="core:UMLStructuralFeature" id="_7LiYELEuEeSGWvOR_SlEfg" name="name">
       <structuralFeature xsi:type="uml:Property" href="../domain/eCommerce.uml#_rHcRELEoEeS2-MBRhXnCrw"/>
     </domainElements>
-    <domainElements xsi:type="core:UMLDomainConcept" id="_7LiYEbEuEeSGWvOR_SlEfg" name="Category">
+    <domainElements xsi:type="core:UMLDomainConcept" id="_7LiYEbEuEeSGWvOR_SlEfg" name="Category" dataBinding="//@interactionFlowModel/@interactionFlowModelElements.0/@viewElements.6/@viewComponentParts.1/@subViewComponentParts.1">
       <classifier xsi:type="uml:Class" href="../domain/eCommerce.uml#_oo5yELEoEeS2-MBRhXnCrw"/>
     </domainElements>
   </domainModel>

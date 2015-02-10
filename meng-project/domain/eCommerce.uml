@@ -12,4 +12,7 @@
     </nestedClassifier>
   </packagedElement>
   <packagedElement xmi:type="uml:Class" xmi:id="_oo5yELEoEeS2-MBRhXnCrw" name="Category"/>
+  <packagedElement xmi:type="uml:Class" xmi:id="_JuuloLE4EeSzOaPmlZPyNg" name="Cart">
+    <ownedAttribute xmi:id="_ONblkLE4EeSzOaPmlZPyNg" name="numItems"/>
+  </packagedElement>
 </uml:Model>
