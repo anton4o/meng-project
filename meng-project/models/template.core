@@ -10,9 +10,7 @@
       <viewElements xsi:type="core:ViewContainer" id="_ZKJcsLE2EeSzOaPmlZPyNg" name="&lt;&lt;Area>> Sitemap" isLandmark="true"/>
       <viewElements xsi:type="ext:Form" id="_i-cBQLE2EeSzOaPmlZPyNg" name="Search">
         <viewElementEvents xsi:type="ext:OnSubmitEvent" id="_VZmGwLE3EeSzOaPmlZPyNg" name="Search">
-          <outInteractionFlows xsi:type="core:NavigationFlow" id="_fNKSkLE3EeSzOaPmlZPyNg" targetInteractionFlowElement="//@interactionFlowModel/@interactionFlowModelElements.1">
-            <parameterBindingGroup id="_36EbwLE4EeSzOaPmlZPyNg"/>
-          </outInteractionFlows>
+          <outInteractionFlows xsi:type="core:NavigationFlow" id="_fNKSkLE3EeSzOaPmlZPyNg" targetInteractionFlowElement="//@interactionFlowModel/@interactionFlowModelElements.1"/>
         </viewElementEvents>
         <viewComponentParts xsi:type="ext:SimpleField" id="_lG47gLE2EeSzOaPmlZPyNg" name="SearchKey">
           <type xsi:type="uml:Class" href="../domain/eCommerce.uml#_RRbAMLEmEeS2-MBRhXnCrw"/>
