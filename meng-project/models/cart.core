@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="ASCII"?>
+<core:IFMLModel xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:core="http://www.omg.org/spec/20130218/core" xmlns:ext="http://www.omg.org/spec/20130218/ext" xmlns:uml="http://www.eclipse.org/uml2/5.0.0/UML" id="_8SKvQLH6EeSymb1xGoc66A">
+  <interactionFlowModel id="_ELiCwLH8EeSymb1xGoc66A">
+    <interactionFlowModelElements xsi:type="core:ViewContainer" id="_ELip0LH8EeSymb1xGoc66A" name="Cart" inInteractionFlows="//@interactionFlowModel/@interactionFlowModelElements.0/@viewElements.0/@viewElementEvents.1/@outInteractionFlows.0">
+      <viewElements xsi:type="ext:List" id="_ZtQIsLIFEeSymb1xGoc66A" name="CartItems">
+        <viewElementEvents xsi:type="ext:OnSubmitEvent" id="_bfs9wLIFEeSymb1xGoc66A" name="Checkout">
+          <outInteractionFlows xsi:type="core:NavigationFlow" id="_9H1yALIFEeSymb1xGoc66A" targetInteractionFlowElement="//@interactionFlowModel/@interactionFlowModelElements.2"/>
+        </viewElementEvents>
+        <viewElementEvents xsi:type="ext:OnSelectEvent" id="_s5YmYLIFEeSymb1xGoc66A" name="DeleteItem">
+          <outInteractionFlows xsi:type="core:NavigationFlow" id="_08IU0LIFEeSymb1xGoc66A" targetInteractionFlowElement="//@interactionFlowModel/@interactionFlowModelElements.0">
+            <parameterBindingGroup id="_A95BELIHEeSymb1xGoc66A"/>
+          </outInteractionFlows>
+        </viewElementEvents>
+        <viewComponentParts xsi:type="core:DataBinding" id="_INOyELIGEeSymb1xGoc66A" name="Item">
+          <subViewComponentParts xsi:type="core:VisualizationAttribute" id="_mIr5MLIGEeSymb1xGoc66A" name="name, price, quantity">
+            <featureConcept href="template.core#//@domainModel/@domainElements.5"/>
+          </subViewComponentParts>
+          <subViewComponentParts xsi:type="core:VisualizationAttribute" id="_wNjQYLIGEeSymb1xGoc66A" name="mainImage"/>
+        </viewComponentParts>
+      </viewElements>
+    </interactionFlowModelElements>
+    <interactionFlowModelElements xsi:type="core:ActivationExpression" id="_e7OCYLIFEeSymb1xGoc66A" body="numItems > 0"/>
+    <interactionFlowModelElements xsi:type="core:ViewContainer" id="_4x4eYLIFEeSymb1xGoc66A" name="&lt;&lt;modal>> confirmation" inInteractionFlows="//@interactionFlowModel/@interactionFlowModelElements.0/@viewElements.0/@viewElementEvents.0/@outInteractionFlows.0"/>
+  </interactionFlowModel>
+  <domainModel id="_8SKvQbH6EeSymb1xGoc66A">
+    <domainElements xsi:type="core:UMLDomainConcept" id="_8SNLgLH6EeSymb1xGoc66A" name="Item">
+      <classifier xsi:type="uml:Class" href="../domain/eCommerce.uml#_RRbAMLEmEeS2-MBRhXnCrw"/>
+    </domainElements>
+    <domainElements xsi:type="core:UMLStructuralFeature" id="_8SNykLH6EeSymb1xGoc66A" name="identifier">
+      <structuralFeature xsi:type="uml:Property" href="../domain/eCommerce.uml#_YyVz8LEmEeS2-MBRhXnCrw"/>
+    </domainElements>
+    <domainElements xsi:type="core:UMLStructuralFeature" id="_8SNykbH6EeSymb1xGoc66A" name="title">
+      <structuralFeature xsi:type="uml:Property" href="../domain/eCommerce.uml#_GFxKoLEnEeS2-MBRhXnCrw"/>
+    </domainElements>
+    <domainElements xsi:type="core:UMLStructuralFeature" id="_8SNykrH6EeSymb1xGoc66A" name="price">
+      <structuralFeature xsi:type="uml:Property" href="../domain/eCommerce.uml#_Net4sLEoEeS2-MBRhXnCrw"/>
+    </domainElements>
+    <domainElements xsi:type="core:UMLStructuralFeature" id="_8SNyk7H6EeSymb1xGoc66A" name="description">
+      <structuralFeature xsi:type="uml:Property" href="../domain/eCommerce.uml#_gTx6MLEoEeS2-MBRhXnCrw"/>
+    </domainElements>
+    <domainElements xsi:type="core:UMLStructuralFeature" id="_8SNylLH6EeSymb1xGoc66A" name="name">
+      <structuralFeature xsi:type="uml:Property" href="../domain/eCommerce.uml#_rHcRELEoEeS2-MBRhXnCrw"/>
+    </domainElements>
+    <domainElements xsi:type="core:UMLDomainConcept" id="_8SNylbH6EeSymb1xGoc66A" name="Category">
+      <classifier xsi:type="uml:Class" href="../domain/eCommerce.uml#_oo5yELEoEeS2-MBRhXnCrw"/>
+    </domainElements>
+    <domainElements xsi:type="core:UMLDomainConcept" id="_8SNylrH6EeSymb1xGoc66A" name="Cart">
+      <classifier xsi:type="uml:Class" href="../domain/eCommerce.uml#_JuuloLE4EeSzOaPmlZPyNg"/>
+    </domainElements>
+    <domainElements xsi:type="core:UMLStructuralFeature" id="_8SNyl7H6EeSymb1xGoc66A" name="numItems">
+      <structuralFeature xsi:type="uml:Property" href="../domain/eCommerce.uml#_ONblkLE4EeSzOaPmlZPyNg"/>
+    </domainElements>
+    <domainElements xsi:type="core:UMLDomainConcept" id="_8SNymLH6EeSymb1xGoc66A" name="Image">
+      <classifier xsi:type="uml:Class" href="../domain/eCommerce.uml#_1QFegLH4EeSymb1xGoc66A"/>
+    </domainElements>
+  </domainModel>
+</core:IFMLModel>
