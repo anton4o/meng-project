@@ -15,4 +15,5 @@
   <packagedElement xmi:type="uml:Class" xmi:id="_JuuloLE4EeSzOaPmlZPyNg" name="Cart">
     <ownedAttribute xmi:id="_ONblkLE4EeSzOaPmlZPyNg" name="numItems"/>
   </packagedElement>
+  <packagedElement xmi:type="uml:Class" xmi:id="_1QFegLH4EeSymb1xGoc66A" name="Image"/>
 </uml:Model>
