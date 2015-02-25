@@ -1,0 +1,37 @@
+[%
+var template : Template = TemplateFactory.load("template.egl");
+var text = template.process();
+out.print(text);
+%]
+<div class="container">
+
+<div class="jumbotron">
+  <h2>Featured campaign: Black Friday Deals</h1>
+</div>
+
+<h3>New arrivals</h3>
+<div class = "row">
+   <div class="col-xs-6 col-md-2"><a href="item.html" class="thumbnail"><img src="#" id="ppp1"><p id="p1"></p><p id="pp1"></p></a></div>
+   <div class="col-xs-6 col-md-2"><a href="item.html" class="thumbnail"><img src="#" id="ppp2"><p id="p2"></p><p id="pp2"></p></a></div>
+   <div class="col-xs-6 col-md-2"><a href="item.html" class="thumbnail"><img src="#" id="ppp3"><p id="p3"></p><p id="pp3"></p></a></div>
+   <div class="col-xs-6 col-md-2"><a href="item.html" class="thumbnail"><img src="#" id="ppp4"><p id="p4"></p><p id="pp4"></p></a></div>
+   <div class="col-xs-6 col-md-2"><a href="item.html" class="thumbnail"><img src="#" id="ppp5"><p id="p5"></p><p id="pp5"></p></a></div>
+   <div class="col-xs-6 col-md-2"><a href="item.html" class="thumbnail"><img src="#" id="ppp6"><p id="p6"></p><p id="pp6"></p></a></div>
+</div>
+
+<h3>All time favourites</h3>
+<div class = "row">
+   <div class="col-xs-6 col-md-2"><a href="item.html" class="thumbnail"><img src="#" id="fff1"><p id="f1"></p><p id="ff1"></p></a></div>
+   <div class="col-xs-6 col-md-2"><a href="item.html" class="thumbnail"><img src="#" id="fff2"><p id="f2"></p><p id="ff2"></p></a></div>
+   <div class="col-xs-6 col-md-2"><a href="item.html" class="thumbnail"><img src="#" id="fff3"><p id="f3"></p><p id="ff3"></p></a></div>
+   <div class="col-xs-6 col-md-2"><a href="item.html" class="thumbnail"><img src="#" id="fff4"><p id="f4"></p><p id="ff4"></p></a></div>
+   <div class="col-xs-6 col-md-2"><a href="item.html" class="thumbnail"><img src="#" id="fff5"><p id="f5"></p><p id="ff5"></p></a></div>
+   <div class="col-xs-6 col-md-2"><a href="item.html" class="thumbnail"><img src="#" id="fff6"><p id="f6"></p><p id="ff6"></p></a></div>
+</div>
+
+</div>
+<nav class="navbar navbar-default" id="footer"></nav>
+</body>
+</html>
+
+<script type="text/javascript" src="resources/common.js"></script>                

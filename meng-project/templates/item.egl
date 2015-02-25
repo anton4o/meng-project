@@ -1,0 +1,48 @@
+[%
+var template : Template = TemplateFactory.load("template.egl");
+var text = template.process();
+out.print(text);
+%]
+<div class="container">
+<ol class="breadcrumb">
+  <li><a href="index.html">Home</a></li>
+  <li><a href="#">Product Details</a></li>
+</ol>
+
+<div class="panel panel-default">
+  <div class="panel-heading">
+    <h3 class="panel-title">Product Details</h3>
+  </div>
+  
+  <div class="panel-body">
+  	<div class="container">
+    	<div class = "row">
+    		<div class="col-xs-6 col-md-4">First column</div>
+    		<div class="col-xs-6 col-md-4">Second column</div>
+    		<div class="col-xs-6 col-md-4">
+    			<p>Third column</p>
+    				<div class="dropdown">
+  					<button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-expanded="true">Colour<span class="caret"></span></button>
+  						<ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu1">
+    					<li role="presentation"><a role="menuitem" tabindex="-1" href="#">Red</a></li>
+   						<li role="presentation"><a role="menuitem" tabindex="-1" href="#">Green</a></li>
+    					<li role="presentation"><a role="menuitem" tabindex="-1" href="#">Blue</a></li></ul>
+					</div>
+					<br>
+					<div class="input-group">
+					  <input type="number" class="form-control col-sm-1" placeholder="Quantity">
+					</div>
+					<br>
+					<button type="button" class="btn btn-warning">Add to Cart</button>
+    		</div>
+    	</div>
+    </div>
+  </div>
+</div>
+
+</div>
+<nav class="navbar navbar-default" id="footer"></nav>
+</body>
+</html>
+
+<script type="text/javascript" src="resources/common.js"></script>  

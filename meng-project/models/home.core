@@ -1,18 +1,8 @@
 <?xml version="1.0" encoding="ASCII"?>
-<core:IFMLModel xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:core="http://www.omg.org/spec/20130218/core" xmlns:ext="http://www.omg.org/spec/20130218/ext" xmlns:uml="http://www.eclipse.org/uml2/5.0.0/UML" id="_Uew5YLE7EeSzOaPmlZPyNg">
-  <interactionFlowModel id="_kPve0LE7EeSzOaPmlZPyNg">
+<core:IFMLModel xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:core="http://www.omg.org/spec/20130218/core" xmlns:ext="http://www.omg.org/spec/20130218/ext" xmlns:uml="http://www.eclipse.org/uml2/5.0.0/UML" id="_Uew5YLE7EeSzOaPmlZPyNg" name="Home">
+  <interactionFlowModel id="_kPve0LE7EeSzOaPmlZPyNg" name="Home">
     <interactionFlowModelElements xsi:type="core:ViewContainer" id="_kPwF4LE7EeSzOaPmlZPyNg" name="&lt;&lt;Page>> Home" isDefault="true">
-      <viewElements xsi:type="ext:List" id="_zmke4LE7EeSzOaPmlZPyNg" name="Categories">
-        <viewElementEvents xsi:type="ext:OnSelectEvent" id="_qEz-ELHmEeSymb1xGoc66A" name="SelectCategory">
-          <outInteractionFlows xsi:type="core:NavigationFlow" id="_89CBQLHmEeSymb1xGoc66A" targetInteractionFlowElement="//@interactionFlowModel/@interactionFlowModelElements.2"/>
-        </viewElementEvents>
-        <viewComponentParts xsi:type="core:DataBinding" id="_fM0AILHuEeSymb1xGoc66A" name="Category">
-          <subViewComponentParts xsi:type="core:VisualizationAttribute" id="_kpqDULHuEeSymb1xGoc66A" name="name">
-            <featureConcept href="template.core#//@domainModel/@domainElements.5"/>
-          </subViewComponentParts>
-        </viewComponentParts>
-      </viewElements>
-      <viewElements xsi:type="ext:List" id="_SPd60LE8EeSzOaPmlZPyNg" name="Featured">
+      <viewElements xsi:type="ext:List" id="_SPd60LE8EeSzOaPmlZPyNg" name="New arrivals">
         <viewElementEvents xsi:type="ext:OnSelectEvent" id="_9ipFMLHlEeSymb1xGoc66A" name="SelectProduct">
           <outInteractionFlows xsi:type="core:NavigationFlow" id="_NyzhALHmEeSymb1xGoc66A" targetInteractionFlowElement="//@interactionFlowModel/@interactionFlowModelElements.1"/>
         </viewElementEvents>
@@ -22,12 +12,11 @@
           </subViewComponentParts>
           <subViewComponentParts xsi:type="core:VisualizationAttribute" id="_xx2zMLHvEeSymb1xGoc66A" name="price" featureConcept="//@domainModel/@domainElements.3"/>
           <subViewComponentParts xsi:type="core:VisualizationAttribute" id="_2HqV0LHvEeSymb1xGoc66A" name="image"/>
-          <subViewComponentParts xsi:type="core:VisualizationAttribute" id="_9HMMYLHyEeSymb1xGoc66A" name="title, price, description"/>
         </viewComponentParts>
       </viewElements>
+      <viewElements xsi:type="ext:Details" id="_koNdULxsEeS7xc0TZnqiGQ" name="FeaturedCampaign"/>
     </interactionFlowModelElements>
-    <interactionFlowModelElements xsi:type="core:ViewContainer" id="_AD8kULHmEeSymb1xGoc66A" name="ProductDetails" inInteractionFlows="//@interactionFlowModel/@interactionFlowModelElements.0/@viewElements.1/@viewElementEvents.0/@outInteractionFlows.0"/>
-    <interactionFlowModelElements xsi:type="core:ViewContainer" id="_sVVPMLHmEeSymb1xGoc66A" name="Category" inInteractionFlows="//@interactionFlowModel/@interactionFlowModelElements.0/@viewElements.0/@viewElementEvents.0/@outInteractionFlows.0"/>
+    <interactionFlowModelElements xsi:type="core:ViewContainer" id="_AD8kULHmEeSymb1xGoc66A" name="ProductDetails" inInteractionFlows="//@interactionFlowModel/@interactionFlowModelElements.0/@viewElements.0/@viewElementEvents.0/@outInteractionFlows.0"/>
   </interactionFlowModel>
   <domainModel id="_Uew5YbE7EeSzOaPmlZPyNg">
     <domainElements xsi:type="core:UMLDomainConcept" id="_Ue1x4LE7EeSzOaPmlZPyNg" name="Item">

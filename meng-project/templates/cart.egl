@@ -1,0 +1,9 @@
+[%
+var template : Template = TemplateFactory.load("template.egl");
+var text = template.process();
+out.print(text);
+%]
+
+<h1>CART PAGE</h1>
+</body>
+</html>
