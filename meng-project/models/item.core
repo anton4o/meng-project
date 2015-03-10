@@ -2,11 +2,6 @@
 <core:IFMLModel xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:core="http://www.omg.org/spec/20130218/core" xmlns:ext="http://www.omg.org/spec/20130218/ext" xmlns:uml="http://www.eclipse.org/uml2/5.0.0/UML" id="_w1QyoLHwEeSymb1xGoc66A" name="Exception">
   <interactionFlowModel id="_E-hm8LHxEeSymb1xGoc66A">
     <interactionFlowModelElements xsi:type="core:ViewContainer" id="_E-nGgLHxEeSymb1xGoc66A" name="ProductDetails">
-      <viewElements xsi:type="ext:Details" id="_ksxhYLHxEeSymb1xGoc66A" name="MainImage" inInteractionFlows="//@interactionFlowModel/@interactionFlowModelElements.0/@viewElements.2/@outInteractionFlows.0 //@interactionFlowModel/@interactionFlowModelElements.0/@viewElements.3/@viewElementEvents.0/@outInteractionFlows.0 //@interactionFlowModel/@interactionFlowModelElements.0/@viewElements.3/@outInteractionFlows.0">
-        <viewComponentParts xsi:type="core:DataBinding" id="_GBMrQLH5EeSymb1xGoc66A" name="Image">
-          <subViewComponentParts xsi:type="core:VisualizationAttribute" id="_K4tz0LH5EeSymb1xGoc66A" name="blob"/>
-        </viewComponentParts>
-      </viewElements>
       <viewElements xsi:type="ext:Form" id="_qQBukLHxEeSymb1xGoc66A" name="Form">
         <viewElementEvents xsi:type="ext:OnSubmitEvent" id="_vl4cILH1EeSymb1xGoc66A" name="Add to Cart">
           <outInteractionFlows xsi:type="core:NavigationFlow" id="_65_YMLH2EeSymb1xGoc66A" targetInteractionFlowElement="//@interactionFlowModel/@interactionFlowModelElements.1"/>
@@ -19,24 +14,20 @@
         </viewComponentParts>
       </viewElements>
       <viewElements xsi:type="ext:Details" id="_tjHP8LHxEeSymb1xGoc66A" name="Details">
-        <outInteractionFlows xsi:type="core:DataFlow" id="_jYeHQLH5EeSymb1xGoc66A" targetInteractionFlowElement="//@interactionFlowModel/@interactionFlowModelElements.0/@viewElements.0"/>
+        <outInteractionFlows xsi:type="core:DataFlow" id="_jYeHQLH5EeSymb1xGoc66A"/>
         <outInteractionFlows xsi:type="core:DataFlow" id="_obqUULH5EeSymb1xGoc66A" targetInteractionFlowElement="//@interactionFlowModel/@interactionFlowModelElements.1"/>
         <viewComponentParts xsi:type="core:DataBinding" id="_viB-QLHyEeSymb1xGoc66A" name="Item">
           <subViewComponentParts xsi:type="core:VisualizationAttribute" id="_FugAcLHzEeSymb1xGoc66A" name="title, price, description">
             <featureConcept href="home.core#//@domainModel/@domainElements.2"/>
           </subViewComponentParts>
+          <subViewComponentParts xsi:type="core:VisualizationAttribute" id="_hJpHdMKQEeS_3M32OhIuLw" name="price">
+            <featureConcept href="template.core#//@domainModel/@domainElements.3"/>
+          </subViewComponentParts>
           <domainConcept href="home.core#//@domainModel/@domainElements.0"/>
         </viewComponentParts>
       </viewElements>
-      <viewElements xsi:type="ext:List" id="_ZEeu8LH5EeSymb1xGoc66A" name="Images">
-        <outInteractionFlows xsi:type="core:DataFlow" id="_RvpZ8LH6EeSymb1xGoc66A" targetInteractionFlowElement="//@interactionFlowModel/@interactionFlowModelElements.0/@viewElements.0"/>
-        <viewElementEvents xsi:type="ext:OnSelectEvent" id="_D2jjMLH6EeSymb1xGoc66A" name="OnSelect">
-          <outInteractionFlows xsi:type="core:NavigationFlow" id="_N0ADwLH6EeSymb1xGoc66A" targetInteractionFlowElement="//@interactionFlowModel/@interactionFlowModelElements.0/@viewElements.0"/>
-        </viewElementEvents>
-        <viewComponentParts xsi:type="core:DataBinding" id="_2fCIcLH5EeSymb1xGoc66A" name="Image"/>
-      </viewElements>
     </interactionFlowModelElements>
-    <interactionFlowModelElements xsi:type="core:IFMLAction" id="_9QdVwLH1EeSymb1xGoc66A" name="Add to Cart" inInteractionFlows="//@interactionFlowModel/@interactionFlowModelElements.0/@viewElements.1/@viewElementEvents.0/@outInteractionFlows.0 //@interactionFlowModel/@interactionFlowModelElements.0/@viewElements.2/@outInteractionFlows.1">
+    <interactionFlowModelElements xsi:type="core:IFMLAction" id="_9QdVwLH1EeSymb1xGoc66A" name="Add to Cart" inInteractionFlows="//@interactionFlowModel/@interactionFlowModelElements.0/@viewElements.0/@viewElementEvents.0/@outInteractionFlows.0 //@interactionFlowModel/@interactionFlowModelElements.0/@viewElements.1/@outInteractionFlows.1">
       <actionEvents id="_Vedx4LH2EeSymb1xGoc66A">
         <outInteractionFlows xsi:type="core:NavigationFlow" id="_Fo7nILH3EeSymb1xGoc66A" targetInteractionFlowElement="//@interactionFlowModel/@interactionFlowModelElements.3"/>
       </actionEvents>

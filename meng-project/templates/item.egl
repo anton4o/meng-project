@@ -17,10 +17,23 @@ out.print(text);
   <div class="panel-body">
   	<div class="container">
     	<div class = "row">
-    		<div class="col-xs-6 col-md-4">First column</div>
-    		<div class="col-xs-6 col-md-4">Second column</div>
     		<div class="col-xs-6 col-md-4">
-    			<p>Third column</p>
+    			<div class="thumbnail">
+      				<img style="height: auto;" src="#" id="pic">
+      			</div>
+    		</div>
+    		
+    		<div class="col-xs-6 col-md-4" id="second">
+    		    <h3 id="pname"></h3>
+    			<h4 id="pprice"></h4>
+    			<br>
+    			<br>
+    			<p id="pdescr"></p>
+    		</div>
+
+    		<div class="col-xs-6 col-md-2" id="third">
+    			<div class="form-group">
+    				<div class="btn-group">
     				<div class="dropdown">
   					<button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-expanded="true">Colour<span class="caret"></span></button>
   						<ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu1">
@@ -29,11 +42,10 @@ out.print(text);
     					<li role="presentation"><a role="menuitem" tabindex="-1" href="#">Blue</a></li></ul>
 					</div>
 					<br>
-					<div class="input-group">
-					  <input type="number" class="form-control col-sm-1" placeholder="Quantity">
+					  <input type="number" class="form-control" placeholder="Quantity" id="qty" min="1" max="100" value="1">
+					<br></div>
+					<a class="btn btn-warning" href="MyCart.html?new=1" role="button" id="cartButton">Add to Cart</a>
 					</div>
-					<br>
-					<button type="button" class="btn btn-warning">Add to Cart</button>
     		</div>
     	</div>
     </div>
@@ -41,8 +53,9 @@ out.print(text);
 </div>
 
 </div>
-<nav class="navbar navbar-default" id="footer"></nav>
+
+<nav class="navbar navbar-default" class="footer"><div class="container"><center>Copyright 2015, Brand, Inc. or its affiliates</center></div></nav>
+
 </body>
 </html>
-
-<script type="text/javascript" src="resources/common.js"></script>  
+<script type="text/javascript" src="resources/item.js"></script>  

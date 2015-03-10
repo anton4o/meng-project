@@ -65,7 +65,7 @@
 				<li><a href='[%=removeAnnotations(landmark.name)%].html'><span class="glyphicon glyphicon-log-in" aria-hidden="true"></span>[%=landmark.name%]</a></li>
        [% }
        		if(landmark.name.contains("Cart")) { %]
-       			<li><a href='[%=removeAnnotations(landmark.name)%].html'><span class="glyphicon glyphicon-shopping-cart" aria-hidden="true"></span>[%=landmark.name%]</a></li>
+       			<li><a href='[%=removeAnnotations(landmark.name)%].html'><span class="glyphicon glyphicon-shopping-cart" aria-hidden="true"></span>[%=landmark.name%]<b id="numItems"></b></a></li>
       [% }
       } %]              
       </ul>   
@@ -76,13 +76,10 @@
 		out.print("<div class='container'><ul class='nav nav-pills'><li role='presentation'><a href='#' id='cat1'></a></li><li role='presentation'><a href='#' id='cat2'></a></li><li role='presentation'><a href='#' id='cat3'></a></li><li role='presentation'><a href='#' id='cat4'></a></li><li role='presentation'><a href='#' id='cat5'></a></li><li role='presentation'><a href='#' id='cat6'></a></li><li role='presentation'><a href='#' id='cat7'></a></li></ul></div><hr>");
 }%]
 
-</body>
-</html>
-
+	<script type="text/javascript" src="resources/template.js"></script> 
 	<script src="https://code.jquery.com/jquery.js"></script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.2/js/bootstrap.js"></script>
-	
-<script type="text/javascript" src="resources/common.js"></script>   
+
 
 [% 
 operation removeAnnotations(string : String) {

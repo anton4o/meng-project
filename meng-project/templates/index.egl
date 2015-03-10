@@ -2,36 +2,67 @@
 var template : Template = TemplateFactory.load("template.egl");
 var text = template.process();
 out.print(text);
+
+var homeIFMLModel = Home!IFMLModel.all.first;
+var homeFlowModel = homeIFMLModel.interactionFlowModel;
+var homeFlowModelElements = homeFlowModel.interactionFLowModelElements;
+var homeViewElements = homeFlowModelElements.viewElements;
 %]
+
 <div class="container">
+[% for (component in homeViewElements.flatten()) {		
+		if(component.name.contains("FeaturedCampaign")) {
+				out.print("<div class='jumbotron'><h2>Featured campaign: Black Friday Deals</h1></div>");
+	}}%]
 
-<div class="jumbotron">
-  <h2>Featured campaign: Black Friday Deals</h1>
-</div>
 
-<h3>New arrivals</h3>
+<h2>[%=homeViewElements.flatten().select(p | p.isTypeOf(Home!`List`)).first().name%]</h2>
 <div class = "row">
-   <div class="col-xs-6 col-md-2"><a href="item.html" class="thumbnail"><img src="#" id="ppp1"><p id="p1"></p><p id="pp1"></p></a></div>
-   <div class="col-xs-6 col-md-2"><a href="item.html" class="thumbnail"><img src="#" id="ppp2"><p id="p2"></p><p id="pp2"></p></a></div>
-   <div class="col-xs-6 col-md-2"><a href="item.html" class="thumbnail"><img src="#" id="ppp3"><p id="p3"></p><p id="pp3"></p></a></div>
-   <div class="col-xs-6 col-md-2"><a href="item.html" class="thumbnail"><img src="#" id="ppp4"><p id="p4"></p><p id="pp4"></p></a></div>
-   <div class="col-xs-6 col-md-2"><a href="item.html" class="thumbnail"><img src="#" id="ppp5"><p id="p5"></p><p id="pp5"></p></a></div>
-   <div class="col-xs-6 col-md-2"><a href="item.html" class="thumbnail"><img src="#" id="ppp6"><p id="p6"></p><p id="pp6"></p></a></div>
+[% 
+var attributes = homeViewElements.viewComponentParts.subViewComponentParts.flatten().select(h | h.isTypeOf(VisualizationAttribute)).name;
+var i : Integer = 0;
+	while(i<6) {
+		out.print("<div class='col-xs-6 col-md-2'><a href='#' class='thumbnail' id='link" + i + "'>");
+		if (attributes.includes("image")) {
+			out.print("<img src='#' id='ppp" + i + "'>");
+			}
+		if(attributes.includes("title")) {
+			out.print("<p id='p" + i + "'></p>");
+			}
+		if(attributes.includes("price")) {
+			out.println("<p id='pp" + i + "'></p>");
+		} 
+			out.println("</a></div>");
+			i = i + 1;
+	}
+%]
 </div>
 
-<h3>All time favourites</h3>
+<h2>[%=homeViewElements.flatten().select(p | p.isTypeOf(Home!`List`)).second().name.println()%]</h2>
 <div class = "row">
-   <div class="col-xs-6 col-md-2"><a href="item.html" class="thumbnail"><img src="#" id="fff1"><p id="f1"></p><p id="ff1"></p></a></div>
-   <div class="col-xs-6 col-md-2"><a href="item.html" class="thumbnail"><img src="#" id="fff2"><p id="f2"></p><p id="ff2"></p></a></div>
-   <div class="col-xs-6 col-md-2"><a href="item.html" class="thumbnail"><img src="#" id="fff3"><p id="f3"></p><p id="ff3"></p></a></div>
-   <div class="col-xs-6 col-md-2"><a href="item.html" class="thumbnail"><img src="#" id="fff4"><p id="f4"></p><p id="ff4"></p></a></div>
-   <div class="col-xs-6 col-md-2"><a href="item.html" class="thumbnail"><img src="#" id="fff5"><p id="f5"></p><p id="ff5"></p></a></div>
-   <div class="col-xs-6 col-md-2"><a href="item.html" class="thumbnail"><img src="#" id="fff6"><p id="f6"></p><p id="ff6"></p></a></div>
-</div>
+[% var c : Integer = 6;
+	while(c < 12) {
+		out.print("<div class='col-xs-6 col-md-2'><a href='#' class='thumbnail' id='link" + i + "'>");
+		if (attributes.includes("image")) {
+			out.print("<img src='#' id='fff" + c + "'>");
+			}
+		if(attributes.includes("title")) {
+			out.print("<p id='f" + c + "'></p>");
+			}
+		if(attributes.includes("price")) {
+			out.println("<p id='ff" + c + "'></p>");
+		} 
+			out.println("</a></div>");
+			c = c + 1;
+	}%]
+
 
 </div>
-<nav class="navbar navbar-default" id="footer"></nav>
+</div>
+
+<br>
+<nav class="navbar navbar-default" class="footer"><div class="container"><center>Copyright 2015, Brand, Inc. or its affiliates</center></div></nav>
 </body>
 </html>
 
-<script type="text/javascript" src="resources/common.js"></script>                
+<script type="text/javascript" src="resources/home.js"></script>                

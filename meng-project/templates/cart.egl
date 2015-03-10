@@ -3,7 +3,51 @@ var template : Template = TemplateFactory.load("template.egl");
 var text = template.process();
 out.print(text);
 %]
+<div class="container">
 
-<h1>CART PAGE</h1>
+<div class="alert alert-success" role="alert" id="success" hidden><button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button><span class="glyphicon glyphicon-ok"></span><b>  1 item was added to your basket</b></div>
+
+<div class="alert alert-warning" role="alert" id="deletion" hidden><button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button><span class="glyphicon glyphicon-trash"></span><b>  1 item was removed from your basket</b></div>
+
+<ol class="breadcrumb">
+  <li><a href="index.html">Home</a></li>
+  <li><a href="mycart.html">My Cart</a></li>
+</ol>
+
+<div class="panel panel-info">
+  <div class="panel-heading">
+    <h3 class="panel-title">My Cart</h3>
+  </div>
+  
+  <div class="panel-body">
+    	<div id="placeholder"></div>
+  </div>
+</div>
+
+<button style="float: right;" type="button" class="btn btn-primary" id="checkout">Proceed to Checkout</button>
+</div>
+<br>
+
+<div class="modal fade bs-example-modal-sm" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true" id="myModal">
+  <div class="modal-dialog modal-sm">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="myModalLabel">End of user journey</h4>
+      </div>
+      <div class="modal-body">
+        Thanks! This is the end of the user journey supported by this prototype.
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<br>
+<nav class="navbar navbar-default" class="footer"></nav>
 </body>
 </html>
+
+<script type="text/javascript" src="resources/cart.js"></script> 
