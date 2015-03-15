@@ -5,9 +5,7 @@
       <viewElements xsi:type="core:ViewContainer" id="_zQIjkLE1EeSzOaPmlZPyNg" name="&lt;Page> Brand Logo" isLandmark="true" isDefault="true"/>
       <viewElements xsi:type="core:ViewContainer" id="_BDtoMLE2EeSzOaPmlZPyNg" name="&lt;Page> Login/Signup" isLandmark="true"/>
       <viewElements xsi:type="ext:Form" id="_i-cBQLE2EeSzOaPmlZPyNg" name="SearchProducts">
-        <viewElementEvents xsi:type="ext:OnSubmitEvent" id="_VZmGwLE3EeSzOaPmlZPyNg" name="Search">
-          <outInteractionFlows xsi:type="core:NavigationFlow" id="_fNKSkLE3EeSzOaPmlZPyNg" targetInteractionFlowElement="//@interactionFlowModel/@interactionFlowModelElements.1"/>
-        </viewElementEvents>
+        <viewElementEvents xsi:type="ext:OnSubmitEvent" id="_MNbugMi3EeSL6-ob200tcQ" name="Search"/>
         <viewComponentParts xsi:type="ext:SimpleField" id="_lG47gLE2EeSzOaPmlZPyNg" name="SearchKey">
           <type xsi:type="uml:Class" href="../domain/eCommerce.uml#_RRbAMLEmEeS2-MBRhXnCrw"/>
         </viewComponentParts>
@@ -19,21 +17,20 @@
       </viewElements>
       <viewElements xsi:type="ext:Details" id="_z4vJwLE3EeSzOaPmlZPyNg" name="Shopping cart">
         <viewElementEvents id="_o3d_QLE4EeSzOaPmlZPyNg" name="View Cart">
-          <outInteractionFlows xsi:type="core:NavigationFlow" id="_ytRmwLE4EeSzOaPmlZPyNg" targetInteractionFlowElement="//@interactionFlowModel/@interactionFlowModelElements.2"/>
+          <outInteractionFlows xsi:type="core:NavigationFlow" id="_ytRmwLE4EeSzOaPmlZPyNg" targetInteractionFlowElement="//@interactionFlowModel/@interactionFlowModelElements.1"/>
         </viewElementEvents>
-        <viewComponentParts xsi:type="core:DataBinding" id="_6IkwILE3EeSzOaPmlZPyNg" name="Cart"/>
-        <viewComponentParts xsi:type="core:VisualizationAttribute" id="_-lJCELE3EeSzOaPmlZPyNg" name="numItems"/>
+        <viewComponentParts xsi:type="core:DataBinding" id="_6IkwILE3EeSzOaPmlZPyNg" name="Cart">
+          <subViewComponentParts xsi:type="core:VisualizationAttribute" id="_4_AjQMjhEeSShZiNDUIRJA" name="numItems">
+            <featureConcept href="item.core#//@domainModel/@domainElements.8"/>
+          </subViewComponentParts>
+        </viewComponentParts>
       </viewElements>
       <viewElements xsi:type="ext:List" id="_zmke4LE7EeSzOaPmlZPyNg" name="Navbar">
-        <viewElementEvents xsi:type="ext:OnSelectEvent" id="_qEz-ELHmEeSymb1xGoc66A" name="SelectCategory">
-          <outInteractionFlows xsi:type="core:NavigationFlow" id="_89CBQLHmEeSymb1xGoc66A"/>
-        </viewElementEvents>
         <viewComponentParts xsi:type="core:DataBinding" id="_fM0AILHuEeSymb1xGoc66A" name="Category">
           <subViewComponentParts xsi:type="core:VisualizationAttribute" id="_kpqDULHuEeSymb1xGoc66A" name="name" featureConcept="//@domainModel/@domainElements.5"/>
         </viewComponentParts>
       </viewElements>
     </interactionFlowModelElements>
-    <interactionFlowModelElements xsi:type="core:ViewContainer" id="_XwWiwLE3EeSzOaPmlZPyNg" name="&lt;Page> Search results" inInteractionFlows="//@interactionFlowModel/@interactionFlowModelElements.0/@viewElements.2/@viewElementEvents.0/@outInteractionFlows.0"/>
     <interactionFlowModelElements xsi:type="core:ViewContainer" id="_tVEzALE4EeSzOaPmlZPyNg" name="&lt;Page> My Cart" inInteractionFlows="//@interactionFlowModel/@interactionFlowModelElements.0/@viewElements.3/@viewElementEvents.0/@outInteractionFlows.0" isLandmark="true"/>
   </interactionFlowModel>
   <domainModel id="_7LZ1MbEuEeSGWvOR_SlEfg">

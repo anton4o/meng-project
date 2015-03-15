@@ -38,11 +38,11 @@ var i : Integer = 0;
 %]
 </div>
 
-<h2>[%=homeViewElements.flatten().select(p | p.isTypeOf(Home!`List`)).second().name.println()%]</h2>
+<h2>[%=homeViewElements.flatten().select(p | p.isTypeOf(Home!`List`)).second().name%]</h2>
 <div class = "row">
 [% var c : Integer = 6;
 	while(c < 12) {
-		out.print("<div class='col-xs-6 col-md-2'><a href='#' class='thumbnail' id='link" + i + "'>");
+		out.print("<div class='col-xs-6 col-md-2'><a href='#' class='thumbnail' id='link" + c + "'>");
 		if (attributes.includes("image")) {
 			out.print("<img src='#' id='fff" + c + "'>");
 			}
@@ -65,4 +65,5 @@ var i : Integer = 0;
 </body>
 </html>
 
-<script type="text/javascript" src="resources/home.js"></script>                
+<script type="text/javascript" src="resources/home.js"></script>
+<script>document.title = "[%=homeIFMLModel.name%]";</script>                

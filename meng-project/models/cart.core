@@ -1,26 +1,37 @@
 <?xml version="1.0" encoding="ASCII"?>
-<core:IFMLModel xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:core="http://www.omg.org/spec/20130218/core" xmlns:ext="http://www.omg.org/spec/20130218/ext" xmlns:uml="http://www.eclipse.org/uml2/5.0.0/UML" id="_8SKvQLH6EeSymb1xGoc66A">
+<core:IFMLModel xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:core="http://www.omg.org/spec/20130218/core" xmlns:ext="http://www.omg.org/spec/20130218/ext" xmlns:uml="http://www.eclipse.org/uml2/5.0.0/UML" id="_8SKvQLH6EeSymb1xGoc66A" name="Generated website: My Cart">
   <interactionFlowModel id="_ELiCwLH8EeSymb1xGoc66A">
-    <interactionFlowModelElements xsi:type="core:ViewContainer" id="_ELip0LH8EeSymb1xGoc66A" name="Cart" inInteractionFlows="//@interactionFlowModel/@interactionFlowModelElements.0/@viewElements.0/@viewElementEvents.1/@outInteractionFlows.0">
+    <interactionFlowModelElements xsi:type="core:ViewContainer" id="_ELip0LH8EeSymb1xGoc66A" name="My Cart" inInteractionFlows="//@interactionFlowModel/@interactionFlowModelElements.2/@actionEvents.0/@outInteractionFlows.0" isDefault="true">
       <viewElements xsi:type="ext:List" id="_ZtQIsLIFEeSymb1xGoc66A" name="CartItems">
-        <viewElementEvents xsi:type="ext:OnSubmitEvent" id="_bfs9wLIFEeSymb1xGoc66A" name="Checkout">
-          <outInteractionFlows xsi:type="core:NavigationFlow" id="_9H1yALIFEeSymb1xGoc66A" targetInteractionFlowElement="//@interactionFlowModel/@interactionFlowModelElements.2"/>
+        <viewElementEvents xsi:type="ext:OnSubmitEvent" id="_bfs9wLIFEeSymb1xGoc66A" name="Proceed to Checkout" activationExpression="//@interactionFlowModel/@interactionFlowModelElements.3">
+          <outInteractionFlows xsi:type="core:NavigationFlow" id="_9H1yALIFEeSymb1xGoc66A" targetInteractionFlowElement="//@interactionFlowModel/@interactionFlowModelElements.1"/>
         </viewElementEvents>
-        <viewElementEvents xsi:type="ext:OnSelectEvent" id="_s5YmYLIFEeSymb1xGoc66A" name="DeleteItem">
-          <outInteractionFlows xsi:type="core:NavigationFlow" id="_08IU0LIFEeSymb1xGoc66A" targetInteractionFlowElement="//@interactionFlowModel/@interactionFlowModelElements.0">
-            <parameterBindingGroup id="_A95BELIHEeSymb1xGoc66A"/>
-          </outInteractionFlows>
+        <viewElementEvents xsi:type="ext:OnSelectEvent" id="_EqftYMdKEeSvF8mhAlJ7Ow" name="Delete">
+          <outInteractionFlows xsi:type="core:NavigationFlow" id="_FyxkEMdKEeSvF8mhAlJ7Ow" targetInteractionFlowElement="//@interactionFlowModel/@interactionFlowModelElements.2"/>
         </viewElementEvents>
-        <viewComponentParts xsi:type="core:DataBinding" id="_INOyELIGEeSymb1xGoc66A" name="Item">
-          <subViewComponentParts xsi:type="core:VisualizationAttribute" id="_mIr5MLIGEeSymb1xGoc66A" name="name, price, quantity">
+        <viewComponentParts xsi:type="core:DataBinding" id="_INOyELIGEeSymb1xGoc66A" name="Product">
+          <subViewComponentParts xsi:type="core:VisualizationAttribute" id="_mIr5MLIGEeSymb1xGoc66A" name="title">
             <featureConcept href="template.core#//@domainModel/@domainElements.5"/>
           </subViewComponentParts>
-          <subViewComponentParts xsi:type="core:VisualizationAttribute" id="_wNjQYLIGEeSymb1xGoc66A" name="mainImage"/>
+          <subViewComponentParts xsi:type="core:VisualizationAttribute" id="_FugAcLHzEeSymb1xGoc66A" name="price">
+            <featureConcept href="home.core#//@domainModel/@domainElements.3"/>
+          </subViewComponentParts>
+          <subViewComponentParts xsi:type="core:VisualizationAttribute" id="_FugAcLHzEeSymb1xGoc66A" name="img" featureConcept="//@domainModel/@domainElements.2">
+            <subViewComponentParts xsi:type="core:VisualizationAttribute" id="_FugAcLHzEeSymb1xGoc66A" name="img" featureConcept="//@domainModel/@domainElements.2"/>
+          </subViewComponentParts>
+          <subViewComponentParts xsi:type="core:VisualizationAttribute" id="_FugAcLHzEeSymb1xGoc66A" name="quantity">
+            <featureConcept href="template.core#//@domainModel/@domainElements.1"/>
+          </subViewComponentParts>
         </viewComponentParts>
       </viewElements>
     </interactionFlowModelElements>
-    <interactionFlowModelElements xsi:type="core:ActivationExpression" id="_e7OCYLIFEeSymb1xGoc66A" body="numItems > 0"/>
-    <interactionFlowModelElements xsi:type="core:ViewContainer" id="_4x4eYLIFEeSymb1xGoc66A" name="&lt;&lt;modal>> confirmation" inInteractionFlows="//@interactionFlowModel/@interactionFlowModelElements.0/@viewElements.0/@viewElementEvents.0/@outInteractionFlows.0"/>
+    <interactionFlowModelElements xsi:type="core:ViewContainer" id="_4x4eYLIFEeSymb1xGoc66A" name="&lt;modal> End of user journey" inInteractionFlows="//@interactionFlowModel/@interactionFlowModelElements.0/@viewElements.0/@viewElementEvents.0/@outInteractionFlows.0"/>
+    <interactionFlowModelElements xsi:type="core:IFMLAction" id="_kV2WwMdIEeSvF8mhAlJ7Ow" name="Delete from Cart" inInteractionFlows="//@interactionFlowModel/@interactionFlowModelElements.0/@viewElements.0/@viewElementEvents.1/@outInteractionFlows.0">
+      <actionEvents id="_mSzLoMdIEeSvF8mhAlJ7Ow">
+        <outInteractionFlows xsi:type="core:NavigationFlow" id="_o3vNkMdIEeSvF8mhAlJ7Ow" targetInteractionFlowElement="//@interactionFlowModel/@interactionFlowModelElements.0"/>
+      </actionEvents>
+    </interactionFlowModelElements>
+    <interactionFlowModelElements xsi:type="core:ActivationExpression" id="__Ml_UMi_EeSShZiNDUIRJA" body="numItems > 0"/>
   </interactionFlowModel>
   <domainModel id="_8SKvQbH6EeSymb1xGoc66A">
     <domainElements xsi:type="core:UMLDomainConcept" id="_8SNLgLH6EeSymb1xGoc66A" name="Item">

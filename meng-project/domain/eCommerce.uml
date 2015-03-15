@@ -1,19 +1,21 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <uml:Model xmi:version="20131001" xmlns:xmi="http://www.omg.org/spec/XMI/20131001" xmlns:uml="http://www.eclipse.org/uml2/5.0.0/UML" xmi:id="_EJij8LEmEeS2-MBRhXnCrw">
   <packagedElement xmi:type="uml:PrimitiveType" xmi:id="_x4QIcLEmEeS2-MBRhXnCrw" name="String"/>
-  <packagedElement xmi:type="uml:PrimitiveType" xmi:id="_6ClsoLEmEeS2-MBRhXnCrw" name="Integer"/>
-  <packagedElement xmi:type="uml:Class" xmi:id="_RRbAMLEmEeS2-MBRhXnCrw" name="Item">
-    <ownedAttribute xmi:id="_YyVz8LEmEeS2-MBRhXnCrw" name="identifier" visibility="public" type="_6ClsoLEmEeS2-MBRhXnCrw" association="_JgViILEpEeS2-MBRhXnCrw"/>
+  <packagedElement xmi:type="uml:PrimitiveType" xmi:id="_6ClsoLEmEeS2-MBRhXnCrw" name="double"/>
+  <packagedElement xmi:type="uml:Class" xmi:id="_RRbAMLEmEeS2-MBRhXnCrw" name="Product">
+    <ownedAttribute xmi:id="_YyVz8LEmEeS2-MBRhXnCrw" name="identifier" visibility="public" type="_yU7qMMjcEeSShZiNDUIRJA" association="_JgViILEpEeS2-MBRhXnCrw"/>
     <ownedAttribute xmi:id="_GFxKoLEnEeS2-MBRhXnCrw" name="title" type="_x4QIcLEmEeS2-MBRhXnCrw" isUnique="false"/>
     <ownedAttribute xmi:id="_Net4sLEoEeS2-MBRhXnCrw" name="price" type="_6ClsoLEmEeS2-MBRhXnCrw" isUnique="false"/>
     <ownedAttribute xmi:id="_gTx6MLEoEeS2-MBRhXnCrw" name="description" type="_x4QIcLEmEeS2-MBRhXnCrw"/>
+    <ownedAttribute xmi:id="_HBoiwMjdEeSShZiNDUIRJA" name="quantity" type="_yU7qMMjcEeSShZiNDUIRJA"/>
     <nestedClassifier xmi:type="uml:Association" xmi:id="_JgViILEpEeS2-MBRhXnCrw" name="category" memberEnd="_YyVz8LEmEeS2-MBRhXnCrw _rHcRELEoEeS2-MBRhXnCrw" navigableOwnedEnd="_rHcRELEoEeS2-MBRhXnCrw">
       <ownedEnd xmi:id="_rHcRELEoEeS2-MBRhXnCrw" name="name" type="_x4QIcLEmEeS2-MBRhXnCrw" association="_JgViILEpEeS2-MBRhXnCrw"/>
     </nestedClassifier>
   </packagedElement>
   <packagedElement xmi:type="uml:Class" xmi:id="_oo5yELEoEeS2-MBRhXnCrw" name="Category"/>
   <packagedElement xmi:type="uml:Class" xmi:id="_JuuloLE4EeSzOaPmlZPyNg" name="Cart">
-    <ownedAttribute xmi:id="_ONblkLE4EeSzOaPmlZPyNg" name="numItems"/>
+    <ownedAttribute xmi:id="_ONblkLE4EeSzOaPmlZPyNg" name="numItems" type="_yU7qMMjcEeSShZiNDUIRJA"/>
   </packagedElement>
   <packagedElement xmi:type="uml:Class" xmi:id="_1QFegLH4EeSymb1xGoc66A" name="Image"/>
+  <packagedElement xmi:type="uml:PrimitiveType" xmi:id="_yU7qMMjcEeSShZiNDUIRJA" name="int"/>
 </uml:Model>

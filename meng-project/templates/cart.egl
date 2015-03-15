@@ -2,11 +2,16 @@
 var template : Template = TemplateFactory.load("template.egl");
 var text = template.process();
 out.print(text);
+
+var cartIFMLModel = Cart!IFMLModel.all.first;
+var cartFlowModel = cartIFMLModel.interactionFlowModel;
+var cartFlowModelElements = cartFlowModel.interactionFlowModelElements;
+
+var items = getDefaultVC().viewElements.flatten().selectOne(m | m.isTypeOf(Cart!`List`));
 %]
 <div class="container">
 
 <div class="alert alert-success" role="alert" id="success" hidden><button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button><span class="glyphicon glyphicon-ok"></span><b>  1 item was added to your basket</b></div>
-
 <div class="alert alert-warning" role="alert" id="deletion" hidden><button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button><span class="glyphicon glyphicon-trash"></span><b>  1 item was removed from your basket</b></div>
 
 <ol class="breadcrumb">
@@ -14,26 +19,31 @@ out.print(text);
   <li><a href="mycart.html">My Cart</a></li>
 </ol>
 
+[% if(getDefaultVC().size == 1) { %]
 <div class="panel panel-info">
-  <div class="panel-heading">
-    <h3 class="panel-title">My Cart</h3>
-  </div>
+  <div class="panel-heading"><h3 class="panel-title">[%=getDefaultVC().flatten().name.first()%]</h3></div>
   
-  <div class="panel-body">
-    	<div id="placeholder"></div>
+[% //check for List VC here
+if (items.isDefined()) { 	%]  
+  <div class="panel-body"><div id="placeholder"></div>
   </div>
-</div>
+</div> <!-- panel -->
+[% } /*items if*/ %]
+[% if(items.viewElementEvents.select(n | n.isTypeOf(OnSubmitEvent)).size() > 0) { %]
+<button style="float: right;" type="button" class="btn btn-primary" id="checkout">[%=items.viewElementEvents.selectOne(n | n.isTypeOf(OnSubmitEvent)).name%]</button>
+[% } %]
+[% } /*panel if*/ %]
 
-<button style="float: right;" type="button" class="btn btn-primary" id="checkout">Proceed to Checkout</button>
 </div>
 <br>
 
+[% if(returnViewContainers().select(m | m.name.contains("modal")).size() > 0) { %]
 <div class="modal fade bs-example-modal-sm" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true" id="myModal">
   <div class="modal-dialog modal-sm">
     <div class="modal-content">
       <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-        <h4 class="modal-title" id="myModalLabel">End of user journey</h4>
+        <h4 class="modal-title" id="myModalLabel">[%=returnViewContainers().selectOne(m | m.name.contains("modal")).name%]</h4>
       </div>
       <div class="modal-body">
         Thanks! This is the end of the user journey supported by this prototype.
@@ -44,10 +54,60 @@ out.print(text);
     </div>
   </div>
 </div>
+[% } %]
 
 <br>
 <nav class="navbar navbar-default" class="footer"></nav>
 </body>
 </html>
 
-<script type="text/javascript" src="resources/cart.js"></script> 
+<script type="text/javascript" src="resources/cart.js"></script>
+<script>document.title = "[%=cartIFMLModel.name%]";</script> 
+<script>
+$( document ).ready(function() {
+    $("#checkout").click(function(){
+	$('#myModal').modal('show');
+	    });
+		
+	$.getJSON("resources/data.json", function(json) {
+	if (sessionStorage.length > 0) {
+	for (var key in sessionStorage) {
+			var placeholderDiv = document.getElementById("placeholder");
+			placeholderDiv.innerHTML = placeholderDiv.innerHTML + "<div class = 'row'><a href='item.html?id=" + json.product[key].id + "'>[% if(items.viewComponentParts.subViewComponentParts.flatten().name.includes("img")) { %]<div class='col-md-3'><div class='thumbnail'><img src='" + json.product[key].img + "'></div></div>[% } %][% if(items.viewComponentParts.subViewComponentParts.flatten().name.includes("title")) { %]<div class='col-md-3'><p>" + json.product[key].title + "</p></div></a>[% } %][% if(items.viewComponentParts.subViewComponentParts.flatten().name.includes("price")) { %]<div class='col-md-2'><p><b>" + json.product[key].price + "</b></p></div>[% } %][% if(items.viewComponentParts.subViewComponentParts.flatten().name.includes("quantity")) { %]<div class='col-md-2'><p>" + sessionStorage.getItem(key) + "</p></div>[% } %][% if(items.viewElementEvents.select(e | e.isTypeOf(OnSelectEvent)).size() > 0) { %]<div class='col-md-2'><a href='mycart.html?delete=" + json.product[key].id + "' id='remove'><span class='glyphicon glyphicon-remove' aria-hidden='true'></span></a></div>[% } %]</div><br>";
+			}
+		} else {
+			document.getElementById("placeholder").innerHTML = "Sorry, your shopping cart is empty. Please add at least one item, before you can proceed to checkout.";
+			[% if(cartFlowModelElements.select(a | a.isTypeOf(ActivationExpression)).size() > 0) { %]
+			$("#checkout").prop("disabled",true);
+			[% } %]
+		}		
+     });	//JSON
+	
+	//REMOVE ITEMS:	
+   sessionStorage.removeItem(getUrlParameter('delete')); 
+   
+   //FEEDBACK MESSAGES
+   if (getUrlParameter('new') == 1) {
+		$("#success").show();
+   } 
+   
+   if(getUrlParameter('delete')) {
+		$("#deletion").show();
+   }
+
+});
+</script> 
+
+[%	
+	operation returnActions() : Collection(IFMLAction) {
+	return Cart!IFMLModel.all.first.interactionFlowModel.interactionFLowModelElements.select(a | a.isKindOf(IFMLAction));
+	}
+	
+	operation returnViewContainers() : Collection(ViewContainer) {
+	return Cart!IFMLModel.all.first.interactionFlowModel.interactionFLowModelElements.select(a | a.isKindOf(ViewContainer));
+	}
+	
+	operation getDefaultVC() {
+	return returnViewContainers().select(mainVC | mainVC.isDefault==true);
+	}
+%]

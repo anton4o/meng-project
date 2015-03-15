@@ -2,38 +2,49 @@
 var template : Template = TemplateFactory.load("template.egl");
 var text = template.process();
 out.print(text);
+
+var itemIFMLModel = Item!IFMLModel.all.first;
+var itemFlowModel = itemIFMLModel.interactionFlowModel;
+var itemFlowModelElements = itemFlowModel.interactionFlowModelElements;
 %]
+
 <div class="container">
 <ol class="breadcrumb">
   <li><a href="index.html">Home</a></li>
   <li><a href="#">Product Details</a></li>
 </ol>
 
+[% if(getDefaultVC().size == 1) { %]
 <div class="panel panel-default">
-  <div class="panel-heading">
-    <h3 class="panel-title">Product Details</h3>
-  </div>
-  
+  <div class="panel-heading"><h3 class="panel-title">[%=getDefaultVC().flatten().name.first()%]</h3></div>
+ 
   <div class="panel-body">
   	<div class="container">
     	<div class = "row">
-    		<div class="col-xs-6 col-md-4">
-    			<div class="thumbnail">
-      				<img style="height: auto;" src="#" id="pic">
-      			</div>
-    		</div>
+    		[% //check for Details VC here
+    		var deets = getDefaultVC().viewElements.flatten().selectOne(m | m.isTypeOf(Details));
+    		if (deets.isDefined()) { 	%]
     		
+    		[% if(deets.viewComponentParts.subViewComponentParts.flatten().name.includes("img")) { %]    		
+    		<div class="col-xs-6 col-md-4"><div class="thumbnail"><img style="height: auto;" src="#" id="pic"></div></div>
+    		[% } %]
+    		 
     		<div class="col-xs-6 col-md-4" id="second">
-    		    <h3 id="pname"></h3>
-    			<h4 id="pprice"></h4>
+    		[% if(deets.viewComponentParts.subViewComponentParts.flatten().name.includes("title")) { %]<h3 id="pname"></h3>[% } %]
+    		[% if(deets.viewComponentParts.subViewComponentParts.flatten().name.includes("price")) { %]<h4 id="pprice"></h4>[% } %]
     			<br>
     			<br>
-    			<p id="pdescr"></p>
+    		[% if(deets.viewComponentParts.subViewComponentParts.flatten().name.includes("description")) { %]<p id="pdescr"></p>[% } %]
     		</div>
-
+		[% } /*end of Details VC*/ %]
+		
+		[% /* check for Form VC here*/ 
+		var controls = getDefaultVC().viewElements.flatten().selectOne(m | m.isTypeOf(Form));
+		if (controls.isDefined()) { %]
     		<div class="col-xs-6 col-md-2" id="third">
     			<div class="form-group">
     				<div class="btn-group">
+    				[% if(controls.viewComponentParts.flatten().name.includes("Colour")) { %]
     				<div class="dropdown">
   					<button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-expanded="true">Colour<span class="caret"></span></button>
   						<ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu1">
@@ -41,16 +52,28 @@ out.print(text);
    						<li role="presentation"><a role="menuitem" tabindex="-1" href="#">Green</a></li>
     					<li role="presentation"><a role="menuitem" tabindex="-1" href="#">Blue</a></li></ul>
 					</div>
+					[% } %]
 					<br>
-					  <input type="number" class="form-control" placeholder="Quantity" id="qty" min="1" max="100" value="1">
-					<br></div>
-					<a class="btn btn-warning" href="MyCart.html?new=1" role="button" id="cartButton">Add to Cart</a>
+			
+					[% if(controls.viewComponentParts.flatten().name.includes("Quantity")) { %]
+					<input type="number" class="form-control" placeholder="Quantity" id="qty" min="1" max="100" value="1">
+					[% } %]
+					<br>
+					</div>
+					[% for (event in controls.viewElementEvents.select(e | e.isTypeOf(OnSubmitEvent))) { %]
+					[% //it is assumed all buttons will have some action associated with, before being able to capture the outgoing flow of that action
+					var target = event.outInteractionFlows.select(nav | nav.targetInteractionFlowElement.isDefined()).targetInteractionFlowElement.actionEvents.outInteractionFlows.targetInteractionFlowElement.flatten().name.first; %]
+					<a class="btn btn-warning" href="[%=target%].html?new=1" role="button" id="cartButton" style="margin-bottom: 15px;">[%=event.name%]</a>
+					<br>
+					[% } %]
 					</div>
     		</div>
-    	</div>
-    </div>
-  </div>
-</div>
+    	[%  } /*end of Form VC*/ %] 	
+    	</div> <!-- row -->
+    </div> <!-- container -->
+  </div> <!-- panel-body -->
+</div> <!-- panel -->
+[% } /*panel if*/ %]
 
 </div>
 
@@ -59,3 +82,18 @@ out.print(text);
 </body>
 </html>
 <script type="text/javascript" src="resources/item.js"></script>  
+<script>document.title = "[%=itemIFMLModel.name%]";</script> 
+
+[%	
+	operation returnActions() : Collection(IFMLAction) {
+	return Item!IFMLModel.all.first.interactionFlowModel.interactionFLowModelElements.select(a | a.isKindOf(IFMLAction));
+	}
+	
+	operation returnViewContainers() : Collection(ViewContainer) {
+	return Item!IFMLModel.all.first.interactionFlowModel.interactionFLowModelElements.select(a | a.isKindOf(ViewContainer));
+	}
+	
+	operation getDefaultVC() {
+	return returnViewContainers().select(mainVC | mainVC.isDefault==true);
+	}
+%]

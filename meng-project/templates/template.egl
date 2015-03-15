@@ -42,18 +42,11 @@
  [%  	if (viewElements.flatten().exists(b | b.isTypeOf(Form))) {
  		out.print("<form class='navbar-form navbar-left' role='search'>
 					<button type='button' class='btn btn-default dropdown-toggle' data-toggle='dropdown' aria-expanded='false'>All categories <span class='caret'></span></button>
-        				<ul class='dropdown-menu' role='menu'>
-         					 <li><a href='#'>Category1</a></li>
-         					 <li><a href='#'>Category2</a></li>
-        				</ul>");
+        				<ul class='dropdown-menu' role='menu'></ul>");
         
  			var forms = viewElements.flatten().select(bc | bc.isTypeOf(Form));
  				for (form in forms) {
- 				out.print("<div class='form-group'>
-          						<input type='text' class='form-control' placeholder=" + form.name + ">
-        					</div>
-        					<button type='submit' class='btn btn-default'>"+ form.viewElementEvents.random().name + "</button>
-      					</form>");
+ 				out.print("<div class='form-group'><input type='text' class='form-control' placeholder=" + form.name + "></div><button type='submit' class='btn btn-default'>" + form.viewElementEvents.random().name + "</button></form>");
  				}
  } else {
  	//Do not print anything to the DOM
