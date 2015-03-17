@@ -1,18 +1,19 @@
 <?xml version="1.0" encoding="ASCII"?>
 <core:IFMLModel xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:core="http://www.omg.org/spec/20130218/core" xmlns:ext="http://www.omg.org/spec/20130218/ext" xmlns:uml="http://www.eclipse.org/uml2/5.0.0/UML" id="_Uew5YLE7EeSzOaPmlZPyNg" name="Generated website: Home">
   <interactionFlowModel id="_kPve0LE7EeSzOaPmlZPyNg" name="Home Flow Model">
-    <interactionFlowModelElements xsi:type="core:ViewContainer" id="_kPwF4LE7EeSzOaPmlZPyNg" name="&lt;&lt;Page>> Home" isDefault="true">
+    <interactionFlowModelElements xsi:type="core:ViewContainer" id="_kPwF4LE7EeSzOaPmlZPyNg" name="&lt;Page> Home" isDefault="true">
       <viewElements xsi:type="ext:List" id="_SPd60LE8EeSzOaPmlZPyNg" name="New arrivals">
+        <parameters id="_J3sk4MyWEeSxOYUUmaKABA" name="SelectedProductId" direction="out">
+          <type xsi:type="uml:Class" href="../domain/eCommerce.uml#_RRbAMLEmEeS2-MBRhXnCrw"/>
+        </parameters>
         <viewElementEvents xsi:type="ext:OnSelectEvent" id="_9ipFMLHlEeSymb1xGoc66A" name="Select Product">
-          <outInteractionFlows xsi:type="core:NavigationFlow" id="_NyzhALHmEeSymb1xGoc66A" targetInteractionFlowElement="//@interactionFlowModel/@interactionFlowModelElements.1"/>
+          <outInteractionFlows xsi:type="core:NavigationFlow" id="_NyzhALHmEeSymb1xGoc66A" targetInteractionFlowElement="//@interactionFlowModel/@interactionFlowModelElements.1">
+            <parameterBindingGroup id="_6QdaEMvAEeSi8pPsB9yIKQ">
+              <parameterBindings id="_E6fEAMyWEeSxOYUUmaKABA" sourceParameter="//@interactionFlowModel/@interactionFlowModelElements.0/@viewElements.0/@parameters.0" targetParameter="//@interactionFlowModel/@interactionFlowModelElements.1/@parameters.0"/>
+            </parameterBindingGroup>
+          </outInteractionFlows>
         </viewElementEvents>
         <viewComponentParts xsi:type="core:DataBinding" id="_d7bysLE8EeSzOaPmlZPyNg" name="Product">
-          <subViewComponentParts xsi:type="core:VisualizationAttribute" id="_mA8J4LHvEeSymb1xGoc66A" name="title">
-            <subViewComponentParts xsi:type="core:VisualizationAttribute" id="_mA8J4LHvEeSymb1xGoc66A" name="price">
-              <featureConcept href="template.core#//@domainModel/@domainElements.2"/>
-            </subViewComponentParts>
-            <featureConcept href="template.core#//@domainModel/@domainElements.2"/>
-          </subViewComponentParts>
           <subViewComponentParts xsi:type="core:VisualizationAttribute" id="_mA8J4LHvEeSymb1xGoc66A" name="price" featureConcept="//@domainModel/@domainElements.3">
             <subViewComponentParts xsi:type="core:VisualizationAttribute" id="_mA8J4LHvEeSymb1xGoc66A" name="price">
               <featureConcept href="template.core#//@domainModel/@domainElements.2"/>
@@ -30,12 +31,24 @@
             </subViewComponentParts>
             <featureConcept href="template.core#//@domainModel/@domainElements.2"/>
           </subViewComponentParts>
+          <subViewComponentParts xsi:type="core:VisualizationAttribute" id="_mA8J4LHvEeSymb1xGoc66A" name="title">
+            <subViewComponentParts xsi:type="core:VisualizationAttribute" id="_mA8J4LHvEeSymb1xGoc66A" name="price">
+              <featureConcept href="template.core#//@domainModel/@domainElements.2"/>
+            </subViewComponentParts>
+            <featureConcept href="template.core#//@domainModel/@domainElements.2"/>
+          </subViewComponentParts>
         </viewComponentParts>
       </viewElements>
-      <viewElements xsi:type="ext:Details" id="_koNdULxsEeS7xc0TZnqiGQ" name="FeaturedCampaign"/>
       <viewElements xsi:type="ext:List" id="_SPd60LE8EeSzOaPmlZPyNg" name="All time favourites">
+        <parameters id="_hTGfYMyWEeSxOYUUmaKABA" name="SelectedProductId" direction="out">
+          <type xsi:type="uml:Class" href="../domain/eCommerce.uml#_RRbAMLEmEeS2-MBRhXnCrw"/>
+        </parameters>
         <viewElementEvents xsi:type="ext:OnSelectEvent" id="_7I2PgMjfEeSShZiNDUIRJA" name="Select Product">
-          <outInteractionFlows xsi:type="core:NavigationFlow" id="_8FbzkMjfEeSShZiNDUIRJA" targetInteractionFlowElement="//@interactionFlowModel/@interactionFlowModelElements.1"/>
+          <outInteractionFlows xsi:type="core:NavigationFlow" id="_8FbzkMjfEeSShZiNDUIRJA" targetInteractionFlowElement="//@interactionFlowModel/@interactionFlowModelElements.1">
+            <parameterBindingGroup id="_G3oV8MvBEeSi8pPsB9yIKQ">
+              <parameterBindings id="_onrgQMyWEeSxOYUUmaKABA" sourceParameter="//@interactionFlowModel/@interactionFlowModelElements.0/@viewElements.0/@parameters.0" targetParameter="//@interactionFlowModel/@interactionFlowModelElements.1/@parameters.0"/>
+            </parameterBindingGroup>
+          </outInteractionFlows>
         </viewElementEvents>
         <viewComponentParts xsi:type="core:DataBinding" id="_d7bysLE8EeSzOaPmlZPyNg" name="Product">
           <subViewComponentParts xsi:type="core:VisualizationAttribute" id="_mA8J4LHvEeSymb1xGoc66A" name="title">
@@ -64,8 +77,15 @@
           </subViewComponentParts>
         </viewComponentParts>
       </viewElements>
+      <viewElements xsi:type="ext:Details" id="_0aI8YMu_EeSi8pPsB9yIKQ" name="Featured Campaign">
+        <viewComponentParts xsi:type="core:DataBinding" id="_Q0VsIMvAEeSi8pPsB9yIKQ" name="Campaign"/>
+      </viewElements>
     </interactionFlowModelElements>
-    <interactionFlowModelElements xsi:type="core:ViewContainer" id="_AD8kULHmEeSymb1xGoc66A" name="ProductDetails" inInteractionFlows="//@interactionFlowModel/@interactionFlowModelElements.0/@viewElements.0/@viewElementEvents.0/@outInteractionFlows.0 //@interactionFlowModel/@interactionFlowModelElements.0/@viewElements.2/@viewElementEvents.0/@outInteractionFlows.0"/>
+    <interactionFlowModelElements xsi:type="core:ViewContainer" id="_AD8kULHmEeSymb1xGoc66A" name="&lt;Page> ProductDetails" inInteractionFlows="//@interactionFlowModel/@interactionFlowModelElements.0/@viewElements.0/@viewElementEvents.0/@outInteractionFlows.0 //@interactionFlowModel/@interactionFlowModelElements.0/@viewElements.1/@viewElementEvents.0/@outInteractionFlows.0">
+      <parameters id="_UhgcMMyWEeSxOYUUmaKABA" name="ProductId">
+        <type xsi:type="uml:Class" href="../domain/eCommerce.uml#_RRbAMLEmEeS2-MBRhXnCrw"/>
+      </parameters>
+    </interactionFlowModelElements>
   </interactionFlowModel>
   <domainModel id="_Uew5YbE7EeSzOaPmlZPyNg">
     <domainElements xsi:type="core:UMLDomainConcept" id="_Ue1x4LE7EeSzOaPmlZPyNg" name="Item">

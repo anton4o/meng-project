@@ -1,18 +1,29 @@
 [%
-var template : Template = TemplateFactory.load("template.egl");
-var text = template.process();
-out.print(text);
+if(`Template`!IFMLModel.all.first.interactionFlowModel.interactionFLowModelElements.one(t | returnAnnotation(t.name, 11).equals("MasterPage"))) {
+	 var masterViewContainer = `Template`!IFMLModel.all.first.interactionFlowModel.interactionFLowModelElements.selectOne(t | returnAnnotation(t.name, 11).equals("MasterPage"));
+	loadTemplate(masterViewContainer.name.substring(13).toLowerCase() + ".egl");
+} else {
+	noTemplate();
+}
 
 var itemIFMLModel = Item!IFMLModel.all.first;
 var itemFlowModel = itemIFMLModel.interactionFlowModel;
 var itemFlowModelElements = itemFlowModel.interactionFlowModelElements;
+
+var landmarks : Set;
+ 	for (parentVC in `Template`!IFMLModel.all.first.interactionFlowModel.interactionFLowModelElements.select(e | e.isKindOf(ViewContainer))) { 				
+ 				if (parentVC.isLandmark == true) {
+ 					landmarks.add(parentVC);
+ 				}
+ 			for (childVC in parentVC.viewElements.select(m | m.isKindOf(ViewContainer))) {			
+ 					if (childVC.isLandmark == true) {
+ 				landmarks.add(childVC);
+ 	 			}
+ 		}
+ 		}
 %]
 
 <div class="container">
-<ol class="breadcrumb">
-  <li><a href="index.html">Home</a></li>
-  <li><a href="#">Product Details</a></li>
-</ol>
 
 [% if(getDefaultVC().size == 1) { %]
 <div class="panel panel-default">
@@ -63,7 +74,7 @@ var itemFlowModelElements = itemFlowModel.interactionFlowModelElements;
 					[% for (event in controls.viewElementEvents.select(e | e.isTypeOf(OnSubmitEvent))) { %]
 					[% //it is assumed all buttons will have some action associated with, before being able to capture the outgoing flow of that action
 					var target = event.outInteractionFlows.select(nav | nav.targetInteractionFlowElement.isDefined()).targetInteractionFlowElement.actionEvents.outInteractionFlows.targetInteractionFlowElement.flatten().name.first; %]
-					<a class="btn btn-warning" href="[%=target%].html?new=1" role="button" id="cartButton" style="margin-bottom: 15px;">[%=event.name%]</a>
+					<a class="btn btn-warning" href="[%=removeAnnotation(target)%].html?new=1" role="button" id="cartButton" style="margin-bottom: 15px;">[%=event.name%]</a>
 					<br>
 					[% } %]
 					</div>
@@ -77,7 +88,13 @@ var itemFlowModelElements = itemFlowModel.interactionFlowModelElements;
 
 </div>
 
-<nav class="navbar navbar-default" class="footer"><div class="container"><center>Copyright 2015, Brand, Inc. or its affiliates</center></div></nav>
+[% for (landmark in landmarks) {
+	if (landmark.exists(f | returnAnnotation(f.name, 5).equals("Area") and removeAnnotation(f.name).contains("Footer"))) { %]
+	<br>
+	<nav class="navbar navbar-default" class="footer"><div class="container"><center>Copyright 2015, University of York or its affiliates</center></div></nav>
+[%	}
+}
+ %]
 
 </body>
 </html>
@@ -96,4 +113,22 @@ var itemFlowModelElements = itemFlowModel.interactionFlowModelElements;
 	operation getDefaultVC() {
 	return returnViewContainers().select(mainVC | mainVC.isDefault==true);
 	}
+	
+	operation removeAnnotation(string : String) {
+	return string.substring(6).replace(" ", "");
+}
+
+operation returnAnnotation(string2 : String, endIndex : Integer) {
+	return string2.substring(1,endIndex);
+}
+
+operation loadTemplate(templateName : String) {
+	var template : Template = TemplateFactory.load(templateName);
+	var templateCode = template.process();
+	out.print(templateCode);
+}
+
+operation noTemplate() {
+	out.print("<!DOCTYPE html><head><title></title><link rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css'><link rel='stylesheet' href='/resources/styling.css'><script src='https://code.jquery.com/jquery.js'></script><script src='https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.2/js/bootstrap.js'></script><script type='text/javascript' src='resources/template.js'></script></head><body onload='read_json();'>");
+}
 %]

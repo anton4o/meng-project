@@ -1,23 +1,33 @@
 [%
-var template : Template = TemplateFactory.load("template.egl");
-var text = template.process();
-out.print(text);
+if(`Template`!IFMLModel.all.first.interactionFlowModel.interactionFLowModelElements.one(t | returnAnnotation(t.name, 11).equals("MasterPage"))) {
+	 var masterViewContainer = `Template`!IFMLModel.all.first.interactionFlowModel.interactionFLowModelElements.selectOne(t | returnAnnotation(t.name, 11).equals("MasterPage"));
+	loadTemplate(masterViewContainer.name.substring(13).toLowerCase() + ".egl");
+} else {
+	noTemplate();
+}
 
 var cartIFMLModel = Cart!IFMLModel.all.first;
 var cartFlowModel = cartIFMLModel.interactionFlowModel;
 var cartFlowModelElements = cartFlowModel.interactionFlowModelElements;
 
 var items = getDefaultVC().viewElements.flatten().selectOne(m | m.isTypeOf(Cart!`List`));
+
+var landmarks : Set;
+ 	for (parentVC in `Template`!IFMLModel.all.first.interactionFlowModel.interactionFLowModelElements.select(e | e.isKindOf(ViewContainer))) { 				
+ 				if (parentVC.isLandmark == true) {
+ 					landmarks.add(parentVC);
+ 				}
+ 			for (childVC in parentVC.viewElements.select(m | m.isKindOf(ViewContainer))) {			
+ 					if (childVC.isLandmark == true) {
+ 				landmarks.add(childVC);
+ 	 			}
+ 		}
+ 		}
 %]
 <div class="container">
 
 <div class="alert alert-success" role="alert" id="success" hidden><button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button><span class="glyphicon glyphicon-ok"></span><b>  1 item was added to your basket</b></div>
 <div class="alert alert-warning" role="alert" id="deletion" hidden><button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button><span class="glyphicon glyphicon-trash"></span><b>  1 item was removed from your basket</b></div>
-
-<ol class="breadcrumb">
-  <li><a href="index.html">Home</a></li>
-  <li><a href="mycart.html">My Cart</a></li>
-</ol>
 
 [% if(getDefaultVC().size == 1) { %]
 <div class="panel panel-info">
@@ -56,8 +66,13 @@ if (items.isDefined()) { 	%]
 </div>
 [% } %]
 
-<br>
-<nav class="navbar navbar-default" class="footer"></nav>
+[% for (landmark in landmarks) {
+	if (landmark.exists(f | returnAnnotation(f.name, 5).equals("Area") and removeAnnotation(f.name).contains("Footer"))) { %]
+	<br>
+	<nav class="navbar navbar-default" class="footer"><div class="container"><center>Copyright 2015, University of York or its affiliates</center></div></nav>
+[%	}
+}
+ %]
 </body>
 </html>
 
@@ -73,7 +88,7 @@ $( document ).ready(function() {
 	if (sessionStorage.length > 0) {
 	for (var key in sessionStorage) {
 			var placeholderDiv = document.getElementById("placeholder");
-			placeholderDiv.innerHTML = placeholderDiv.innerHTML + "<div class = 'row'><a href='item.html?id=" + json.product[key].id + "'>[% if(items.viewComponentParts.subViewComponentParts.flatten().name.includes("img")) { %]<div class='col-md-3'><div class='thumbnail'><img src='" + json.product[key].img + "'></div></div>[% } %][% if(items.viewComponentParts.subViewComponentParts.flatten().name.includes("title")) { %]<div class='col-md-3'><p>" + json.product[key].title + "</p></div></a>[% } %][% if(items.viewComponentParts.subViewComponentParts.flatten().name.includes("price")) { %]<div class='col-md-2'><p><b>" + json.product[key].price + "</b></p></div>[% } %][% if(items.viewComponentParts.subViewComponentParts.flatten().name.includes("quantity")) { %]<div class='col-md-2'><p>" + sessionStorage.getItem(key) + "</p></div>[% } %][% if(items.viewElementEvents.select(e | e.isTypeOf(OnSelectEvent)).size() > 0) { %]<div class='col-md-2'><a href='mycart.html?delete=" + json.product[key].id + "' id='remove'><span class='glyphicon glyphicon-remove' aria-hidden='true'></span></a></div>[% } %]</div><br>";
+			placeholderDiv.innerHTML = placeholderDiv.innerHTML + "<div class = 'row'><a href='item.html?id=" + json.product[key].id + "'>[% if(items.viewComponentParts.subViewComponentParts.flatten().name.includes("img")) { %]<div class='col-md-3'><div class='thumbnail'><img src='" + json.product[key].img + "'></div></div>[% } %][% if(items.viewComponentParts.subViewComponentParts.flatten().name.includes("title")) { %]<div class='col-md-3'><p>" + json.product[key].title + "</p></div></a>[% } %][% if(items.viewComponentParts.subViewComponentParts.flatten().name.includes("price")) { %]<div class='col-md-2'><p><b>&pound" + json.product[key].price + "</b></p></div>[% } %][% if(items.viewComponentParts.subViewComponentParts.flatten().name.includes("quantity")) { %]<div class='col-md-2'><p>" + sessionStorage.getItem(key) + "</p></div>[% } %][% if(items.viewElementEvents.select(e | e.isTypeOf(OnSelectEvent)).size() > 0) { %]<div class='col-md-2'><a href='mycart.html?delete=" + json.product[key].id + "' id='remove'><span class='glyphicon glyphicon-remove' aria-hidden='true'></span></a></div>[% } %]</div><br>";
 			}
 		} else {
 			document.getElementById("placeholder").innerHTML = "Sorry, your shopping cart is empty. Please add at least one item, before you can proceed to checkout.";
@@ -109,5 +124,23 @@ $( document ).ready(function() {
 	
 	operation getDefaultVC() {
 	return returnViewContainers().select(mainVC | mainVC.isDefault==true);
+	}
+	
+	operation returnAnnotation(string2 : String, endIndex : Integer) {
+	return string2.substring(1,endIndex);
+	}
+
+	operation removeAnnotation(string : String) {
+	return string.substring(6).replace(" ", "");
+	}
+	
+	operation loadTemplate(templateName : String) {
+	var template : Template = TemplateFactory.load(templateName);
+	var templateCode = template.process();
+	out.print(templateCode);
+	}
+
+	operation noTemplate() {
+	out.print("<!DOCTYPE html><head><title></title><link rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css'><link rel='stylesheet' href='/resources/styling.css'><script src='https://code.jquery.com/jquery.js'></script><script src='https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.2/js/bootstrap.js'></script><script type='text/javascript' src='resources/template.js'></script></head><body onload='read_json();'>");
 	}
 %]

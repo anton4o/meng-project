@@ -1,11 +1,17 @@
 <?xml version="1.0" encoding="ASCII"?>
 <core:IFMLModel xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:core="http://www.omg.org/spec/20130218/core" xmlns:ext="http://www.omg.org/spec/20130218/ext" xmlns:uml="http://www.eclipse.org/uml2/5.0.0/UML" id="_7LZ1MLEuEeSGWvOR_SlEfg" name="Generated eCommerce Website">
   <interactionFlowModel id="_iJvDULE1EeSzOaPmlZPyNg" name="">
-    <interactionFlowModelElements xsi:type="core:ViewContainer" id="_iKQnwLE1EeSzOaPmlZPyNg" name="&lt;&lt;MasterPage>> Template">
-      <viewElements xsi:type="core:ViewContainer" id="_zQIjkLE1EeSzOaPmlZPyNg" name="&lt;Page> Brand Logo" isLandmark="true" isDefault="true"/>
+    <interactionFlowModelElements xsi:type="core:ViewContainer" id="_iKQnwLE1EeSzOaPmlZPyNg" name="&lt;MasterPage> Template">
       <viewElements xsi:type="core:ViewContainer" id="_BDtoMLE2EeSzOaPmlZPyNg" name="&lt;Page> Login/Signup" isLandmark="true"/>
       <viewElements xsi:type="ext:Form" id="_i-cBQLE2EeSzOaPmlZPyNg" name="SearchProducts">
-        <viewElementEvents xsi:type="ext:OnSubmitEvent" id="_MNbugMi3EeSL6-ob200tcQ" name="Search"/>
+        <viewElementEvents xsi:type="ext:OnSubmitEvent" id="_MNbugMi3EeSL6-ob200tcQ" name="Search">
+          <outInteractionFlows xsi:type="core:NavigationFlow" id="_uuZSAMv1EeSxOYUUmaKABA" targetInteractionFlowElement="//@interactionFlowModel/@interactionFlowModelElements.2">
+            <parameterBindingGroup id="_wCaeoMv1EeSxOYUUmaKABA">
+              <parameterBindings id="_LGQ6sMyfEeSxOYUUmaKABA" sourceParameter="//@interactionFlowModel/@interactionFlowModelElements.3/@parameters.0" targetParameter="//@interactionFlowModel/@interactionFlowModelElements.2/@parameters.1"/>
+              <parameterBindings id="_mH1qoMyfEeSxOYUUmaKABA" sourceParameter="//@interactionFlowModel/@interactionFlowModelElements.0/@viewElements.1/@viewComponentParts.0" targetParameter="//@interactionFlowModel/@interactionFlowModelElements.0/@viewElements.1/@viewComponentParts.0"/>
+            </parameterBindingGroup>
+          </outInteractionFlows>
+        </viewElementEvents>
         <viewComponentParts xsi:type="ext:SimpleField" id="_lG47gLE2EeSzOaPmlZPyNg" name="SearchKey">
           <type xsi:type="uml:Class" href="../domain/eCommerce.uml#_RRbAMLEmEeS2-MBRhXnCrw"/>
         </viewComponentParts>
@@ -26,12 +32,36 @@
         </viewComponentParts>
       </viewElements>
       <viewElements xsi:type="ext:List" id="_zmke4LE7EeSzOaPmlZPyNg" name="Navbar">
+        <parameters id="_uHmzAMyeEeSxOYUUmaKABA" name="SelectedCategory" direction="out">
+          <type xsi:type="uml:Association" href="../domain/eCommerce.uml#_JgViILEpEeS2-MBRhXnCrw"/>
+        </parameters>
+        <viewElementEvents xsi:type="ext:OnSelectEvent" id="_4f8roMv1EeSxOYUUmaKABA" name="Select">
+          <outInteractionFlows xsi:type="core:NavigationFlow" id="_CsSj0Mv2EeSxOYUUmaKABA" targetInteractionFlowElement="//@interactionFlowModel/@interactionFlowModelElements.3">
+            <parameterBindingGroup id="_D2H5sMv2EeSxOYUUmaKABA">
+              <parameterBindings id="_4okQUMyeEeSxOYUUmaKABA" sourceParameter="//@interactionFlowModel/@interactionFlowModelElements.0/@viewElements.3/@parameters.0" targetParameter="//@interactionFlowModel/@interactionFlowModelElements.3/@parameters.0"/>
+            </parameterBindingGroup>
+          </outInteractionFlows>
+        </viewElementEvents>
         <viewComponentParts xsi:type="core:DataBinding" id="_fM0AILHuEeSymb1xGoc66A" name="Category">
           <subViewComponentParts xsi:type="core:VisualizationAttribute" id="_kpqDULHuEeSymb1xGoc66A" name="name" featureConcept="//@domainModel/@domainElements.5"/>
         </viewComponentParts>
       </viewElements>
+      <viewElements xsi:type="core:ViewContainer" id="_vIOjwMv0EeSxOYUUmaKABA" name="&lt;Area> Footer" isLandmark="true"/>
     </interactionFlowModelElements>
-    <interactionFlowModelElements xsi:type="core:ViewContainer" id="_tVEzALE4EeSzOaPmlZPyNg" name="&lt;Page> My Cart" inInteractionFlows="//@interactionFlowModel/@interactionFlowModelElements.0/@viewElements.3/@viewElementEvents.0/@outInteractionFlows.0" isLandmark="true"/>
+    <interactionFlowModelElements xsi:type="core:ViewContainer" id="_tVEzALE4EeSzOaPmlZPyNg" name="&lt;Page> My Cart" inInteractionFlows="//@interactionFlowModel/@interactionFlowModelElements.0/@viewElements.2/@viewElementEvents.0/@outInteractionFlows.0" isLandmark="true"/>
+    <interactionFlowModelElements xsi:type="core:ViewContainer" id="_pBEi0Mv1EeSxOYUUmaKABA" name="&lt;Page> Search results" inInteractionFlows="//@interactionFlowModel/@interactionFlowModelElements.0/@viewElements.1/@viewElementEvents.0/@outInteractionFlows.0">
+      <parameters id="_NGfGAMyfEeSxOYUUmaKABA" name="SearchKey">
+        <type xsi:type="uml:Class" href="../domain/eCommerce.uml#_RRbAMLEmEeS2-MBRhXnCrw"/>
+      </parameters>
+      <parameters id="_PbkuEMyfEeSxOYUUmaKABA" name="SelectedCategory">
+        <type xsi:type="uml:Association" href="../domain/eCommerce.uml#_JgViILEpEeS2-MBRhXnCrw"/>
+      </parameters>
+    </interactionFlowModelElements>
+    <interactionFlowModelElements xsi:type="core:ViewContainer" id="_7uiukMv1EeSxOYUUmaKABA" name="&lt;Page> Category " inInteractionFlows="//@interactionFlowModel/@interactionFlowModelElements.0/@viewElements.3/@viewElementEvents.0/@outInteractionFlows.0">
+      <parameters id="_0W18cMyeEeSxOYUUmaKABA" name="Category">
+        <type xsi:type="uml:Association" href="../domain/eCommerce.uml#_JgViILEpEeS2-MBRhXnCrw"/>
+      </parameters>
+    </interactionFlowModelElements>
   </interactionFlowModel>
   <domainModel id="_7LZ1MbEuEeSGWvOR_SlEfg">
     <domainElements xsi:type="core:UMLDomainConcept" id="_7LhJ8LEuEeSGWvOR_SlEfg" name="Item">
@@ -52,7 +82,7 @@
     <domainElements xsi:type="core:UMLStructuralFeature" id="_7LiYELEuEeSGWvOR_SlEfg" name="name">
       <structuralFeature xsi:type="uml:Property" href="../domain/eCommerce.uml#_rHcRELEoEeS2-MBRhXnCrw"/>
     </domainElements>
-    <domainElements xsi:type="core:UMLDomainConcept" id="_7LiYEbEuEeSGWvOR_SlEfg" name="Category" dataBinding="//@interactionFlowModel/@interactionFlowModelElements.0/@viewElements.2/@viewComponentParts.1/@subViewComponentParts.1">
+    <domainElements xsi:type="core:UMLDomainConcept" id="_7LiYEbEuEeSGWvOR_SlEfg" name="Category" dataBinding="//@interactionFlowModel/@interactionFlowModelElements.0/@viewElements.1/@viewComponentParts.1/@subViewComponentParts.1">
       <classifier xsi:type="uml:Class" href="../domain/eCommerce.uml#_oo5yELEoEeS2-MBRhXnCrw"/>
     </domainElements>
   </domainModel>

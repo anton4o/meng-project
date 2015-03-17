@@ -1,17 +1,33 @@
 [%
-var template : Template = TemplateFactory.load("template.egl");
-var text = template.process();
-out.print(text);
+
+if(`Template`!IFMLModel.all.first.interactionFlowModel.interactionFLowModelElements.one(t | returnAnnotation(t.name, 11).equals("MasterPage"))) {
+	 var masterViewContainer = `Template`!IFMLModel.all.first.interactionFlowModel.interactionFLowModelElements.selectOne(t | returnAnnotation(t.name, 11).equals("MasterPage"));
+	loadTemplate(masterViewContainer.name.substring(13).toLowerCase() + ".egl");
+} else {
+	noTemplate();
+}
 
 var homeIFMLModel = Home!IFMLModel.all.first;
 var homeFlowModel = homeIFMLModel.interactionFlowModel;
 var homeFlowModelElements = homeFlowModel.interactionFLowModelElements;
 var homeViewElements = homeFlowModelElements.viewElements;
+
+var landmarks : Set;
+ 	for (parentVC in `Template`!IFMLModel.all.first.interactionFlowModel.interactionFLowModelElements.select(e | e.isKindOf(ViewContainer))) { 				
+ 				if (parentVC.isLandmark == true) {
+ 					landmarks.add(parentVC);
+ 				}
+ 			for (childVC in parentVC.viewElements.select(m | m.isKindOf(ViewContainer))) {			
+ 					if (childVC.isLandmark == true) {
+ 				landmarks.add(childVC);
+ 	 			}
+ 		}
+ 		}
 %]
 
 <div class="container">
 [% for (component in homeViewElements.flatten()) {		
-		if(component.name.contains("FeaturedCampaign")) {
+		if(component.name.contains("Campaign")) {
 				out.print("<div class='jumbotron'><h2>Featured campaign: Black Friday Deals</h1></div>");
 	}}%]
 
@@ -60,10 +76,35 @@ var i : Integer = 0;
 </div>
 </div>
 
-<br>
-<nav class="navbar navbar-default" class="footer"><div class="container"><center>Copyright 2015, Brand, Inc. or its affiliates</center></div></nav>
+[% for (landmark in landmarks) {
+	if (landmark.exists(f | returnAnnotation(f.name, 5).equals("Area") and removeAnnotation(f.name).contains("Footer"))) { %]
+	<br>
+	<nav class="navbar navbar-default" class="footer"><div class="container"><center>Copyright 2015, University of York or its affiliates</center></div></nav>
+[%	}
+}
+ %]
 </body>
 </html>
 
 <script type="text/javascript" src="resources/home.js"></script>
-<script>document.title = "[%=homeIFMLModel.name%]";</script>                
+<script>document.title = "[%=homeIFMLModel.name%]";</script> 
+
+[% 
+operation returnAnnotation(string2 : String, endIndex : Integer) {
+	return string2.substring(1,endIndex);
+}
+
+operation removeAnnotation(string : String) {
+	return string.substring(6).replace(" ", "");
+}
+
+operation loadTemplate(templateName : String) {
+	var template : Template = TemplateFactory.load(templateName);
+	var templateCode = template.process();
+	out.print(templateCode);
+}
+
+operation noTemplate() {
+	out.print("<!DOCTYPE html><head><title></title><link rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css'><link rel='stylesheet' href='/resources/styling.css'><script src='https://code.jquery.com/jquery.js'></script><script src='https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.2/js/bootstrap.js'></script><script type='text/javascript' src='resources/template.js'></script></head><body onload='read_json();'>");
+}
+%]                

@@ -32,11 +32,7 @@
   <nav class="navbar navbar-default">
   <div class="container-fluid">
       
-      [% for (landmark in landmarks) {
-      		if(landmark.name.contains("Logo")) {
-      			out.print("<a class='navbar-brand' href='index.html'>" + landmark.name + "</a>");
-      	}
-      } %]  
+ [% out.print("<a class='navbar-brand' href='index.html'>" + ifmlModel.name + "</a>");%]  
  
  <!--/ Search form -->
  [%  	if (viewElements.flatten().exists(b | b.isTypeOf(Form))) {
@@ -54,7 +50,7 @@
   
       <ul class="nav navbar-nav navbar-right">             
         [% for(landmark in landmarks) { 
-        	if(landmark.name.contains("in")) { %]
+        	if(landmark.name.contains("Login")) { %]
 				<li><a href='[%=removeAnnotations(landmark.name)%].html'><span class="glyphicon glyphicon-log-in" aria-hidden="true"></span>[%=landmark.name%]</a></li>
        [% }
        		if(landmark.name.contains("Cart")) { %]

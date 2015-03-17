@@ -1,24 +1,38 @@
 <?xml version="1.0" encoding="ASCII"?>
 <core:IFMLModel xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:core="http://www.omg.org/spec/20130218/core" xmlns:ext="http://www.omg.org/spec/20130218/ext" xmlns:uml="http://www.eclipse.org/uml2/5.0.0/UML" id="_w1QyoLHwEeSymb1xGoc66A" name="Generated website: Product">
   <interactionFlowModel id="_E-hm8LHxEeSymb1xGoc66A">
-    <interactionFlowModelElements xsi:type="core:ViewContainer" id="_E-nGgLHxEeSymb1xGoc66A" name="Product Details" isDefault="true">
-      <viewElements xsi:type="ext:Form" id="_qQBukLHxEeSymb1xGoc66A" name="Form">
-        <outInteractionFlows xsi:type="core:DataFlow" id="_LzDHcMcpEeSvF8mhAlJ7Ow" targetInteractionFlowElement="//@interactionFlowModel/@interactionFlowModelElements.2"/>
+    <interactionFlowModelElements xsi:type="core:ViewContainer" id="_E-nGgLHxEeSymb1xGoc66A" name="&lt;Page> Product Details" inInteractionFlows="//@interactionFlowModel/@interactionFlowModelElements.4/@outInteractionFlows.0" isDefault="true">
+      <viewElements xsi:type="ext:Form" id="_qQBukLHxEeSymb1xGoc66A" name="ProductForm">
         <viewElementEvents xsi:type="ext:OnSubmitEvent" id="_vl4cILH1EeSymb1xGoc66A" name="Add to Cart">
           <outInteractionFlows xsi:type="core:NavigationFlow" id="_65_YMLH2EeSymb1xGoc66A"/>
-          <outInteractionFlows xsi:type="core:NavigationFlow" id="_KpbM8McpEeSvF8mhAlJ7Ow" targetInteractionFlowElement="//@interactionFlowModel/@interactionFlowModelElements.2"/>
+          <outInteractionFlows xsi:type="core:NavigationFlow" id="_KpbM8McpEeSvF8mhAlJ7Ow" targetInteractionFlowElement="//@interactionFlowModel/@interactionFlowModelElements.2">
+            <parameterBindingGroup id="_6D0S8MvFEeSi8pPsB9yIKQ">
+              <parameterBindings id="_rb-pUMyVEeSxOYUUmaKABA" sourceParameter="//@interactionFlowModel/@interactionFlowModelElements.0/@viewElements.0/@viewComponentParts.1" targetParameter="//@interactionFlowModel/@interactionFlowModelElements.0/@viewElements.0/@viewComponentParts.1"/>
+              <parameterBindings id="_yDskMMyVEeSxOYUUmaKABA" sourceParameter="//@interactionFlowModel/@interactionFlowModelElements.0/@viewElements.0/@viewComponentParts.0" targetParameter="//@interactionFlowModel/@interactionFlowModelElements.0/@viewElements.0/@viewComponentParts.0"/>
+            </parameterBindingGroup>
+          </outInteractionFlows>
         </viewElementEvents>
-        <viewComponentParts xsi:type="ext:SelectionField" id="_ciN98LH1EeSymb1xGoc66A" name="Quantity">
-          <type xsi:type="uml:Class" href="../domain/eCommerce.uml#_JuuloLE4EeSzOaPmlZPyNg"/>
-        </viewComponentParts>
         <viewComponentParts xsi:type="ext:SelectionField" id="_djgb0LH1EeSymb1xGoc66A" name="Colour">
+          <subViewComponentParts xsi:type="core:DataBinding" id="_dAV6sMvbEeSi8pPsB9yIKQ" name="Colour"/>
           <type xsi:type="uml:PrimitiveType" href="../domain/eCommerce.uml#_x4QIcLEmEeS2-MBRhXnCrw"/>
         </viewComponentParts>
+        <viewComponentParts xsi:type="ext:SimpleField" id="_XPfIoMvWEeSi8pPsB9yIKQ" name="Quantity">
+          <type xsi:type="uml:PrimitiveType" href="../domain/eCommerce.uml#_yU7qMMjcEeSShZiNDUIRJA"/>
+        </viewComponentParts>
       </viewElements>
-      <viewElements xsi:type="ext:Details" id="_tjHP8LHxEeSymb1xGoc66A" name="Details">
+      <viewElements xsi:type="ext:Details" id="_tjHP8LHxEeSymb1xGoc66A" name="ProductDetails">
+        <parameters id="_8CK4IMyYEeSxOYUUmaKABA" name="ProductId" direction="inout">
+          <type xsi:type="uml:Class" href="../domain/eCommerce.uml#_RRbAMLEmEeS2-MBRhXnCrw"/>
+        </parameters>
         <outInteractionFlows xsi:type="core:DataFlow" id="_jYeHQLH5EeSymb1xGoc66A"/>
         <outInteractionFlows xsi:type="core:DataFlow" id="_obqUULH5EeSymb1xGoc66A"/>
-        <outInteractionFlows xsi:type="core:DataFlow" id="_MqMK0McpEeSvF8mhAlJ7Ow" targetInteractionFlowElement="//@interactionFlowModel/@interactionFlowModelElements.2"/>
+        <outInteractionFlows xsi:type="core:DataFlow" id="_MqMK0McpEeSvF8mhAlJ7Ow" targetInteractionFlowElement="//@interactionFlowModel/@interactionFlowModelElements.2">
+          <parameterBindingGroup id="_TlHlIMvVEeSi8pPsB9yIKQ">
+            <parameterBindings id="_5h-6sMyVEeSxOYUUmaKABA" sourceParameter="//@interactionFlowModel/@interactionFlowModelElements.0/@viewElements.1/@parameters.0">
+              <targetParameter href="home.core#//@interactionFlowModel/@interactionFlowModelElements.1/@parameters.0"/>
+            </parameterBindings>
+          </parameterBindingGroup>
+        </outInteractionFlows>
         <viewComponentParts xsi:type="core:DataBinding" id="_viB-QLHyEeSymb1xGoc66A" name="Product">
           <subViewComponentParts xsi:type="core:VisualizationAttribute" id="_FugAcLHzEeSymb1xGoc66A" name="price">
             <featureConcept href="home.core#//@domainModel/@domainElements.3"/>
@@ -35,11 +49,25 @@
         </viewComponentParts>
       </viewElements>
     </interactionFlowModelElements>
-    <interactionFlowModelElements xsi:type="core:ViewContainer" id="__3el4LH2EeSymb1xGoc66A" name="MyCart" inInteractionFlows="//@interactionFlowModel/@interactionFlowModelElements.2/@actionEvents.0/@outInteractionFlows.0"/>
-    <interactionFlowModelElements xsi:type="core:IFMLAction" id="_54niMMcoEeSvF8mhAlJ7Ow" name="Add to cart" inInteractionFlows="//@interactionFlowModel/@interactionFlowModelElements.0/@viewElements.0/@viewElementEvents.0/@outInteractionFlows.1 //@interactionFlowModel/@interactionFlowModelElements.0/@viewElements.0/@outInteractionFlows.0 //@interactionFlowModel/@interactionFlowModelElements.0/@viewElements.1/@outInteractionFlows.2">
-      <actionEvents id="_CRbnQMcpEeSvF8mhAlJ7Ow">
-        <outInteractionFlows xsi:type="core:NavigationFlow" id="_Hwq3IMcpEeSvF8mhAlJ7Ow" targetInteractionFlowElement="//@interactionFlowModel/@interactionFlowModelElements.1"/>
+    <interactionFlowModelElements xsi:type="core:ViewContainer" id="__3el4LH2EeSymb1xGoc66A" name="&lt;Page> MyCart" inInteractionFlows="//@interactionFlowModel/@interactionFlowModelElements.2/@actionEvents.0/@outInteractionFlows.0">
+      <parameters id="_7gRIIMycEeSxOYUUmaKABA" name="ProductAdded">
+        <type xsi:type="uml:Class" href="../domain/eCommerce.uml#_RRbAMLEmEeS2-MBRhXnCrw"/>
+      </parameters>
+    </interactionFlowModelElements>
+    <interactionFlowModelElements xsi:type="core:IFMLAction" id="_54niMMcoEeSvF8mhAlJ7Ow" name="Add to cart" inInteractionFlows="//@interactionFlowModel/@interactionFlowModelElements.0/@viewElements.0/@viewElementEvents.0/@outInteractionFlows.1 //@interactionFlowModel/@interactionFlowModelElements.0/@viewElements.1/@outInteractionFlows.2">
+      <actionEvents id="_CRbnQMcpEeSvF8mhAlJ7Ow" name="Normal Termination">
+        <outInteractionFlows xsi:type="core:NavigationFlow" id="_Hwq3IMcpEeSvF8mhAlJ7Ow" targetInteractionFlowElement="//@interactionFlowModel/@interactionFlowModelElements.1">
+          <parameterBindingGroup id="_me7xgMvaEeSi8pPsB9yIKQ">
+            <parameterBindings id="_HhSqAMydEeSxOYUUmaKABA" targetParameter="//@interactionFlowModel/@interactionFlowModelElements.1/@parameters.0">
+              <sourceParameter href="home.core#//@interactionFlowModel/@interactionFlowModelElements.1/@parameters.0"/>
+            </parameterBindings>
+          </parameterBindingGroup>
+        </outInteractionFlows>
       </actionEvents>
+    </interactionFlowModelElements>
+    <interactionFlowModelElements xsi:type="core:ThrowingEvent" id="_7nEIMMviEeSi8pPsB9yIKQ" name="AddNotification"/>
+    <interactionFlowModelElements xsi:type="core:ViewContainer" id="_qWr5oMvvEeSxOYUUmaKABA" name="&lt;Page> Home">
+      <outInteractionFlows xsi:type="core:NavigationFlow" id="_v3TpkMvvEeSxOYUUmaKABA" targetInteractionFlowElement="//@interactionFlowModel/@interactionFlowModelElements.0"/>
     </interactionFlowModelElements>
   </interactionFlowModel>
   <domainModel id="_w1QyobHwEeSymb1xGoc66A">
