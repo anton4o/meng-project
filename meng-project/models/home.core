@@ -77,8 +77,16 @@
           </subViewComponentParts>
         </viewComponentParts>
       </viewElements>
-      <viewElements xsi:type="ext:Details" id="_0aI8YMu_EeSi8pPsB9yIKQ" name="Featured Campaign">
-        <viewComponentParts xsi:type="core:DataBinding" id="_Q0VsIMvAEeSi8pPsB9yIKQ" name="Campaign"/>
+      <viewElements xsi:type="ext:Details" id="_0aI8YMu_EeSi8pPsB9yIKQ" name="Featured">
+        <viewElementEvents id="_fTzVgM1kEeSF6sYfUXpkpA" name="See today's deals"/>
+        <viewComponentParts xsi:type="core:DataBinding" id="_Q0VsIMvAEeSi8pPsB9yIKQ" name="Campaign">
+          <subViewComponentParts xsi:type="core:VisualizationAttribute" id="_ARDv0M1cEeSF6sYfUXpkpA" name="name">
+            <featureConcept href="template.core#//@domainModel/@domainElements.2"/>
+          </subViewComponentParts>
+          <subViewComponentParts xsi:type="core:VisualizationAttribute" id="_ARDv0M1cEeSF6sYfUXpkpA" name="description">
+            <featureConcept href="template.core#//@domainModel/@domainElements.2"/>
+          </subViewComponentParts>
+        </viewComponentParts>
       </viewElements>
     </interactionFlowModelElements>
     <interactionFlowModelElements xsi:type="core:ViewContainer" id="_AD8kULHmEeSymb1xGoc66A" name="&lt;Page> ProductDetails" inInteractionFlows="//@interactionFlowModel/@interactionFlowModelElements.0/@viewElements.0/@viewElementEvents.0/@outInteractionFlows.0 //@interactionFlowModel/@interactionFlowModelElements.0/@viewElements.1/@viewElementEvents.0/@outInteractionFlows.0">

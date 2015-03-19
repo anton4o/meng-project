@@ -53,7 +53,7 @@
         <outInteractionFlows xsi:type="core:NavigationFlow" id="_r_c6IMviEeSi8pPsB9yIKQ" targetInteractionFlowElement="//@interactionFlowModel/@interactionFlowModelElements.0"/>
       </actionEvents>
     </interactionFlowModelElements>
-    <interactionFlowModelElements xsi:type="core:ActivationExpression" id="__Ml_UMi_EeSShZiNDUIRJA" body="numItems > 0"/>
+    <interactionFlowModelElements xsi:type="core:ActivationExpression" id="__Ml_UMi_EeSShZiNDUIRJA" language="JavaScript" body="numItems > 0"/>
     <interactionFlowModelElements xsi:type="core:SystemEvent" id="_pJkkEMvgEeSi8pPsB9yIKQ" name="DeleteNotification" type="actionCompletion"/>
     <interactionFlowModelElements xsi:type="core:ThrowingEvent" id="_tkCkQMvgEeSi8pPsB9yIKQ" name="DeleteNotification"/>
     <interactionFlowModelElements xsi:type="core:SystemEvent" id="_U6THAMvjEeSi8pPsB9yIKQ" name="AddNotification" type="actionCompletion"/>
