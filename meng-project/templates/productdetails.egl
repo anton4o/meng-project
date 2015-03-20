@@ -21,6 +21,10 @@ var landmarks : Set;
  	 			}
  		}
  		}
+
+var addToCartAction; 
+var controls = getDefaultVC().viewElements.flatten().selectOne(m | m.isTypeOf(Form));
+var detailsComponent = getDefaultVC().viewElements.flatten().selectOne(m | m.isTypeOf(Details));
 %]
 
 <div class="container">
@@ -33,53 +37,60 @@ var landmarks : Set;
   	<div class="container">
     	<div class = "row">
     		[% //check for Details VC here
-    		var deets = getDefaultVC().viewElements.flatten().selectOne(m | m.isTypeOf(Details));
-    		if (deets.isDefined()) { 	%]
-    		
-    		[% if(deets.viewComponentParts.subViewComponentParts.flatten().name.includes("img")) { %]    		
+    		if (detailsComponent.isDefined()) { 	
+    		var attributes = detailsComponent.viewComponentParts.subViewComponentParts.flatten();
+    		%]
+    		[% if(attributes.exists(a | a.isTypeOf(VisualizationAttribute) and a.name.equals("img"))) { %]    		
     		<div class="col-xs-6 col-md-4"><div class="thumbnail"><img style="height: auto;" src="#" id="pic"></div></div>
-    		[% } %]
-    		 
+    		[% } %] 
     		<div class="col-xs-6 col-md-4" id="second">
-    		[% if(deets.viewComponentParts.subViewComponentParts.flatten().name.includes("title")) { %]<h3 id="pname"></h3>[% } %]
-    		[% if(deets.viewComponentParts.subViewComponentParts.flatten().name.includes("price")) { %]<h4 id="pprice"></h4>[% } %]
+    		[% if(attributes.exists(a | a.isTypeOf(VisualizationAttribute) and a.name.equals("title"))) { %] <h3 id="pname"></h3>[% } %]
+    		[% if(attributes.exists(a | a.isTypeOf(VisualizationAttribute) and a.name.equals("price"))) { %] <h4 id="pprice"></h4>[% } %]
     			<br>
     			<br>
-    		[% if(deets.viewComponentParts.subViewComponentParts.flatten().name.includes("description")) { %]<p id="pdescr"></p>[% } %]
+    		[% if(attributes.exists(a | a.isTypeOf(VisualizationAttribute) and a.name.equals("description"))) { %] <p id="pdescr"></p>[% } %]
     		</div>
 		[% } /*end of Details VC*/ %]
-		
-		[% /* check for Form VC here*/ 
-		var controls = getDefaultVC().viewElements.flatten().selectOne(m | m.isTypeOf(Form));
-		if (controls.isDefined()) { %]
+    	
+    	[% //Check for Form VC here
+    	if (controls.isDefined()) { %]
     		<div class="col-xs-6 col-md-2" id="third">
     			<div class="form-group">
-    				<div class="btn-group">
-    				[% if(controls.viewComponentParts.flatten().name.includes("Colour")) { %]
+    				<div class="btn-group">				
+    				[% for (field in controls.viewComponentParts.flatten()) { 
+    				if(field.isTypeOf(SelectionField)) { %]
     				<div class="dropdown">
-  					<button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-expanded="true">Colour<span class="caret"></span></button>
+  					<button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-expanded="true">[%=field.name%]<span class="caret"></span></button>
   						<ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu1">
-    					<li role="presentation"><a role="menuitem" tabindex="-1" href="#">Red</a></li>
-   						<li role="presentation"><a role="menuitem" tabindex="-1" href="#">Green</a></li>
-    					<li role="presentation"><a role="menuitem" tabindex="-1" href="#">Blue</a></li></ul>
+    					<li role="presentation"><a role="menuitem" tabindex="-1" href="#" id="color1"></a></li>
+   						<li role="presentation"><a role="menuitem" tabindex="-1" href="#" id="color2"></a></li>
+    					<li role="presentation"><a role="menuitem" tabindex="-1" href="#" id="color3"></a></li></ul>
 					</div>
-					[% } %]
 					<br>
+					[% } %]
 			
-					[% if(controls.viewComponentParts.flatten().name.includes("Quantity")) { %]
-					<input type="number" class="form-control" placeholder="Quantity" id="qty" min="1" max="100" value="1">
-					[% } %]
-					<br>
+    				[% if(field.isTypeOf(SimpleField)) { %]
+					<input type="number" class="form-control" placeholder="[%=field.name%]" id="qty" min="1" max="100" value="1">
+					<br> [% } %]
+					[% } %]					
 					</div>
+					
 					[% for (event in controls.viewElementEvents.select(e | e.isTypeOf(OnSubmitEvent))) { %]
 					[% //it is assumed all buttons will have some action associated with, before being able to capture the outgoing flow of that action
 					var target = event.outInteractionFlows.select(nav | nav.targetInteractionFlowElement.isDefined()).targetInteractionFlowElement.actionEvents.outInteractionFlows.targetInteractionFlowElement.flatten().name.first; %]
-					<a class="btn btn-warning" href="[%=removeAnnotation(target)%].html?new=1" role="button" id="cartButton" style="margin-bottom: 15px;">[%=event.name%]</a>
+					[% if(itemFlowModelElements.exists(t | t.isTypeOf(ThrowingEvent) and t.name.equals("AddNotification"))) { 
+					var throwingEvent = "new=1";%]
+					<a class="btn btn-warning" href="[%=removeAnnotation(target)%].html?[%=throwingEvent%]" role="button" id="cartButton" style="margin-bottom: 15px;">[%=event.name%]</a>
+					[% } %]
 					<br>
 					[% } %]
+					[% if(itemFlowModelElements.exists(a | a.isTypeOf(IFMLAction) and a.name.equals("Add to cart"))) {
+						addToCartAction = true;
+					}%]
 					</div>
     		</div>
-    	[%  } /*end of Form VC*/ %] 	
+    	[% } //End of Form VC %]
+
     	</div> <!-- row -->
     </div> <!-- container -->
   </div> <!-- panel-body -->
@@ -98,7 +109,7 @@ var landmarks : Set;
 
 </body>
 </html>
-<script type="text/javascript" src="resources/item.js"></script>  
+<script type="text/javascript" src="resources/item.js" id="productDetailsJS" data-AddToCartAction="[%=addToCartAction%]" data-selectBinding="[%=controls.viewComponentParts.flatten().select(a | a.isTypeOf(SelectionField)).first.subViewComponentParts.selectOne(e | e.isTypeOf(DataBinding)).name.toLowerCase()%]" data-detailsBinding="[%=detailsComponent.viewComponentParts.selectOne(e | e.isTypeOf(DataBinding)).name.toLowerCase()%]"></script>  
 <script>document.title = "[%=itemIFMLModel.name%]";</script> 
 
 [%	

@@ -27,8 +27,9 @@ var landmarks : Set;
 var featured = null;
 
 var lists = homeViewElements.flatten().select(p | p.isTypeOf(Home!`List`));
-var listsBin = homeViewElements.flatten().select(p | p.isTypeOf(Home!`List`));
-var href = listsBin.first().viewElementEvents.outInteractionFlows.targetInteractionFlowElement.flatten().first.name; 
+var href = lists.first().viewElementEvents.outInteractionFlows.targetInteractionFlowElement.flatten().first.name; 
+
+var numOfLists = lists.size();
 		
 %]
 
@@ -50,87 +51,36 @@ var href = listsBin.first().viewElementEvents.outInteractionFlows.targetInteract
 			</div>
 	[% }} %]
 
-[% 	
-	//Check if there's a list in the model; if there is, output the rest below:
-	if(homeViewElements.flatten().exists(el | el.isTypeOf(Home!`List`))) { 
-	//grab the first list you see in the model:
-	var list1 = lists.first();
-	//initialize a collection with all the other lists apart from the one you just grabbed
-	lists.remove(list1);%]
-	<h2>[%=list1.name%]</h2>
-	<div class = "row">
-[%  //get the viz attributes for that list and output below:
-	var attributes = list1.viewComponentParts.subViewComponentParts.flatten().select(h | h.isTypeOf(VisualizationAttribute)).name;
-	var i : Integer = 0;
-	while(i<6) {
-		out.print("<div class='col-xs-6 col-md-2'><a href='#' class='thumbnail' id='link" + i + "'>");
-		if (attributes.includes("image")) {
-		out.print("<img src='#' id='ppp" + i + "'>");
-			}
-		 if(attributes.includes("title")) {
-		out.print("<p id='p" + i + "'></p>");
-			} 
-		 if(attributes.includes("price")) {
-		out.print("<p id='pp" + i + "'></p>");
-		 }
-		out.print("</a></div>");
-			i = i + 1;
-	}
-	out.print("</div>");
- } %]
-
-[%  //check if there are any other lists in the model
-	if(lists.size() > 0) {
-	//get the first list from the leftovers...
-	var list2 = lists.first();
-	//remove this list from the leftovers
-	lists.remove(list2); %]
-	<h2>[%=list2.name%]</h2>
-	<div class = "row">
-[% 	var attr = list2.viewComponentParts.subViewComponentParts.flatten().select(h | h.isTypeOf(VisualizationAttribute)).name;
-	var c : Integer = 6;
-	while(c < 12) {
-		out.print("<div class='col-xs-6 col-md-2'><a href='#' class='thumbnail' id='link" + c + "'>");
-		if (attr.includes("image")) {
-			out.print("<img src='#' id='fff" + c + "'>");
-			}
-		if(attr.includes("title")) {
-			out.print("<p id='f" + c + "'></p>");
-			}
-		if(attr.includes("price")) {
-			out.println("<p id='ff" + c + "'></p>");
-		} 
-			out.println("</a></div>");
-			c = c + 1;
-	}%]
-</div>
-[% } %]
-
-[% //TEST LOOP
-
+[%
+//If there are any lists in the model:
+if(homeViewElements.flatten().exists(el | el.isTypeOf(Home!`List`))) { 
+//list identifier
+var b : Integer = 0;
+//perform this loop for every list in the model
 for(list in homeViewElements.flatten().select(p | p.isTypeOf(Home!`List`))) { %]
 		<h2>[%=list.name%]</h2>
 		<div class = "row">
-[% 		var vizAttributes = list.viewComponentParts.subViewComponentParts.flatten().select(h | h.isTypeOf(VisualizationAttribute)).name; 
-
+[% 		//get the vizualization attributes for that particular list
+		var vizAttributes = list.viewComponentParts.subViewComponentParts.flatten().select(h | h.isTypeOf(VisualizationAttribute)).name; 
 		var i : Integer = 0;
-		var b : Integer = 6;
 		while(i<6) {
-		out.print("<div class='col-xs-6 col-md-2'><a href='#' class='thumbnail' id='link" + i + "'>");
+		out.print("<div class='col-xs-6 col-md-2'><a href='#' class='thumbnail' id='link" + b + i + "'>");
 		if (vizAttributes.includes("image")) {
-		out.print("<img src='#' id='img" + i + "'>");
+		out.print("<img src='#' id='img" + b + i + "'>");
 			}
 		 if(vizAttributes.includes("title")) {
-		out.print("<p id='title" + i + "'></p>");
+		out.print("<p id='title" + b + i + "'></p>");
 			} 
 		 if(vizAttributes.includes("price")) {
-		out.print("<p id='price" + i + "'></p>");
+		out.print("<p id='price" + b + i + "'></p>");
 		 }
 		out.print("</a></div>");
 			i = i + 1;
 	}
 	out.print("</div>");
- } %]	
+			b = b + 1;
+ 	} 
+ }%]	
 
 </div>
 
@@ -144,7 +94,7 @@ for(list in homeViewElements.flatten().select(p | p.isTypeOf(Home!`List`))) { %]
 </body>
 </html>
 
-<script id="homeJS" data-campaignBinding="[%=featured.viewComponentParts.selectOne(e | e.isTypeOf(DataBinding)).name.toLowerCase()%]" data-listBinding="[%=listsBin.viewComponentParts.flatten().selectOne(er | er.isTypeOf(DataBinding)).name.toLowerCase()%]" data-listHref="[%=removeAnnotation(href).toLowerCase()%]" type="text/javascript" src="resources/home.js"></script>
+<script id="homeJS" data-campaignBinding="[%=featured.viewComponentParts.selectOne(e | e.isTypeOf(DataBinding)).name.toLowerCase()%]" data-listBinding="[%=lists.viewComponentParts.flatten().selectOne(er | er.isTypeOf(DataBinding)).name.toLowerCase()%]" data-listHref="[%=removeAnnotation(href).toLowerCase()%]" data-numOfLists="[%=numOfLists%]" type="text/javascript" src="resources/home.js"></script>
 <script>document.title = "[%=homeIFMLModel.name%]";</script> 
 
 [% 
