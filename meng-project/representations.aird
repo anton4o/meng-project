@@ -3290,21 +3290,6 @@
             <styles xmi:type="notation:FontStyle" xmi:id="_97fkgtFqEeSgrM84sjAS3g" fontName="Segoe UI" fontHeight="8"/>
             <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_97fkg9FqEeSgrM84sjAS3g" points="[13, -1, -337, 7]$[294, -1, -56, 7]"/>
           </edges>
-          <edges xmi:type="notation:Edge" xmi:id="_OnEJ8NFrEeSgrM84sjAS3g" type="4001" element="_OivqoNFrEeSgrM84sjAS3g" source="_JLhuUNFrEeSgrM84sjAS3g" target="_RH2hUM8eEeSZdZuZY2DZSQ">
-            <children xmi:type="notation:Node" xmi:id="_OnEJ9NFrEeSgrM84sjAS3g" type="6001">
-              <layoutConstraint xmi:type="notation:Bounds" xmi:id="_OnEJ9dFrEeSgrM84sjAS3g" y="-10"/>
-            </children>
-            <children xmi:type="notation:Node" xmi:id="_OnEJ9tFrEeSgrM84sjAS3g" type="6002">
-              <layoutConstraint xmi:type="notation:Bounds" xmi:id="_OnEJ99FrEeSgrM84sjAS3g" y="10"/>
-            </children>
-            <children xmi:type="notation:Node" xmi:id="_OnEJ-NFrEeSgrM84sjAS3g" type="6003">
-              <layoutConstraint xmi:type="notation:Bounds" xmi:id="_OnEJ-dFrEeSgrM84sjAS3g" y="10"/>
-            </children>
-            <styles xmi:type="notation:ConnectorStyle" xmi:id="_OnEJ8dFrEeSgrM84sjAS3g"/>
-            <styles xmi:type="notation:FontStyle" xmi:id="_OnEJ8tFrEeSgrM84sjAS3g" fontName="Segoe UI" fontHeight="8"/>
-            <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_OnEJ89FrEeSgrM84sjAS3g" points="[-13, 1, 194, -21]$[-157, 42, 50, 20]"/>
-            <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_OnEJ-tFrEeSgrM84sjAS3g" id="(0.9778270509977827,0.6666666666666666)"/>
-          </edges>
           <edges xmi:type="notation:Edge" xmi:id="_X_PaQNFrEeSgrM84sjAS3g" type="4001" element="_X5ohgNFrEeSgrM84sjAS3g" source="_vM5CENFqEeSgrM84sjAS3g" target="_VnwlgNFrEeSgrM84sjAS3g">
             <children xmi:type="notation:Node" xmi:id="_X_QBUNFrEeSgrM84sjAS3g" type="6001">
               <layoutConstraint xmi:type="notation:Bounds" xmi:id="_X_QBUdFrEeSgrM84sjAS3g" y="-10"/>
@@ -3549,7 +3534,7 @@
           <actualMapping xmi:type="description_1:NodeMapping" href="platform:/plugin/IFMLEditorDesign/description/IFML.odesign#//@ownedViewpoints[name='IFML%20Core']/@ownedRepresentations[name='IFMLDiagram']/@defaultLayer/@containerMappings[name='ParameterBindingGroup']/@subNodeMappings[name='ParameterBinding']"/>
         </ownedElements>
       </ownedDiagramElements>
-      <ownedDiagramElements xmi:type="diagram:DNodeContainer" xmi:id="_RB_J4M8eEeSZdZuZY2DZSQ" name="[D] &lt;Page> My Cart" incomingEdges="_FfQGUNFqEeSgrM84sjAS3g _OivqoNFrEeSgrM84sjAS3g _Z3WLYNFrEeSgrM84sjAS3g">
+      <ownedDiagramElements xmi:type="diagram:DNodeContainer" xmi:id="_RB_J4M8eEeSZdZuZY2DZSQ" name="[D] &lt;Page> My Cart" incomingEdges="_FfQGUNFqEeSgrM84sjAS3g _Z3WLYNFrEeSgrM84sjAS3g">
         <target xmi:type="core:ViewContainer" href="models/cart.core#//@interactionFlowModel/@interactionFlowModelElements.0"/>
         <semanticElements xmi:type="core:ViewContainer" href="models/cart.core#//@interactionFlowModel/@interactionFlowModelElements.0"/>
         <arrangeConstraints>KEEP_LOCATION</arrangeConstraints>
@@ -3773,7 +3758,7 @@
         <ownedDiagramElements xmi:type="diagram:DNodeContainer" xmi:id="_Bk3e8dFrEeSgrM84sjAS3g" name="«ViewComponent» Message" width="25" height="12">
           <target xmi:type="core:ViewComponent" href="models/cart.core#//@interactionFlowModel/@interactionFlowModelElements.2/@viewElements.0"/>
           <semanticElements xmi:type="core:ViewComponent" href="models/cart.core#//@interactionFlowModel/@interactionFlowModelElements.2/@viewElements.0"/>
-          <ownedBorderedNodes xmi:type="diagram:DNode" xmi:id="_JKVbgdFrEeSgrM84sjAS3g" name="Close" outgoingEdges="_OivqoNFrEeSgrM84sjAS3g" width="-1" height="-1" resizeKind="NSEW">
+          <ownedBorderedNodes xmi:type="diagram:DNode" xmi:id="_JKVbgdFrEeSgrM84sjAS3g" name="Close" width="-1" height="-1" resizeKind="NSEW">
             <target xmi:type="core:ViewElementEvent" href="models/cart.core#//@interactionFlowModel/@interactionFlowModelElements.2/@viewElements.0/@viewElementEvents.0"/>
             <semanticElements xmi:type="core:ViewElementEvent" href="models/cart.core#//@interactionFlowModel/@interactionFlowModelElements.2/@viewElements.0/@viewElementEvents.0"/>
             <arrangeConstraints>KEEP_LOCATION</arrangeConstraints>
@@ -3807,18 +3792,6 @@
           <strokeColor xmi:type="viewpoint:RGBValues" xmi:id="_92uZQtFqEeSgrM84sjAS3g" red="136" green="136" blue="136"/>
           <centerLabelStyle xmi:type="diagram:CenterLabelStyle" xmi:id="_92uZQ9FqEeSgrM84sjAS3g">
             <labelColor xmi:type="viewpoint:RGBValues" xmi:id="_92uZRNFqEeSgrM84sjAS3g"/>
-          </centerLabelStyle>
-        </ownedStyle>
-        <actualMapping xmi:type="description_1:EdgeMapping" href="platform:/plugin/IFMLEditorDesign/description/IFML.odesign#//@ownedViewpoints[name='IFML%20Core']/@ownedRepresentations[name='IFMLDiagram']/@defaultLayer/@edgeMappings[name='NavigationFlow']"/>
-      </ownedDiagramElements>
-      <ownedDiagramElements xmi:type="diagram:DEdge" xmi:id="_OivqoNFrEeSgrM84sjAS3g" sourceNode="_JKVbgdFrEeSgrM84sjAS3g" targetNode="_RB_J4M8eEeSZdZuZY2DZSQ">
-        <target xmi:type="core:NavigationFlow" href="models/cart.core#//@interactionFlowModel/@interactionFlowModelElements.2/@viewElements.0/@viewElementEvents.0/@outInteractionFlows.0"/>
-        <semanticElements xmi:type="core:NavigationFlow" href="models/cart.core#//@interactionFlowModel/@interactionFlowModelElements.2/@viewElements.0/@viewElementEvents.0/@outInteractionFlows.0"/>
-        <ownedStyle xmi:type="diagram:EdgeStyle" xmi:id="_OivqodFrEeSgrM84sjAS3g">
-          <description xmi:type="style:EdgeStyleDescription" href="platform:/plugin/IFMLEditorDesign/description/IFML.odesign#//@ownedViewpoints[name='IFML%20Core']/@ownedRepresentations[name='IFMLDiagram']/@defaultLayer/@edgeMappings[name='NavigationFlow']/@style"/>
-          <strokeColor xmi:type="viewpoint:RGBValues" xmi:id="_OivqotFrEeSgrM84sjAS3g" red="136" green="136" blue="136"/>
-          <centerLabelStyle xmi:type="diagram:CenterLabelStyle" xmi:id="_Oivqo9FrEeSgrM84sjAS3g">
-            <labelColor xmi:type="viewpoint:RGBValues" xmi:id="_OivqpNFrEeSgrM84sjAS3g"/>
           </centerLabelStyle>
         </ownedStyle>
         <actualMapping xmi:type="description_1:EdgeMapping" href="platform:/plugin/IFMLEditorDesign/description/IFML.odesign#//@ownedViewpoints[name='IFML%20Core']/@ownedRepresentations[name='IFMLDiagram']/@defaultLayer/@edgeMappings[name='NavigationFlow']"/>
@@ -3936,19 +3909,6 @@
         </ownedStyle>
         <actualMapping xmi:type="description_1:NodeMapping" href="platform:/plugin/IFMLEditorDesign/description/IFML.odesign#//@ownedViewpoints[name='IFML%20Core']/@ownedRepresentations[name='IFMLDiagram']/@defaultLayer/@nodeMappings[name='ThrowingEvent']"/>
       </ownedDiagramElements>
-      <ownedDiagramElements xmi:type="diagram:DNode" xmi:id="_vJXXgdFrEeSgrM84sjAS3g" name="«SystemEvent» AddNotification" width="-1" height="-1" resizeKind="NSEW">
-        <target xmi:type="core:SystemEvent" href="models/cart.core#//@interactionFlowModel/@interactionFlowModelElements.7"/>
-        <semanticElements xmi:type="core:SystemEvent" href="models/cart.core#//@interactionFlowModel/@interactionFlowModelElements.7"/>
-        <arrangeConstraints>KEEP_LOCATION</arrangeConstraints>
-        <arrangeConstraints>KEEP_SIZE</arrangeConstraints>
-        <arrangeConstraints>KEEP_RATIO</arrangeConstraints>
-        <ownedStyle xmi:type="diagram:WorkspaceImage" xmi:id="_vJghcNFrEeSgrM84sjAS3g" showIcon="false" workspacePath="/IFMLEditorDesign/img/components/SystemEvent.png">
-          <labelColor xmi:type="viewpoint:RGBValues" xmi:id="_vJghcdFrEeSgrM84sjAS3g"/>
-          <description xmi:type="style:WorkspaceImageDescription" href="platform:/plugin/IFMLEditorDesign/description/IFML.odesign#//@ownedViewpoints[name='IFML%20Core']/@ownedRepresentations[name='IFMLDiagram']/@defaultLayer/@nodeMappings[name='CatchingEvent']/@conditionnalStyles.0/@style"/>
-          <borderColor xmi:type="viewpoint:RGBValues" xmi:id="_vJghctFrEeSgrM84sjAS3g"/>
-        </ownedStyle>
-        <actualMapping xmi:type="description_1:NodeMapping" href="platform:/plugin/IFMLEditorDesign/description/IFML.odesign#//@ownedViewpoints[name='IFML%20Core']/@ownedRepresentations[name='IFMLDiagram']/@defaultLayer/@nodeMappings[name='CatchingEvent']"/>
-      </ownedDiagramElements>
       <ownedDiagramElements xmi:type="diagram:DNode" xmi:id="_su8jgNFrEeSgrM84sjAS3g" name="«SystemEvent» DeleteNotification" width="-1" height="-1" resizeKind="NSEW">
         <target xmi:type="core:SystemEvent" href="models/cart.core#//@interactionFlowModel/@interactionFlowModelElements.6"/>
         <semanticElements xmi:type="core:SystemEvent" href="models/cart.core#//@interactionFlowModel/@interactionFlowModelElements.6"/>
@@ -3959,6 +3919,19 @@
           <labelColor xmi:type="viewpoint:RGBValues" xmi:id="_svQFgdFrEeSgrM84sjAS3g"/>
           <description xmi:type="style:WorkspaceImageDescription" href="platform:/plugin/IFMLEditorDesign/description/IFML.odesign#//@ownedViewpoints[name='IFML%20Core']/@ownedRepresentations[name='IFMLDiagram']/@defaultLayer/@nodeMappings[name='CatchingEvent']/@conditionnalStyles.0/@style"/>
           <borderColor xmi:type="viewpoint:RGBValues" xmi:id="_svQFgtFrEeSgrM84sjAS3g"/>
+        </ownedStyle>
+        <actualMapping xmi:type="description_1:NodeMapping" href="platform:/plugin/IFMLEditorDesign/description/IFML.odesign#//@ownedViewpoints[name='IFML%20Core']/@ownedRepresentations[name='IFMLDiagram']/@defaultLayer/@nodeMappings[name='CatchingEvent']"/>
+      </ownedDiagramElements>
+      <ownedDiagramElements xmi:type="diagram:DNode" xmi:id="_vJXXgdFrEeSgrM84sjAS3g" name="«SystemEvent» AddNotification" width="-1" height="-1" resizeKind="NSEW">
+        <target xmi:type="core:SystemEvent" href="models/cart.core#//@interactionFlowModel/@interactionFlowModelElements.7"/>
+        <semanticElements xmi:type="core:SystemEvent" href="models/cart.core#//@interactionFlowModel/@interactionFlowModelElements.7"/>
+        <arrangeConstraints>KEEP_LOCATION</arrangeConstraints>
+        <arrangeConstraints>KEEP_SIZE</arrangeConstraints>
+        <arrangeConstraints>KEEP_RATIO</arrangeConstraints>
+        <ownedStyle xmi:type="diagram:WorkspaceImage" xmi:id="_vJghcNFrEeSgrM84sjAS3g" showIcon="false" workspacePath="/IFMLEditorDesign/img/components/SystemEvent.png">
+          <labelColor xmi:type="viewpoint:RGBValues" xmi:id="_vJghcdFrEeSgrM84sjAS3g"/>
+          <description xmi:type="style:WorkspaceImageDescription" href="platform:/plugin/IFMLEditorDesign/description/IFML.odesign#//@ownedViewpoints[name='IFML%20Core']/@ownedRepresentations[name='IFMLDiagram']/@defaultLayer/@nodeMappings[name='CatchingEvent']/@conditionnalStyles.0/@style"/>
+          <borderColor xmi:type="viewpoint:RGBValues" xmi:id="_vJghctFrEeSgrM84sjAS3g"/>
         </ownedStyle>
         <actualMapping xmi:type="description_1:NodeMapping" href="platform:/plugin/IFMLEditorDesign/description/IFML.odesign#//@ownedViewpoints[name='IFML%20Core']/@ownedRepresentations[name='IFMLDiagram']/@defaultLayer/@nodeMappings[name='CatchingEvent']"/>
       </ownedDiagramElements>

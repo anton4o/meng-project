@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="ASCII"?>
 <core:IFMLModel xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:core="http://www.omg.org/spec/20130218/core" xmlns:ext="http://www.omg.org/spec/20130218/ext" xmlns:uml="http://www.eclipse.org/uml2/5.0.0/UML" id="_8SKvQLH6EeSymb1xGoc66A" name="Generated website: My Cart">
   <interactionFlowModel id="_RATH0M8eEeSZdZuZY2DZSQ">
-    <interactionFlowModelElements xsi:type="core:ViewContainer" id="_RAc40M8eEeSZdZuZY2DZSQ" name="&lt;Page> My Cart" inInteractionFlows="//@interactionFlowModel/@interactionFlowModelElements.1/@outInteractionFlows.0 //@interactionFlowModel/@interactionFlowModelElements.2/@viewElements.0/@viewElementEvents.0/@outInteractionFlows.0 //@interactionFlowModel/@interactionFlowModelElements.4/@actionEvents.0/@outInteractionFlows.0" isDefault="true">
+    <interactionFlowModelElements xsi:type="core:ViewContainer" id="_RAc40M8eEeSZdZuZY2DZSQ" name="&lt;Page> My Cart" inInteractionFlows="//@interactionFlowModel/@interactionFlowModelElements.1/@outInteractionFlows.0 //@interactionFlowModel/@interactionFlowModelElements.4/@actionEvents.0/@outInteractionFlows.0" isDefault="true">
       <viewElements xsi:type="ext:List" id="_R8PLoM8eEeSZdZuZY2DZSQ" name="List">
         <parameters id="_l_01kNFqEeSgrM84sjAS3g" name="ProductId">
           <type xsi:type="uml:Class" href="../domain/eCommerce.uml#_RRbAMLEmEeS2-MBRhXnCrw"/>
@@ -19,7 +19,7 @@
             </parameterBindingGroup>
           </outInteractionFlows>
         </viewElementEvents>
-        <viewElementEvents xsi:type="ext:OnSubmitEvent" id="_5BIjUNFqEeSgrM84sjAS3g" name="Proceed to Checkout">
+        <viewElementEvents xsi:type="ext:OnSubmitEvent" id="_5BIjUNFqEeSgrM84sjAS3g" name="Proceed to Checkout" activationExpression="//@interactionFlowModel/@interactionFlowModelElements.3">
           <outInteractionFlows xsi:type="core:NavigationFlow" id="_92IjYNFqEeSgrM84sjAS3g" targetInteractionFlowElement="//@interactionFlowModel/@interactionFlowModelElements.2"/>
         </viewElementEvents>
         <viewComponentParts xsi:type="core:DataBinding" id="_MIUFANFqEeSgrM84sjAS3g" name="Product">
@@ -46,9 +46,7 @@
     </interactionFlowModelElements>
     <interactionFlowModelElements xsi:type="core:ViewContainer" id="_7fKsANFqEeSgrM84sjAS3g" name="&lt;modal> End of user journey" inInteractionFlows="//@interactionFlowModel/@interactionFlowModelElements.0/@viewElements.0/@viewElementEvents.1/@outInteractionFlows.0">
       <viewElements xsi:type="core:ViewComponent" id="_Bk3e8NFrEeSgrM84sjAS3g" name="Message">
-        <viewElementEvents id="_JKVbgNFrEeSgrM84sjAS3g" name="Close">
-          <outInteractionFlows xsi:type="core:NavigationFlow" id="_OiJ0wNFrEeSgrM84sjAS3g" targetInteractionFlowElement="//@interactionFlowModel/@interactionFlowModelElements.0"/>
-        </viewElementEvents>
+        <viewElementEvents id="_JKVbgNFrEeSgrM84sjAS3g" name="Close"/>
       </viewElements>
     </interactionFlowModelElements>
     <interactionFlowModelElements xsi:type="core:ActivationExpression" id="_SGQNoNFrEeSgrM84sjAS3g"/>

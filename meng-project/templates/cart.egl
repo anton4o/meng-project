@@ -23,6 +23,8 @@ var landmarks : Set;
  	 			}
  		}
  		}
+ 		
+var vizAttributes : Sequence; 		
 %]
 <div class="container">
 
@@ -34,7 +36,8 @@ var landmarks : Set;
   <div class="panel-heading"><h3 class="panel-title">[%=getDefaultVC().flatten().name.first()%]</h3></div>
   
 [% //check for List VC here
-if (items.isDefined()) { %]  
+if (items.isDefined()) { 
+	vizAttributes = items.viewComponentParts.subViewComponentparts.flatten().name;%]  
   <div class="panel-body">
   	<div id="placeholder"></div>
   </div>
@@ -48,19 +51,20 @@ if (items.isDefined()) { %]
 </div>
 <br>
 
-[% if(returnViewContainers().exists(m | returnAnnotation(m.name, 6).equals("modal"))) { %]
+[% if(returnViewContainers().exists(m | m.isTypeOf(ViewContainer) and returnAnnotation(m.name, 6).equals("modal"))) { 
+var modal = returnViewContainers().selectOne(m | m.isTypeOf(ViewContainer) and returnAnnotation(m.name, 6).equals("modal")); %]
 <div class="modal fade bs-example-modal-sm" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true" id="myModal">
   <div class="modal-dialog modal-sm">
     <div class="modal-content">
       <div class="modal-header">
-        <h4 class="modal-title" id="myModalLabel">[%=returnViewContainers().selectOne(m | m.name.contains("modal")).name%]</h4>
+        <h4 class="modal-title" id="myModalLabel">[%=modal.name%]</h4>
       </div>
-      [% if(returnViewContainers().selectOne(m | m.name.contains("modal")).viewElements.exists(c | c.isTypeOf(ViewComponent) and c.name.contains("Message"))) { %]
+      [% if(modal.viewElements.exists(c | c.isTypeOf(ViewComponent) and c.name.contains("Message"))) { %]
       <div class="modal-body">Thanks! This is the end of the user journey supported by this prototype.</div>
       [% } %]
-      [% if(returnViewContainers().selectOne(m | m.name.contains("modal")).viewElements.viewElementEvents.flatten().size() > 0) { %]
+      [% if(modal.viewElements.viewElementEvents.flatten().size() > 0) { %]
            <div class="modal-footer">
-      	[%	for(event in returnViewContainers().selectOne(m | m.name.contains("modal")).viewElements.viewElementEvents.flatten()) { %]
+      	[%	for(event in modal.viewElements.viewElementEvents.flatten()) { %]
       			<button type="button" class="btn btn-default" [% if(event.name.equals("Close")) { out.print("data-dismiss='modal'"); } %]>[%=event.name%]</button>
       [% } %]
       		</div>
@@ -80,7 +84,7 @@ if (items.isDefined()) { %]
 </body>
 </html>
 
-<script type="text/javascript" src="resources/cart.js"></script>
+<script type="text/javascript" id="cartJS" src="resources/cart.js" [%if(items.viewElementEvents.selectOne(n | n.isTypeOf(OnSubmitEvent)).activationExpression.isDefined()){%]data-activation=true[%}%] data-binding="[%=items.viewComponentParts.selectOne(b | b.isTypeOf(DataBinding)).name.toLowerCase()%]" [%if(vizAttributes.contains("img")){%]data-viz1="img"[%}%] [%if(vizAttributes.contains("title")){%]data-viz2="title"[%}%] [%if(vizAttributes.contains("price")){%]data-viz3="price"[%}%] [%if(vizAttributes.contains("quantity")){%]data-viz4="quantity"[%}%]></script>
 <script>document.title = "[%=cartIFMLModel.name%]";</script> 
 [%	
 	operation returnActions() : Collection(IFMLAction) {
