@@ -1,0 +1,174 @@
+{
+    "category": [
+        {
+            "name": "Books and Audible",
+            "id": "1"
+        },
+        {
+            "name": "Electronics and Computers",
+            "id": "2"
+        },
+        {
+            "name": "Home and Garden",
+            "id": "3"
+        },
+        {
+            "name": "Toys and Children",
+            "id": "4"
+        },
+        {
+            "name": "Clothes and Shoes",
+            "id": "5"
+        },
+        {
+            "name": "Sports and Outdoors",
+            "id": "6"
+        },
+        {
+            "name": "Beauty and Health",
+            "id": "7"
+        },
+        {
+            "name": "Car and Motorbike",
+            "id": "8"
+        }
+    ],
+    "product": [
+        {
+            "id": "0",
+            "title": "Panasonic Lumix D60",
+            "price": "231.99",
+            "description": "Panasonics TZ range has long held top position in the travel compact area. Its a field that has proved increasingly popular with those looking for a compact camera with a more advanced feature set than a smartphone. Top of the list is including large optical zoom while maintaining a compact body.The Panasonic Lumix TZ40 is the latest addition to this series, and it arrives with an improved specification and a host of new features. Wi-Fi functionality and Near Field Communication (NFC) gain top billing. They allow for simple transmission of photos between various devices, such as smartphones and tablets. The question is has the addition of these features improved on what was already an excellent travel compact?",
+            "img": "http://www.letsgodigital.org/images/producten/1629/testrapport/panasonic-lumix-camera.jpg",
+            "category": "Electronics and Computers"
+        },
+        {
+            "id": "1",
+            "title": "The Girl on the Train",
+            "price": "6.49",
+            "description": "A documentary filmmaker boards a train at Grand Central Terminal, heading to upstate New York to interview the subjects of his latest project. A chance encounter with a mysterious young woman leads him on a journey of a very different sort, and within the blink of an eye, Hart is forced to leave his complacent life behind for a world in which the line between fantasy and reality is blurred. As Hart tells his strange story to a police detective he finds himself being questioned as Martin tries to discover whether Hart is the victim or the suspect in the strange affair.",
+            "img": "https://i1.wp.com/www.pressandjournal.co.uk/wp-content/uploads/sites/2/2015/01/yl-2401book.jpg",
+            "category": "Books and Audible"
+        },
+        {
+            "id": "2",
+            "title": "Gas Barbeque",
+            "price": "78.95",
+            "description": "The Modena 3 burner from Embermann is a great barbecue mid range 3 burner gas barbecue. The frame and side shelves are constructed of high quality hardwood and the lid and front panel have been powder coated for added protection.The cooking area is heavy duty cast iron and is divided into two parts for versatility - one side has the open flame grid design and the other side is a high power hot plate. The hot plate is ideal for cooking large pieces of meat as the temperature can be adjusted at the twist of a knob to ensure you food is always cooked exactly as you like it. The hot plate is also very useful for preparing side dishes.",
+            "img": "http://ecx.images-amazon.com/images/I/71NOrE6znjL._SL1500_.jpg",
+            "category": "Home and Garden"
+        },
+        {
+            "id": "3",
+            "title": "Baby Truck Toy",
+            "price": "4.94",
+            "description": "The Moover Baby Truck is great fun and enables your child to familiarise himself with play on wheels in a safe manner. As with all the range, the design is both classic and modern with the focus on what children like to see, touch, and play with. Moover brings high end Danish design to a series of wooden toys created to encourage toddlers to explore the world around them in a fun and safe way. It is distinctive for the unique way in which it blends traditional craftsmanship with bold, contemporary looks.",
+            "img": "http://ecx.images-amazon.com/images/I/815t2GImcXL._SL1500_.jpg",
+            "category": "Toys and Children"
+        },
+        {
+            "id": "4",
+            "title": "Mens Casual Shirt",
+            "price": "29.00",
+            "description": "This shirt from Maine New England comes in a small nautical gingham check with a buttoned down collar and a single chest pocket. Also available in big and tall sizes.",
+            "img": "http://ecx.images-amazon.com/images/I/9139cXLIwoL._UX522_.jpg",
+            "category": "Clothes and Shoes"
+        },
+        {
+            "id": "5",
+            "title": "Quiksilver Men's Helmet",
+            "price": "34.76",
+            "description": "Feel the wild side in you, rock the mountain with the wildcat helmet by Quiksilver!Features:+ (tested en 1077 & ASTM) class B+ Double micro shell in mould with Quiksilver arts+ Soft thermoformed & removable earpad+ Optional audio earpad+ Adjustable front venting+ Deluxe chin strap+ Full textile inside lining+ Weight: 320g",
+            "img": "http://ecx.images-amazon.com/images/I/61e8d3hWuFL._SL1340_.jpg",
+            "category": "Sports and Outdoors"
+        },
+        {
+            "id": "6",
+            "title": "Amazon Fire TV",
+            "price": "64.00",
+            "description": "Amazon Fire TV is a tiny box that connects your HDTV to a world of online entertainment. With a huge selection of TV episodes and movies, voice search that actually works and ASAP - our exclusive instant streaming feature - it’s an easy way to enjoy Netflix, Amazon Instant Video, low-cost movie rentals, live and on-demand sports, music, photos, games and more.",
+            "img": "http://ecx.images-amazon.com/images/I/31AMfovGmRL._SL150_.jpg",
+            "category": "Electronics and Computers"
+        },
+        {
+            "id": "7",
+            "title": "Kindle 6",
+            "price": "59.00",
+            "description": "Kindle Keyboard is easy to hold and read. We designed it with long-form reading in mind. When reading for long periods of time, people naturally shift positions and often like to read with one hand. Kindle Keyboard's page-turning buttons are located on both sides, allowing you to read and turn pages from any position. The new soft-touch, textured back is comfortable to hold and never gets hot in your hands.",
+            "img": "http://ecx.images-amazon.com/images/I/51mZMLkmvSL._SL150_.jpg",
+            "category": "Books and Audible"
+        },
+        {
+            "id": "8",
+            "title": "Sauce Pan Set",
+            "price": "105.00",
+            "description": "Judge Induction Vanilla Cookware, Easy clean Vanilla (Cream) enamelled coating, Easy grip comfortable phenolic low heat transmission handles, All round stainless steel pouring lip, Teflon Classic non-stick cooking surfaces, Oven safe to 180°C/350°F/ Gas Mark 4, Dishwasher safe, Induction ready and suitable for ALL hob types, Dishwasher safe.",
+            "img": "http://www.onestopcookshop.co.uk/ekmps/shops/onestop1/images/stellar-3000-black-induction-5-piece-saucepan-set-pan-pans-2527-p.jpg",
+            "category": "Home and Garden"
+        },
+        {
+            "id": "9",
+            "title": "Lego Mini Figure",
+            "price": "1.00",
+            "description": "A Lego minifigure, commonly referred to as a minifig, or simply just fig, is a small plastic articulated figurine available as part of the construction toy Lego, produced by Danish toy manufacturer the Lego Group. They were first produced in 1978, and have become hugely successful, with over 3.7 billion produced, and the figure appearing in a variety of media, including movies, books and video games (such as Lego: Star Wars). The figures are usually found within Lego sets, although they are also sold separately as keychains and magnets.",
+            "img": "http://g-ecx.images-amazon.com/images/G/02/uk-toys/2015/Homepage/Event-Nav/Building_and_Construction_70x70._V332100260_.jpg",
+            "category": "Toys and Children"
+        },
+        {
+            "id": "10",
+            "title": "Leather Black Shoes",
+            "price": "65.70",
+            "description": "Invest in these leather-look Gibson-style shoes with a perforated finish, great for formal wear all year round. Pinhole front detail. Rounded tapered toe. Lace up fastening.",
+            "img": "http://g-ec2.images-amazon.com/images/G/02/AMAZON-FASHION/2014/SHOES/EDITORIALS/XMAS1/VD/SHOE_FILP_VD_SHOES_MEN._V334803574_.jpg",
+            "category": "Clothes and Shoes"
+        },
+        {
+            "id": "11",
+            "title": "Shower Gel",
+            "price": "5.00",
+            "description": "Inspired by the internationally renowned garden at Sissinghurst Castle, Kent. The rose garden abounds with many beautiful and highly scented specimens. Camomile grows throughout. Famous for its small enclosed compartments with colour throughout the season, Sissinghurst Castle Garden has an intimate and romantic atmosphere.",
+            "img": "http://ecx.images-amazon.com/images/I/41LiXZ7XPbL._SL160_SL150_.jpg",
+            "category": "Beauty and Health"
+        },
+		{
+		"id" : "12",
+		"img" : "http://news.ibox.bg/img/weather/61x61/42.png"
+		},
+				{
+		"id" : "13",
+		"img" : "http://news.ibox.bg/img/weather/61x61/42.png"
+		},
+				{
+		"id" : "14",
+		"img" : "http://news.ibox.bg/img/weather/61x61/42.png"
+		},
+				{
+		"id" : "15",
+		"img" : "http://news.ibox.bg/img/weather/61x61/42.png"
+		},
+				{
+		"id" : "16",
+		"img" : "http://news.ibox.bg/img/weather/61x61/42.png"
+		},
+				{
+		"id" : "17",
+		"img" : "http://news.ibox.bg/img/weather/61x61/42.png"
+		}
+    ],
+    "colour": [
+        {
+            "name": "Red"
+        },
+        {
+            "name": "Green"
+        },
+        {
+            "name": "Blue"
+        }
+    ],
+    "campaign":
+        {
+			"name": "Black Friday",
+            "description": "Everyone loves discounts! Check out our latest deals and grab yourself a bargain this Friday!"
+        }
+}
