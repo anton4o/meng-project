@@ -3909,19 +3909,6 @@
         </ownedStyle>
         <actualMapping xmi:type="description_1:NodeMapping" href="platform:/plugin/IFMLEditorDesign/description/IFML.odesign#//@ownedViewpoints[name='IFML%20Core']/@ownedRepresentations[name='IFMLDiagram']/@defaultLayer/@nodeMappings[name='ThrowingEvent']"/>
       </ownedDiagramElements>
-      <ownedDiagramElements xmi:type="diagram:DNode" xmi:id="_su8jgNFrEeSgrM84sjAS3g" name="«SystemEvent» DeleteNotification" width="-1" height="-1" resizeKind="NSEW">
-        <target xmi:type="core:SystemEvent" href="models/cart.core#//@interactionFlowModel/@interactionFlowModelElements.6"/>
-        <semanticElements xmi:type="core:SystemEvent" href="models/cart.core#//@interactionFlowModel/@interactionFlowModelElements.6"/>
-        <arrangeConstraints>KEEP_LOCATION</arrangeConstraints>
-        <arrangeConstraints>KEEP_SIZE</arrangeConstraints>
-        <arrangeConstraints>KEEP_RATIO</arrangeConstraints>
-        <ownedStyle xmi:type="diagram:WorkspaceImage" xmi:id="_svQFgNFrEeSgrM84sjAS3g" showIcon="false" workspacePath="/IFMLEditorDesign/img/components/SystemEvent.png">
-          <labelColor xmi:type="viewpoint:RGBValues" xmi:id="_svQFgdFrEeSgrM84sjAS3g"/>
-          <description xmi:type="style:WorkspaceImageDescription" href="platform:/plugin/IFMLEditorDesign/description/IFML.odesign#//@ownedViewpoints[name='IFML%20Core']/@ownedRepresentations[name='IFMLDiagram']/@defaultLayer/@nodeMappings[name='CatchingEvent']/@conditionnalStyles.0/@style"/>
-          <borderColor xmi:type="viewpoint:RGBValues" xmi:id="_svQFgtFrEeSgrM84sjAS3g"/>
-        </ownedStyle>
-        <actualMapping xmi:type="description_1:NodeMapping" href="platform:/plugin/IFMLEditorDesign/description/IFML.odesign#//@ownedViewpoints[name='IFML%20Core']/@ownedRepresentations[name='IFMLDiagram']/@defaultLayer/@nodeMappings[name='CatchingEvent']"/>
-      </ownedDiagramElements>
       <ownedDiagramElements xmi:type="diagram:DNode" xmi:id="_vJXXgdFrEeSgrM84sjAS3g" name="«SystemEvent» AddNotification" width="-1" height="-1" resizeKind="NSEW">
         <target xmi:type="core:SystemEvent" href="models/cart.core#//@interactionFlowModel/@interactionFlowModelElements.7"/>
         <semanticElements xmi:type="core:SystemEvent" href="models/cart.core#//@interactionFlowModel/@interactionFlowModelElements.7"/>
@@ -3932,6 +3919,19 @@
           <labelColor xmi:type="viewpoint:RGBValues" xmi:id="_vJghcdFrEeSgrM84sjAS3g"/>
           <description xmi:type="style:WorkspaceImageDescription" href="platform:/plugin/IFMLEditorDesign/description/IFML.odesign#//@ownedViewpoints[name='IFML%20Core']/@ownedRepresentations[name='IFMLDiagram']/@defaultLayer/@nodeMappings[name='CatchingEvent']/@conditionnalStyles.0/@style"/>
           <borderColor xmi:type="viewpoint:RGBValues" xmi:id="_vJghctFrEeSgrM84sjAS3g"/>
+        </ownedStyle>
+        <actualMapping xmi:type="description_1:NodeMapping" href="platform:/plugin/IFMLEditorDesign/description/IFML.odesign#//@ownedViewpoints[name='IFML%20Core']/@ownedRepresentations[name='IFMLDiagram']/@defaultLayer/@nodeMappings[name='CatchingEvent']"/>
+      </ownedDiagramElements>
+      <ownedDiagramElements xmi:type="diagram:DNode" xmi:id="_su8jgNFrEeSgrM84sjAS3g" name="«SystemEvent» DeleteNotification" width="-1" height="-1" resizeKind="NSEW">
+        <target xmi:type="core:SystemEvent" href="models/cart.core#//@interactionFlowModel/@interactionFlowModelElements.6"/>
+        <semanticElements xmi:type="core:SystemEvent" href="models/cart.core#//@interactionFlowModel/@interactionFlowModelElements.6"/>
+        <arrangeConstraints>KEEP_LOCATION</arrangeConstraints>
+        <arrangeConstraints>KEEP_SIZE</arrangeConstraints>
+        <arrangeConstraints>KEEP_RATIO</arrangeConstraints>
+        <ownedStyle xmi:type="diagram:WorkspaceImage" xmi:id="_svQFgNFrEeSgrM84sjAS3g" showIcon="false" workspacePath="/IFMLEditorDesign/img/components/SystemEvent.png">
+          <labelColor xmi:type="viewpoint:RGBValues" xmi:id="_svQFgdFrEeSgrM84sjAS3g"/>
+          <description xmi:type="style:WorkspaceImageDescription" href="platform:/plugin/IFMLEditorDesign/description/IFML.odesign#//@ownedViewpoints[name='IFML%20Core']/@ownedRepresentations[name='IFMLDiagram']/@defaultLayer/@nodeMappings[name='CatchingEvent']/@conditionnalStyles.0/@style"/>
+          <borderColor xmi:type="viewpoint:RGBValues" xmi:id="_svQFgtFrEeSgrM84sjAS3g"/>
         </ownedStyle>
         <actualMapping xmi:type="description_1:NodeMapping" href="platform:/plugin/IFMLEditorDesign/description/IFML.odesign#//@ownedViewpoints[name='IFML%20Core']/@ownedRepresentations[name='IFMLDiagram']/@defaultLayer/@nodeMappings[name='CatchingEvent']"/>
       </ownedDiagramElements>
