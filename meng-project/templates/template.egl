@@ -3,18 +3,8 @@
 	var flowModel = ifmlModel.interactionFlowModel;
 	var flowModelElements = flowModel.interactionFLowModelElements;
 	var viewElements = flowModelElements.viewElements;
-	  	
- 	var landmarks : Set;
- 	for (parentVC in flowModelElements.select(e | e.isKindOf(ViewContainer))) { 				
- 				if (parentVC.isLandmark == true) {
- 					landmarks.add(parentVC);
- 				}
- 			for (childVC in parentVC.viewElements.select(m | m.isKindOf(ViewContainer))) {			
- 					if (childVC.isLandmark == true) {
- 				landmarks.add(childVC);
- 	 			}
- 		}
- 	}
+ 	
+ 	var landmarks = getMasterVC().viewElements.select(vc | vc.isTypeOf(ViewContainer) and vc.isLandmark == true);
  	
  %]
 <!DOCTYPE html>
@@ -28,50 +18,92 @@
 	<link rel="stylesheet" href="/resources/styling.css">
   </head>
   <body onload="read_json();">
-  
+
+[% if(getMasterVC().size == 1) { %]  
   <nav class="navbar navbar-default">
   <div class="container-fluid">
       
  [% out.print("<a class='navbar-brand' href='index.html'>" + ifmlModel.name + "</a>");%]  
  
  <!--/ Search form -->
- [%  	if (viewElements.flatten().exists(b | b.isTypeOf(Form))) {
- 		out.print("<form class='navbar-form navbar-left' role='search'>
-					<button type='button' class='btn btn-default dropdown-toggle' data-toggle='dropdown' aria-expanded='false'>All categories <span class='caret'></span></button>
-        				<ul class='dropdown-menu' role='menu'></ul>");
-        
- 			var forms = viewElements.flatten().select(bc | bc.isTypeOf(Form));
- 				for (form in forms) {
- 				out.print("<div class='form-group'><input type='text' class='form-control' placeholder=" + form.name + "></div><button type='submit' class='btn btn-default'>" + form.viewElementEvents.random().name + "</button></form>");
- 				}
- } else {
- 	//Do not print anything to the DOM
- }%]
-  
-      <ul class="nav navbar-nav navbar-right">             
-        [% for(landmark in landmarks) { 
-        	if(landmark.name.contains("Login")) { %]
-				<li><a href='[%=removeAnnotations(landmark.name)%].html'><span class="glyphicon glyphicon-log-in" aria-hidden="true"></span>[%=landmark.name%]</a></li>
-       [% }
-       		if(landmark.name.contains("Cart")) { %]
-       			<li><a href='[%=removeAnnotations(landmark.name)%].html'><span class="glyphicon glyphicon-shopping-cart" aria-hidden="true"></span>[%=landmark.name%]<b id="numItems"></b></a></li>
-      [% }
-      } %]              
-      </ul>   
+ [%  	if (getMasterVC().viewElements.exists(b | b.isTypeOf(Form) and b.name.contains("Search"))) { 
+ 			var forms = viewElements.flatten().select(bc | bc.isTypeOf(Form)); 
+ 				for (form in forms) { %]
+ 					<form class='navbar-form navbar-left' role='search'>				
+ 					[%  if(form.viewComponentParts.exists(s | s.isTypeOf(SelectionField))) {%]
+					<button type='button' class='btn btn-default dropdown-toggle' data-toggle='dropdown' aria-expanded='false'>[%=form.viewComponentParts.selectOne(st | st.isTypeOf(SelectionField)).name%]<span class='caret'></span></button>
+        			<ul class='dropdown-menu' role='menu'></ul>
+        			[% } %]
+					
+ 					[%  if(form.viewComponentParts.exists(sn | sn.isTypeOf(SimpleField))) {%]
+					<div class='form-group'><input type='text' class='form-control' placeholder="[%=form.name%]"></div>
+ 					[% } %]
+ 					
+ 					[%  if(form.viewElementEvents.exists(e | e.isTypeOf(OnSubmitEvent))) {%]
+ 					<button type='submit' class='btn btn-default'>[%=form.viewElementEvents.first.name%]</button>
+ 					[% } %]
+ 					</form>	
+ 				[% } %]
+ [% } %]
+
+ <!--/ Top Links -->
+<ul class="nav navbar-nav navbar-right">             
+  [% for(landmark in landmarks) { 
+       if(landmark.name.contains("Login")) { %]
+			<li><a href='[%=removeAnnotations(landmark.name)%].html'><span class="glyphicon glyphicon-log-in" aria-hidden="true"></span>[%=landmark.name%]</a></li> 		
+  [% } else if(landmark.name.contains("Footer")) { %]
+	  [% /* Output nothing */ %] 		
+  [% } else { %]
+      		<li><a href='[%=removeAnnotations(landmark.name)%].html'>[%=landmark.name%]</a></li>
+      		[% } %]
+  [% } %]
+    
+  [% if(getMasterVC().viewElements.exists(s | s.isTypeOf(Details) and s.name.contains("Cart"))) {
+  		var cart = getMasterVC().viewElements.selectOne(s | s.isTypeOf(Details) and s.name.contains("Cart")); 
+  		var href = cart.viewElementEvents.outInteractionFlows.flatten().targetInteractionFlowElement.first.name;
+  		var vizAttr = false; 
+  			if(cart.viewComponentParts.subViewComponentParts.exists(a | a.isTypeOf(VisualizationAttribute) and a.name.equals("numItems"))) {
+  				var vizAttr = true;
+  			} %]
+  		<li><a href='[%=removeAnnotations(href)%].html'><span class="glyphicon glyphicon-shopping-cart" aria-hidden="true"></span>[%=cart.name%][% if(vizAttr) { %]<b id="numItems"></b> [% } %]</a></li> 		
+  [% } %]                
+    </ul> 
+      
   	</div><!-- /.container-fluid -->
 	</nav>
 
-[% if(viewElements.flatten().exists(n | n.name.contains("Navbar"))) {
-		out.print("<div class='container'><ul class='nav nav-pills'><li role='presentation'><a href='#' id='cat1'></a></li><li role='presentation'><a href='#' id='cat2'></a></li><li role='presentation'><a href='#' id='cat3'></a></li><li role='presentation'><a href='#' id='cat4'></a></li><li role='presentation'><a href='#' id='cat5'></a></li><li role='presentation'><a href='#' id='cat6'></a></li><li role='presentation'><a href='#' id='cat7'></a></li></ul></div><hr>");
-}%]
+ <!--/ Nav Bar -->
+[% if(getMasterVC().viewElements.exists(n | n.isTypeOf(`Template`!`List`) and n.name.contains("Navbar"))) { %]
+	<div class='container' id="navbar">
+		<ul class='nav nav-pills'>
+			<li role='presentation'><a href='#' id='cat0'></a></li>
+			<li role='presentation'><a href='#' id='cat1'></a></li>
+			<li role='presentation'><a href='#' id='cat2'></a></li>
+			<li role='presentation'><a href='#' id='cat3'></a></li>
+			<li role='presentation'><a href='#' id='cat4'></a></li>
+			<li role='presentation'><a href='#' id='cat5'></a></li>
+			<li role='presentation'><a href='#' id='cat6'></a></li>
+		</ul>
+	</div>
+	<hr>
+[% } %]
 
-	<script type="text/javascript" src="resources/template.js"></script> 
-	<script src="https://code.jquery.com/jquery.js"></script>
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.2/js/bootstrap.js"></script>
+[% } %]
 
+<script type="text/javascript" src="resources/template.js" id="templateJS" data-navBinding="[%=viewElements.flatten().select(n | n.isTypeOf(Template!`List`)).first.viewComponentParts.selectOne(d | d.isTypeOf(DataBinding)).name.toLowerCase()%]" data-vizAttribute="[%=viewElements.flatten().select(n | n.isTypeOf(Template!`List`)).first.viewComponentParts.selectOne(d | d.isTypeOf(DataBinding)).subViewComponentParts.selectOne(v | v.isTypeOf(VisualizationAttribute)).name.toLowerCase()%]"></script> 
+<script src="https://code.jquery.com/jquery.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.2/js/bootstrap.js"></script>
 
 [% 
 operation removeAnnotations(string : String) {
 	return string.substring(6).replace(" ", "");
+}
+
+operation returnAnnotation(string2 : String, endIndex : Integer) {
+	return string2.substring(1,endIndex);
+}
+
+operation getMasterVC() {
+	return  `Template`!IFMLModel.all.first.interactionFlowModel.interactionFLowModelElements.select(vc | vc.isTypeOf(ViewContainer) and returnAnnotation(vc.name, 11).equals("MasterPage")).first;
 }
 %] 

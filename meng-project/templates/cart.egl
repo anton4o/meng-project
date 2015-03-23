@@ -34,12 +34,13 @@ var landmarks : Set;
   <div class="panel-heading"><h3 class="panel-title">[%=getDefaultVC().flatten().name.first()%]</h3></div>
   
 [% //check for List VC here
-if (items.isDefined()) { 	%]  
+if (items.isDefined()) { 	
+%]  
   <div class="panel-body"><div id="placeholder"></div>
   </div>
 </div> <!-- panel -->
 [% } /*items if*/ %]
-[% if(items.viewElementEvents.select(n | n.isTypeOf(OnSubmitEvent)).size() > 0) { %]
+[% if(items.viewElementEvents.exists(n | n.isTypeOf(OnSubmitEvent))) { %]
 <button style="float: right;" type="button" class="btn btn-primary" id="checkout">[%=items.viewElementEvents.selectOne(n | n.isTypeOf(OnSubmitEvent)).name%]</button>
 [% } %]
 [% } /*panel if*/ %]
@@ -47,7 +48,7 @@ if (items.isDefined()) { 	%]
 </div>
 <br>
 
-[% if(returnViewContainers().select(m | m.name.contains("modal")).size() > 0) { %]
+[% if(returnViewContainers().exists(m | m.name.contains("modal"))) { %]
 <div class="modal fade bs-example-modal-sm" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true" id="myModal">
   <div class="modal-dialog modal-sm">
     <div class="modal-content">
@@ -55,12 +56,16 @@ if (items.isDefined()) { 	%]
         <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
         <h4 class="modal-title" id="myModalLabel">[%=returnViewContainers().selectOne(m | m.name.contains("modal")).name%]</h4>
       </div>
-      <div class="modal-body">
-        Thanks! This is the end of the user journey supported by this prototype.
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-      </div>
+      [% if(returnViewContainers().selectOne(m | m.name.contains("modal")).viewElements.exists(c | c.isTypeOf(ViewComponent) and c.name.contains("Message"))) { %]
+      <div class="modal-body">Thanks! This is the end of the user journey supported by this prototype.</div>
+      [% } %]
+      [% if(returnViewContainers().selectOne(m | m.name.contains("modal")).viewElements.viewElementEvents.flatten().size() > 0) { %]
+           <div class="modal-footer">
+      	[%	for(event in returnViewContainers().selectOne(m | m.name.contains("modal")).viewElements.viewElementEvents.flatten()) { %]
+      			<button type="button" class="btn btn-default" [% if(event.name.equals("Close")) { out.print("data-dismiss='modal'"); } %]>[%=event.name%]</button>
+      [% } %]
+      		</div>
+      [% } %]
     </div>
   </div>
 </div>
@@ -88,18 +93,22 @@ $( document ).ready(function() {
 	if (sessionStorage.length > 0) {
 	for (var key in sessionStorage) {
 			var placeholderDiv = document.getElementById("placeholder");
-			placeholderDiv.innerHTML = placeholderDiv.innerHTML + "<div class = 'row'><a href='item.html?id=" + json.product[key].id + "'>[% if(items.viewComponentParts.subViewComponentParts.flatten().name.includes("img")) { %]<div class='col-md-3'><div class='thumbnail'><img src='" + json.product[key].img + "'></div></div>[% } %][% if(items.viewComponentParts.subViewComponentParts.flatten().name.includes("title")) { %]<div class='col-md-3'><p>" + json.product[key].title + "</p></div></a>[% } %][% if(items.viewComponentParts.subViewComponentParts.flatten().name.includes("price")) { %]<div class='col-md-2'><p><b>&pound" + json.product[key].price + "</b></p></div>[% } %][% if(items.viewComponentParts.subViewComponentParts.flatten().name.includes("quantity")) { %]<div class='col-md-2'><p>" + sessionStorage.getItem(key) + "</p></div>[% } %][% if(items.viewElementEvents.select(e | e.isTypeOf(OnSelectEvent)).size() > 0) { %]<div class='col-md-2'><a href='mycart.html?delete=" + json.product[key].id + "' id='remove'><span class='glyphicon glyphicon-remove' aria-hidden='true'></span></a></div>[% } %]</div><br>";
+			[% var binding = items.viewComponentParts.selectOne(e | e.isTypeOf(DataBinding)).name.toLowerCase();
+			binding.println();%]
+			placeholderDiv.innerHTML = placeholderDiv.innerHTML + "<div class = 'row'><a href='item.html?id=" + json.[%=binding%][key].id + "'>[% if(items.viewComponentParts.subViewComponentParts.flatten().name.includes("img")) { %]<div class='col-md-3'><div class='thumbnail'><img src='" + json.[%=binding%][key].img + "'></div></div>[% } %][% if(items.viewComponentParts.subViewComponentParts.flatten().name.includes("title")) { %]<div class='col-md-3'><p>" + json.[%=binding%][key].title + "</p></div></a>[% } %][% if(items.viewComponentParts.subViewComponentParts.flatten().name.includes("price")) { %]<div class='col-md-2'><p><b>&pound" + json.[%=binding%][key].price + "</b></p></div>[% } %][% if(items.viewComponentParts.subViewComponentParts.flatten().name.includes("quantity")) { %]<div class='col-md-2'><p>" + sessionStorage.getItem(key) + "</p></div>[% } %][% if(items.viewElementEvents.exists(e | e.isTypeOf(OnSelectEvent) and e.name.equals("Delete"))) { %]<div class='col-md-2'><a href='mycart.html?delete=" + json.[%=binding%][key].id + "' id='remove'><span class='glyphicon glyphicon-remove' aria-hidden='true'></span></a></div>[% } %]</div><br>";
 			}
 		} else {
 			document.getElementById("placeholder").innerHTML = "Sorry, your shopping cart is empty. Please add at least one item, before you can proceed to checkout.";
-			[% if(cartFlowModelElements.select(a | a.isTypeOf(ActivationExpression)).size() > 0) { %]
-			$("#checkout").prop("disabled",true);
-			[% } %]
+			[%// if(items.viewElementEvents.exists(n | n.isTypeOf(OnSubmitEvent) and n.activationExpression.isDefined())) { %]
+			[%//=items.viewElementEvents.selectOne(n | n.isTypeOf(OnSubmitEvent) and n.activationExpression.isDefined()).activationExpression.body%]
+			[%// } %]
 		}		
      });	//JSON
-	
+
+[% if(cartFlowModelElements.exists(a | a.isTypeOf(IFMLAction) and a.name.contains("Delete"))) {  %]	
 	//REMOVE ITEMS:	
    sessionStorage.removeItem(getUrlParameter('delete')); 
+[% } %]	   
    
    //FEEDBACK MESSAGES
    if (getUrlParameter('new') == 1) {

@@ -3,7 +3,7 @@
   <interactionFlowModel id="_iJvDULE1EeSzOaPmlZPyNg" name="">
     <interactionFlowModelElements xsi:type="core:ViewContainer" id="_iKQnwLE1EeSzOaPmlZPyNg" name="&lt;MasterPage> Template">
       <viewElements xsi:type="core:ViewContainer" id="_BDtoMLE2EeSzOaPmlZPyNg" name="&lt;Page> Login/Signup" isLandmark="true"/>
-      <viewElements xsi:type="ext:Form" id="_i-cBQLE2EeSzOaPmlZPyNg" name="SearchProducts">
+      <viewElements xsi:type="ext:Form" id="_i-cBQLE2EeSzOaPmlZPyNg" name="Search Products">
         <viewElementEvents xsi:type="ext:OnSubmitEvent" id="_MNbugMi3EeSL6-ob200tcQ" name="Search">
           <outInteractionFlows xsi:type="core:NavigationFlow" id="_uuZSAMv1EeSxOYUUmaKABA" targetInteractionFlowElement="//@interactionFlowModel/@interactionFlowModelElements.2">
             <parameterBindingGroup id="_wCaeoMv1EeSxOYUUmaKABA">
@@ -15,13 +15,13 @@
         <viewComponentParts xsi:type="ext:SimpleField" id="_lG47gLE2EeSzOaPmlZPyNg" name="SearchKey">
           <type xsi:type="uml:Class" href="../domain/eCommerce.uml#_RRbAMLEmEeS2-MBRhXnCrw"/>
         </viewComponentParts>
-        <viewComponentParts xsi:type="ext:SelectionField" id="_vNCsILE2EeSzOaPmlZPyNg" name="SearchCategory">
+        <viewComponentParts xsi:type="ext:SelectionField" id="_vNCsILE2EeSzOaPmlZPyNg" name="All categories ">
           <subViewComponentParts xsi:type="core:VisualizationAttribute" id="_4VzAYLE2EeSzOaPmlZPyNg" name="name" featureConcept="//@domainModel/@domainElements.5"/>
           <subViewComponentParts xsi:type="core:DataBinding" id="_GE50sLE3EeSzOaPmlZPyNg" name="Category" uniformResourceIdentifier="" domainConcept="//@domainModel/@domainElements.6"/>
           <type xsi:type="uml:Class" href="../domain/eCommerce.uml#_oo5yELEoEeS2-MBRhXnCrw"/>
         </viewComponentParts>
       </viewElements>
-      <viewElements xsi:type="ext:Details" id="_z4vJwLE3EeSzOaPmlZPyNg" name="Shopping cart">
+      <viewElements xsi:type="ext:Details" id="_z4vJwLE3EeSzOaPmlZPyNg" name="My Shopping Cart">
         <viewElementEvents id="_o3d_QLE4EeSzOaPmlZPyNg" name="View Cart">
           <outInteractionFlows xsi:type="core:NavigationFlow" id="_ytRmwLE4EeSzOaPmlZPyNg" targetInteractionFlowElement="//@interactionFlowModel/@interactionFlowModelElements.1"/>
         </viewElementEvents>
