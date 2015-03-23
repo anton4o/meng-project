@@ -34,9 +34,9 @@ var landmarks : Set;
   <div class="panel-heading"><h3 class="panel-title">[%=getDefaultVC().flatten().name.first()%]</h3></div>
   
 [% //check for List VC here
-if (items.isDefined()) { 	
-%]  
-  <div class="panel-body"><div id="placeholder"></div>
+if (items.isDefined()) { %]  
+  <div class="panel-body">
+  	<div id="placeholder"></div>
   </div>
 </div> <!-- panel -->
 [% } /*items if*/ %]
@@ -48,12 +48,11 @@ if (items.isDefined()) {
 </div>
 <br>
 
-[% if(returnViewContainers().exists(m | m.name.contains("modal"))) { %]
+[% if(returnViewContainers().exists(m | returnAnnotation(m.name, 6).equals("modal"))) { %]
 <div class="modal fade bs-example-modal-sm" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true" id="myModal">
   <div class="modal-dialog modal-sm">
     <div class="modal-content">
       <div class="modal-header">
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
         <h4 class="modal-title" id="myModalLabel">[%=returnViewContainers().selectOne(m | m.name.contains("modal")).name%]</h4>
       </div>
       [% if(returnViewContainers().selectOne(m | m.name.contains("modal")).viewElements.exists(c | c.isTypeOf(ViewComponent) and c.name.contains("Message"))) { %]
@@ -83,45 +82,6 @@ if (items.isDefined()) {
 
 <script type="text/javascript" src="resources/cart.js"></script>
 <script>document.title = "[%=cartIFMLModel.name%]";</script> 
-<script>
-$( document ).ready(function() {
-    $("#checkout").click(function(){
-	$('#myModal').modal('show');
-	    });
-		
-	$.getJSON("resources/data.json", function(json) {
-	if (sessionStorage.length > 0) {
-	for (var key in sessionStorage) {
-			var placeholderDiv = document.getElementById("placeholder");
-			[% //var binding = items.viewComponentParts.selectOne(e | e.isTypeOf(DataBinding)).name.toLowerCase();
-			//binding.println();%]
-			placeholderDiv.innerHTML = placeholderDiv.innerHTML + "<div class = 'row'><a href='item.html?id=" + json.product[key].id + "'>[% //if(items.viewComponentParts.subViewComponentParts.flatten().name.includes("img")) { %]<div class='col-md-3'><div class='thumbnail'><img src='" + json.product[key].img + "'></div></div>[%// } %][% //if(items.viewComponentParts.subViewComponentParts.flatten().name.includes("title")) { %]<div class='col-md-3'><p>" + json.product[key].title + "</p></div></a>[% //} %][%// if(items.viewComponentParts.subViewComponentParts.flatten().name.includes("price")) { %]<div class='col-md-2'><p><b>&pound" + json.product[key].price + "</b></p></div>[% //} %][% //if(items.viewComponentParts.subViewComponentParts.flatten().name.includes("quantity")) { %]<div class='col-md-2'><p>" + sessionStorage.getItem(key) + "</p></div>[% //} %][%// if(items.viewElementEvents.exists(e | e.isTypeOf(OnSelectEvent) and e.name.equals("Delete"))) { %]<div class='col-md-2'><a href='mycart.html?delete=" + json.product[key].id + "' id='remove'><span class='glyphicon glyphicon-remove' aria-hidden='true'></span></a></div>[% //} %]</div><br>";
-			}
-		} else {
-			document.getElementById("placeholder").innerHTML = "Sorry, your shopping cart is empty. Please add at least one item, before you can proceed to checkout.";
-			[%// if(items.viewElementEvents.exists(n | n.isTypeOf(OnSubmitEvent) and n.activationExpression.isDefined())) { %]
-			[%//=items.viewElementEvents.selectOne(n | n.isTypeOf(OnSubmitEvent) and n.activationExpression.isDefined()).activationExpression.body%]
-			[%// } %]
-		}		
-     });	//JSON
-
-[% if(cartFlowModelElements.exists(a | a.isTypeOf(IFMLAction) and a.name.contains("Delete"))) {  %]	
-	//REMOVE ITEMS:	
-   sessionStorage.removeItem(getUrlParameter('delete')); 
-[% } %]	   
-   
-   //FEEDBACK MESSAGES
-   if (getUrlParameter('new') == 1) {
-		$("#success").show();
-   } 
-   
-   if(getUrlParameter('delete')) {
-		$("#deletion").show();
-   }
-
-});
-</script> 
-
 [%	
 	operation returnActions() : Collection(IFMLAction) {
 	return Cart!IFMLModel.all.first.interactionFlowModel.interactionFLowModelElements.select(a | a.isKindOf(IFMLAction));
