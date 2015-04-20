@@ -50,7 +50,7 @@
 <ul class="nav navbar-nav navbar-right">             
   [% for(landmark in landmarks) { 
        if(landmark.name.contains("Login")) { %]
-			<li><a href='[%=removeAnnotations(landmark.name)%].html'><span class="glyphicon glyphicon-log-in" aria-hidden="true"></span>[%=landmark.name%]</a></li> 		
+			<li><a href='[%=removeAnnotations(landmark.name)%].html'><span class="glyphicon glyphicon-log-in" aria-hidden="true"></span>[%=removeAnnotations(landmark.name)%]</a></li> 		
   [% } else if(landmark.name.contains("Footer")) { %]
 	  [% /* Output nothing */ %] 		
   [% } else { %]
@@ -62,10 +62,12 @@
   		var cart = getMasterVC().viewElements.selectOne(s | s.isTypeOf(Details) and s.name.contains("Cart")); 
   		var href = cart.viewElementEvents.outInteractionFlows.flatten().targetInteractionFlowElement.first.name;
   		var vizAttr = false; 
-  			if(cart.viewComponentParts.subViewComponentParts.exists(a | a.isTypeOf(VisualizationAttribute) and a.name.equals("numItems"))) {
-  				var vizAttr = true;
+  		
+  			if(cart.viewComponentParts.subViewComponentParts.flatten().exists(a | a.isTypeOf(VisualizationAttribute) and a.name.contains("numItems"))) {
+  				vizAttr = true;
   			} %]
-  		<li><a href='[%=removeAnnotations(href)%].html'><span class="glyphicon glyphicon-shopping-cart" aria-hidden="true"></span>[%=cart.name%][% if(vizAttr) { %]<b id="numItems"></b> [% } %]</a></li> 		
+  			
+  		<li><a href='[%=removeAnnotations(href)%].html'><span class="glyphicon glyphicon-shopping-cart" aria-hidden="true"></span>[%=cart.name%][% if(vizAttr == true) { %]<b id="numItems"></b> [% } %]</a></li> 		
   [% } %]                
     </ul> 
       

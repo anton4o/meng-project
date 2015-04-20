@@ -323,6 +323,18 @@
             <styles xmi:type="notation:ShapeStyle" xmi:id="_D7CO4cv2EeSxOYUUmaKABA" fontName="Segoe UI"/>
             <layoutConstraint xmi:type="notation:Bounds" xmi:id="_D7CO4sv2EeSxOYUUmaKABA" x="75" y="315" height="58"/>
           </children>
+          <children xmi:type="notation:Node" xmi:id="_noycsOaNEeStsOGBSaQ6Kg" type="2003" element="_nnWSQOaNEeStsOGBSaQ6Kg">
+            <children xmi:type="notation:Node" xmi:id="_no0R4OaNEeStsOGBSaQ6Kg" type="5007"/>
+            <children xmi:type="notation:Node" xmi:id="_no048OaNEeStsOGBSaQ6Kg" type="7004">
+              <children xmi:type="notation:Node" xmi:id="_no2HEOaNEeStsOGBSaQ6Kg" type="3010" element="_nnYHcOaNEeStsOGBSaQ6Kg">
+                <layoutConstraint xmi:type="notation:Location" xmi:id="_no2HEeaNEeStsOGBSaQ6Kg"/>
+              </children>
+              <styles xmi:type="notation:SortingStyle" xmi:id="_no048eaNEeStsOGBSaQ6Kg"/>
+              <styles xmi:type="notation:FilteringStyle" xmi:id="_no048uaNEeStsOGBSaQ6Kg"/>
+            </children>
+            <styles xmi:type="notation:ShapeStyle" xmi:id="_noycseaNEeStsOGBSaQ6Kg" fontName="Segoe UI"/>
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_noycsuaNEeStsOGBSaQ6Kg" x="-95" y="-60"/>
+          </children>
           <styles xmi:type="notation:DiagramStyle" xmi:id="_CiORwrEvEeSGWvOR_SlEfg"/>
           <edges xmi:type="notation:Edge" xmi:id="_yzXAoLE4EeSzOaPmlZPyNg" type="4001" element="_yt0ZULE4EeSzOaPmlZPyNg" source="_o9S6cLE4EeSzOaPmlZPyNg" target="_tXyv0LE4EeSzOaPmlZPyNg">
             <children xmi:type="notation:Node" xmi:id="_yzXnsLE4EeSzOaPmlZPyNg" type="6001">
@@ -990,6 +1002,28 @@
           </centerLabelStyle>
         </ownedStyle>
         <actualMapping xmi:type="description_1:EdgeMapping" href="platform:/plugin/IFMLEditorDesign/description/IFML.odesign#//@ownedViewpoints[name='IFML%20Core']/@ownedRepresentations[name='IFMLDiagram']/@defaultLayer/@edgeMappings[name='FromFlowToParameterBindingGroup']"/>
+      </ownedDiagramElements>
+      <ownedDiagramElements xmi:type="diagram:DNodeList" xmi:id="_nnWSQOaNEeStsOGBSaQ6Kg" name="«ParameterBindingGroup»">
+        <target xmi:type="core:ParameterBindingGroup" href="models/cart.core#//@interactionFlowModel/@interactionFlowModelElements.0/@viewElements.0/@viewElementEvents.0/@outInteractionFlows.0/@parameterBindingGroup"/>
+        <semanticElements xmi:type="core:ParameterBindingGroup" href="models/cart.core#//@interactionFlowModel/@interactionFlowModelElements.0/@viewElements.0/@viewElementEvents.0/@outInteractionFlows.0/@parameterBindingGroup"/>
+        <ownedStyle xmi:type="diagram:ShapeContainerStyle" xmi:id="_nnW5UOaNEeStsOGBSaQ6Kg" labelSize="9" showIcon="false" borderSize="1" borderSizeComputationExpression="1">
+          <labelColor xmi:type="viewpoint:RGBValues" xmi:id="_nnW5UeaNEeStsOGBSaQ6Kg"/>
+          <description xmi:type="style:ShapeContainerStyleDescription" href="platform:/plugin/IFMLEditorDesign/description/IFML.odesign#//@ownedViewpoints[name='IFML%20Core']/@ownedRepresentations[name='IFMLDiagram']/@defaultLayer/@containerMappings[name='ParameterBindingGroup']/@style"/>
+          <borderColor xmi:type="viewpoint:RGBValues" xmi:id="_nnW5UuaNEeStsOGBSaQ6Kg"/>
+          <backgroundColor xmi:type="viewpoint:RGBValues" xmi:id="_nnW5U-aNEeStsOGBSaQ6Kg" red="209" green="209" blue="209"/>
+        </ownedStyle>
+        <actualMapping xmi:type="description_1:ContainerMapping" href="platform:/plugin/IFMLEditorDesign/description/IFML.odesign#//@ownedViewpoints[name='IFML%20Core']/@ownedRepresentations[name='IFMLDiagram']/@defaultLayer/@containerMappings[name='ParameterBindingGroup']"/>
+        <ownedElements xmi:type="diagram:DNodeListElement" xmi:id="_nnYHcOaNEeStsOGBSaQ6Kg" name="ProductId-->ProductId">
+          <target xmi:type="core:ParameterBinding" href="models/cart.core#//@interactionFlowModel/@interactionFlowModelElements.0/@viewElements.0/@viewElementEvents.0/@outInteractionFlows.0/@parameterBindingGroup/@parameterBindings.0"/>
+          <semanticElements xmi:type="core:ParameterBinding" href="models/cart.core#//@interactionFlowModel/@interactionFlowModelElements.0/@viewElements.0/@viewElementEvents.0/@outInteractionFlows.0/@parameterBindingGroup/@parameterBindings.0"/>
+          <ownedStyle xmi:type="diagram:Square" xmi:id="_nnYugOaNEeStsOGBSaQ6Kg" labelSize="9" showIcon="false">
+            <labelColor xmi:type="viewpoint:RGBValues" xmi:id="_nnYugeaNEeStsOGBSaQ6Kg"/>
+            <description xmi:type="style:SquareDescription" href="platform:/plugin/IFMLEditorDesign/description/IFML.odesign#//@ownedViewpoints[name='IFML%20Core']/@ownedRepresentations[name='IFMLDiagram']/@defaultLayer/@containerMappings[name='ParameterBindingGroup']/@subNodeMappings[name='ParameterBinding']/@style"/>
+            <borderColor xmi:type="viewpoint:RGBValues" xmi:id="_nnYuguaNEeStsOGBSaQ6Kg"/>
+            <color xmi:type="viewpoint:RGBValues" xmi:id="_nnYug-aNEeStsOGBSaQ6Kg" red="136" green="136" blue="136"/>
+          </ownedStyle>
+          <actualMapping xmi:type="description_1:NodeMapping" href="platform:/plugin/IFMLEditorDesign/description/IFML.odesign#//@ownedViewpoints[name='IFML%20Core']/@ownedRepresentations[name='IFMLDiagram']/@defaultLayer/@containerMappings[name='ParameterBindingGroup']/@subNodeMappings[name='ParameterBinding']"/>
+        </ownedElements>
       </ownedDiagramElements>
       <description xmi:type="description_1:DiagramDescription" href="platform:/plugin/IFMLEditorDesign/description/IFML.odesign#//@ownedViewpoints[name='IFML%20Core']/@ownedRepresentations[name='IFMLDiagram']"/>
       <filterVariableHistory xmi:type="diagram:FilterVariableHistory" xmi:id="_CiEgwbEvEeSGWvOR_SlEfg"/>
@@ -2493,7 +2527,7 @@
               </ownedStyle>
               <actualMapping xmi:type="description_1:ContainerMapping" href="platform:/plugin/IFMLEditorDesign/description/IFML.odesign#//@ownedViewpoints[name='IFML%20Core']/@ownedRepresentations[name='IFMLDiagram']/@defaultLayer/@containerMappings[name='ViewContainer']/@subContainerMappings[name='ViewComponent']/@subContainerMappings[name='ViewComponentPart']/@subContainerMappings[name='InternalViewComponentPart']"/>
             </ownedDiagramElements>
-            <ownedDiagramElements xmi:type="diagram:DNodeContainer" xmi:id="_M4Xf0McgEeSvF8mhAlJ7Ow" name="«VisualisationAttribute»  img: String" width="20" height="4">
+            <ownedDiagramElements xmi:type="diagram:DNodeContainer" xmi:id="_M4Xf0McgEeSvF8mhAlJ7Ow" name="«VisualisationAttribute»  img: Invalid FeatureConcept" width="20" height="4">
               <target xmi:type="core:VisualizationAttribute" href="models/item.core#//@interactionFlowModel/@interactionFlowModelElements.0/@viewElements.1/@viewComponentParts.0/@subViewComponentParts.2"/>
               <semanticElements xmi:type="core:VisualizationAttribute" href="models/item.core#//@interactionFlowModel/@interactionFlowModelElements.0/@viewElements.1/@viewComponentParts.0/@subViewComponentParts.2"/>
               <arrangeConstraints>KEEP_LOCATION</arrangeConstraints>

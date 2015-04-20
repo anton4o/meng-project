@@ -31,7 +31,7 @@ var detailsComponent = getDefaultVC().viewElements.flatten().selectOne(m | m.isT
 
 [% if(getDefaultVC().size == 1) { %]
 <div class="panel panel-default">
-  <div class="panel-heading"><h3 class="panel-title">[%=getDefaultVC().flatten().name.first()%]</h3></div>
+  <div class="panel-heading"><h3 class="panel-title">[%=removeAnnotation(getDefaultVC().flatten().name.first())%]</h3></div>
  
   <div class="panel-body">
   	<div class="container">
@@ -41,7 +41,7 @@ var detailsComponent = getDefaultVC().viewElements.flatten().selectOne(m | m.isT
     		var attributes = detailsComponent.viewComponentParts.subViewComponentParts.flatten();
     		%]
     		[% if(attributes.exists(a | a.isTypeOf(VisualizationAttribute) and a.name.equals("img"))) { %]    		
-    		<div class="col-xs-6 col-md-4"><div class="thumbnail"><img style="height: auto;" src="#" id="pic"></div></div>
+    		<div class="col-xs-6 col-md-4"><div class="thumbnail"><img style="height: auto;" alt="test" src="#" id="pic"></div></div>
     		[% } %] 
     		<div class="col-xs-6 col-md-4" id="second">
     		[% if(attributes.exists(a | a.isTypeOf(VisualizationAttribute) and a.name.equals("title"))) { %] <h3 id="pname"></h3>[% } %]
@@ -102,15 +102,15 @@ var detailsComponent = getDefaultVC().viewElements.flatten().selectOne(m | m.isT
 [% for (landmark in landmarks) {
 	if (landmark.exists(f | returnAnnotation(f.name, 5).equals("Area") and removeAnnotation(f.name).contains("Footer"))) { %]
 	<br>
-	<nav class="navbar navbar-default" class="footer"><div class="container"><center>Copyright 2015, University of York or its affiliates</center></div></nav>
+	<nav class="navbar navbar-default footer"><div class="container">Copyright 2015, University of York or its affiliates</div></nav>
 [%	}
 }
  %]
 
-</body>
-</html>
 <script type="text/javascript" src="resources/item.js" id="productDetailsJS" data-AddToCartAction="[%=addToCartAction%]" data-selectBinding="[%=controls.viewComponentParts.flatten().select(a | a.isTypeOf(SelectionField)).first.subViewComponentParts.selectOne(e | e.isTypeOf(DataBinding)).name.toLowerCase()%]" data-detailsBinding="[%=detailsComponent.viewComponentParts.selectOne(e | e.isTypeOf(DataBinding)).name.toLowerCase()%]"></script>  
 <script>document.title = "[%=itemIFMLModel.name%]";</script> 
+</body>
+</html>
 
 [%	
 	operation returnActions() : Collection(IFMLAction) {
