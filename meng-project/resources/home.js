@@ -5,6 +5,7 @@ $.getJSON("resources/data.json", function(json) {
 			}
 			
 			if(document.getElementById("campaignDescription")) {
+				var binding = document.getElementById("homeJS").getAttribute("data-campaignBinding");
 				document.getElementById("campaignDescription").innerHTML = json[binding].description;
 			}
 			

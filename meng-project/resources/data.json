@@ -132,27 +132,27 @@
         },
 		{
 		"id" : "12",
-		"img" : "http://news.ibox.bg/img/weather/61x61/42.png"
+		"title": "Back protector"
 		},
 				{
 		"id" : "13",
-		"img" : "http://news.ibox.bg/img/weather/61x61/42.png"
+		"title": "Apple iPhone 6"
 		},
 				{
 		"id" : "14",
-		"img" : "http://news.ibox.bg/img/weather/61x61/42.png"
+		"title": "LEGO Playing Set"
 		},
 				{
 		"id" : "15",
-		"img" : "http://news.ibox.bg/img/weather/61x61/42.png"
+		"title": "Fancy Dress"
 		},
 				{
 		"id" : "16",
-		"img" : "http://news.ibox.bg/img/weather/61x61/42.png"
+		"title": "Casio Wristwatch"
 		},
 				{
 		"id" : "17",
-		"img" : "http://news.ibox.bg/img/weather/61x61/42.png"
+		"title": "40 inch flatscreen TV"
 		}
     ],
     "colour": [
@@ -169,6 +169,6 @@
     "campaign":
         {
 			"name": "Black Friday",
-            "description": "Everyone loves discounts! Check out our latest deals and grab yourself a bargain this Friday!"
+			"description": "Check out our newest Christmas Deals today!"
         }
 }
